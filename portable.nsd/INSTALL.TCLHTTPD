@@ -1,0 +1,24 @@
+TCLHTTPD/portable.nsd INSTALLATION INSTRUCTIONS
+
+1) Install tclhttpd
+
+http://sourceforge.net/projects/tclhttpd/
+
+2) The file 'tclhttpd_openacs.tcl' must be placed in the [tclhttpd root]/custom/ folder.  This will route all tclhttpd requests through the request processor [rp_handler].
+
+3) There is a line in this file that sources [portable.nsd root]/tclhttpd.tcl.  For now,  hardcode the location of [portable.nsd root].
+
+From there you can run tclhttpd by doing:
+
+ cd [tclhttpd root]
+ tclsh ./bin./httpd.tcl -debug 1
+
+
+
+
+* ERRATA
+
+11/2002 There was a bug in tclhttpd that interfered with loading of custom libraries.  You may need to get the source from CVS if this hasn't been fixed in 3.4.2.
+
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project kpf_version="2" name="go">
+<preference-set id="Unnamed Project 2">
+</preference-set>
+<file name="go.tcl" url="go.tcl">
+<preference-set id="">
+<preference-set id="Invocations">
+<preference-set id="Tcl">
+  <string id="userEnvironment"></string>
+  <string id="postparams"></string>
+  <string id="tclInterpreterType">tclsh</string>
+  <string id="getparams"></string>
+  <string id="mpostparams"></string>
+  <boolean id="sim-cgi">0</boolean>
+  <string id="filename">D:\Projects\portable.nsd\go.tcl</string>
+  <string id="request-method">GET</string>
+  <string id="params"></string>
+  <string id="userCGIEnvironment"></string>
+  <string id="posttype">application/x-www-form-urlencoded</string>
+  <string id="documentRoot"></string>
+  <string id="cookieparams"></string>
+  <boolean id="show-dialog">1</boolean>
+  <string id="cwd"></string>
+  <string id="inputfile"></string>
+</preference-set>
+</preference-set>
+</preference-set>
+</file>
+</project>

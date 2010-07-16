@@ -1,0 +1,22 @@
+instrumentIncrTcl 1
+appDir d:/temp
+errorAction 1
+breakList {{d:/temp/foo-code.tcl 6 enabled {}} {d:/temp/foo.tcl 57 enabled {}}}
+appScriptList d:/temp/foo.tcl
+appArg {}
+appType local
+doInstrument {*templat* *foo* *nstcl* *code*}
+appDirList d:/temp
+instrumentDynamic 1
+dontInstrument {}
+appArgList {{}}
+prevViewFile {}
+projVersion 1.0
+portRemote 2576
+autoLoad 1
+instrumentExpect 1
+watchList {::nstcl::template::adp::registered_tags::multiple ::template::parse_level}
+appInterp D:/Tcl/bin/tclsh.exe
+instrumentTclx 1
+appScript d:/temp/foo.tcl
+appInterpList {D:/Tcl/bin/tclsh.exe {D:/Program Files/TclPro1.4/win32-ix86/bin/protclsh83.exe} {D:/Program Files/TclPro1.4/win32-ix86/bin/prowish83.exe}}

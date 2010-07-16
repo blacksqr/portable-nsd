@@ -1,0 +1,19 @@
+<sect1 id="win2k-installation" xreflabel="OpenACS Installation Guide for Windows 2000">
+<title>OpenACS Installation Guide for Windows2000</title>
+
+  <para>Currently the best option to get OpenACS &version; running on Windows
+    is to use <ulink url="http://vmware.com">VMware</ulink> and John
+    Sequeira's <ulink url="http://www.pobox.com/~johnseq/projects/oasisvm/">Oasis VM
+    distribution</ulink>
+  </para>
+   
+
+  
+<para><phrase role="cvstag">($Id: win2kinstall.xml,v 1.5.2.2 2003/03/30 05:56:18 joela Exp $)</phrase></para>
+
+</sect1>
+<!--
+   Local Variables:
+   sgml-parent-document: ("../index.xml" "book" "sect1")
+   End:
+-->

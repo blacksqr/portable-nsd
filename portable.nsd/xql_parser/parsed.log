@@ -1,0 +1,1076 @@
+
+
+d:\Projects\ms_oacs\xql_parser>
+
+d:\Projects\ms_oacs\xql_parser>perl xparse.pl 
+perl xparse.pl 
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/security-procs.tcl####################
+b(get_token):[db_string]
+ {select token from secret_tokens
+                       	                 where token_id = :token_id} 
+ ------------ 
+      select token from secret_tokens
+                       	                 where token_id = :token_id
+       
+b(update_last_hit_dml):[db_dml]
+ {
+        update sec_session_properties
+           set last_hit = :new_last_hit
+         where session_id = :id and
+               property_name = :name
+    } 
+ ------------ 
+	update sec_session_properties
+	   set last_hit = :new_last_hit
+	 where session_id = :id and
+               property_name = :name
+       
+q(prop_insert_dml):[db_dml]
+ "" 
+ ------------ 
+	insert into sec_session_properties
+	  (session_id, module, property_name, secure_p, last_hit)
+	select :session_id, :module, :name, :secure, :last_hit
+        from dual
+        where not exists (select 1
+                          from sec_session_properties
+                          where session_id = :session_id and
+                          module = :module and
+                          property_name = :name)
+       
+b(property_lookup_sec):[db_0or1row]
+ {
+	    select property_value, secure_p
+	    from sec_session_properties
+	    where session_id = :id
+	    and module = :module
+	    and property_name = :name
+	} 
+ ------------ 
+      
+	    select property_value, secure_p
+	    from sec_session_properties
+	    where session_id = :id
+	    and module = :module
+	    and property_name = :name
+	
+       
+q(password_update):[db_dml]
+ "update users set password = :new_password, salt = :salt where user_id = :user_id" 
+ ------------ 
+      update users set password = :new_password, salt = :salt where user_id = :user_id
+       
+b(password_select):[db_0or1row]
+ {select password, salt from users where user_id = :user_id} 
+ ------------ 
+      select password, salt from users where user_id = :user_id
+       
+b(sessions_sweep):[db_dml]
+ {
+	delete from sec_session_properties
+	where  :current_time - last_hit > :property_life
+    } 
+ ------------ 
+      
+	delete from sec_session_properties
+	where  :current_time - last_hit > :property_life
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/user-extensions-procs.tcl####################
+b(select_extensions):[db_list]
+ {} 
+ ------------ 
+select impl_name from acs_sc_impls, acs_sc_bindings, acs_sc_contracts
+where
+acs_sc_impls.impl_id = acs_sc_bindings.impl_id and
+acs_sc_contracts.contract_id= acs_sc_bindings.contract_id and 
+acs_sc_contracts.contract_name='UserData'
+ 
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/apm-xml-procs.tcl####################
+b(supported_databases):[db_foreach]
+ {
+        select unique db_type
+        from apm_package_files
+        where db_type is not null
+    } 
+ ------------ 
+      
+        select distinct db_type
+        from apm_package_files
+        where db_type is not null
+    
+       
+q(version_path):[db_foreach]
+ "select path, file_type, db_type from apm_package_files where version_id = :version_id order by path" 
+ ------------ 
+      select path, file_type, db_type from apm_package_files where version_id = :version_id order by path
+       
+b(owner_info):[db_foreach]
+ {
+        select owner_uri, owner_name
+        from   apm_package_owners
+        where  version_id = :version_id
+        order by sort_key
+    } 
+ ------------ 
+      
+        select owner_uri, owner_name
+        from   apm_package_owners
+        where  version_id = :version_id
+        order by sort_key
+    
+       
+b(parameter_info):[db_foreach]
+ {
+	select parameter_name, description, datatype, section_name, default_value, min_n_values, max_n_values
+	  from apm_parameters
+	 where package_key = :package_key
+    } 
+ ------------ 
+      
+	select parameter_name, description, datatype, section_name, default_value, min_n_values, max_n_values
+	  from apm_parameters
+	 where package_key = :package_Use of uninitialized value in concatenation (.) or string at xparse.pl line 123.
+Use of uninitialized value in concatenation (.) or string at xparse.pl line 123.
+key
+    
+       
+b(dependency_info):[db_foreach]
+ {
+        select dependency_type, service_uri, service_version
+        from   apm_package_dependencies
+        where  version_id = :version_id
+        order by dependency_type, service_uri
+    } 
+ ------------ 
+      
+        select dependency_type, service_uri, service_version
+        from   apm_package_dependencies
+        where  version_id = :version_id
+        order by dependency_type, service_uri
+    
+       
+b(package_version_select):[db_1row]
+ {
+        select t.package_key, t.package_uri, t.pretty_name, t.pretty_plural, t.package_type,
+	t.initial_install_p, t.singleton_p, v.*
+        from   apm_package_versions v, apm_package_types t
+        where  v.version_id = :version_id
+        and    v.package_key = t.package_key
+    } 
+ ------------ 
+      
+        select t.package_key, t.package_uri, t.pretty_name, t.pretty_plural, t.package_type,
+	t.initial_install_p, t.singleton_p, v.*
+        from   apm_package_versions v, apm_package_types t
+        where  v.version_id = :version_id
+        and    v.package_key = t.package_key
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-bootstrap-installer/installer/create-administrator-2.tcl####################
+b(grant_admin):[db_exec_plsql]
+ {
+      begin
+        acs_permission.grant_permission (
+          object_id => acs.magic_object_id('security_context_root'),
+          grantee_id => :user_id,
+          privilege => 'admin'
+        );
+      end;
+    } 
+ ------------ 
+select acs_permission__grant_permission(
+	acs__magic_object_id('security_context_root'), 
+	:user_id, 
+	'admin')
+ 
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/acs-permissions-procs.tcl####################
+b(n_privs):[db_string]
+ {
+      select count(*)
+        from acs_privileges
+       where privilege = :privilege
+  } 
+ ------------ 
+      
+      select count(*)
+        from acs_privileges
+       where privilege = :privilege
+  
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-service-contract/www/binding-install.tcl####################
+q(binding_install):[db_exec_plsql]
+ "select acs_sc_binding__new($contract_id,$impl_id)" 
+ ------------ 
+         select acs_sc_binding__new(cast(:contract_id as integer), cast(:impl_id as integer))
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/request-processor-init.tcl####################
+b(acs_kernel_id_get):[db_string]
+ {
+        select package_id from apm_packages
+        where package_key = 'acs-kernel'
+    } 
+ ------------ 
+      
+	select package_id from apm_packages
+	where package_key = 'acs-admin'
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/navigation-procs.tcl####################
+b(context):[]
+ {
+    select site_node.url(node_id) as url, object_id,
+           acs_object.name(object_id) as object_name,
+           level
+    from site_nodes
+    start with node_id = :node_id
+    connect by prior parent_id = node_id
+    order by level asc
+  } 
+ ------------ 
+      
+    select site_node__url(n2.node_id) as url, n2.object_id,
+           acs_object__name(n2.object_id) as object_name,
+           tree_level(n2.tree_sortkey) as level
+    from (select tree_ancestor_keys(site_node_get_tree_sortkey(:node_id)) as tree_sortkey) parents,
+        site_nodes n2
+    where n2.tree_sortkey = parents.tree_sortkey
+ order by level asc
+  
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/acs-kernel-procs.tcl####################
+b(admin_exists_p):[]
+ {
+	select 1 as admin_exists_p
+	from dual
+	where exists (select 1
+		      from acs_object_party_privilege_map m, users u
+		      where m.object_id = 0
+		      and m.party_id = u.user_id
+		      and m.privilege = 'admin')
+    } 
+ ------------ 
+      
+	select 1 as admin_exists_p
+	from dual
+	where exists (select 1
+		      fromatch found but not categorized at xparse.pl line 120.
+Use of uninitialized value in concatenation (.) or string at xparse.pl line 123.
+Use of uninitialized value in quotemeta at xparse.pl line 129.
+match found but not categorized at xparse.pl line 120.
+Use of uninitialized value in concatenation (.) or string at xparse.pl line 123.
+Use of uninitialized value in quotemeta at xparse.pl line 129.
+match found but not categorized at xparse.pl line 120.
+Use of uninitialized value in concatenation (.) or string at xparse.pl line 123.
+Use of uninitialized value in quotemeta at xparse.pl line 129.
+m all_object_party_privilege_map m, users u
+		      where m.object_id = 0
+		      and m.party_id = u.user_id
+		      and m.privilege = 'admin')
+    
+       
+b(acs_admin_node_p):[db_string]
+ {
+	select case when count(object_id) = 0 then 0 else 1 end
+	from site_nodes
+	where object_id = (select package_id 
+	                   from apm_packages 
+	                   where package_key = 'acs-admin')
+    } 
+ ------------ 
+      
+	select case when count(object_id) = 0 then 0 else 1 end
+	from site_nodes
+	where object_id = (select package_id 
+	                   from apm_packages 
+	                   where package_key = 'acs-admin')
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/object-procs.tcl####################
+b(object_type_select):[db_string]
+ {
+        select object_type
+        from acs_objects
+        where object_id = :object_id
+    } 
+ ------------ 
+      
+        select object_type
+        from acs_objects
+        where object_id = :object_id
+    
+       
+b(magic_object_select):[db_string]
+ {
+	select object_id from acs_magic_objects where name = :name
+    } 
+ ------------ 
+      
+	select object_id from acs_magic_objects where name = :name
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-service-contract/www/binding-uninstall.tcl####################
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/community-core-procs.tcl####################
+b(user_select):[db_string]
+ {
+        select user_id from cc_users where email = lower(:email)
+    } 
+ ------------ 
+      
+	select user_id from cc_users where upper(screen_name) = upper(:screen_name)
+    
+       
+b(email_from_party):[db_string]
+ {
+        select email from parties where party_id = :party_id
+    } 
+ ------------ 
+      
+	select email from parties where party_id = :party_id
+    
+       
+b(group_select):[db_string]
+ {
+        select group_id from groups where group_name = :name
+    } 
+ ------------ 
+      
+	select group_id from groups where group_name = :name
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-service-contract/www/index.tcl####################
+[db_multirow]
+  
+ ------------ 
+      select contract_id, contract_name, impl_name,impl_id 
+      from invalid_uninstalled_bindings
+    
+[db_multirow]
+  
+ ------------ 
+      select impl_id, impl_name, impl_contract_name  
+      from orphan_implementations
+    
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/admin-procs.tcl####################
+q(sql_post_select_for_user_class):[db_string]
+ "
+	    select sql_post_select
+	    from user_classes where user_class_id = [ns_dbquotevalue $user_class_id]
+	" 
+ ------------ 
+      
+	    select sql_post_select
+	    from user_classes 
+            where user_class_id = [ns_dbquotevalue $user_class_id]
+	
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/apm-procs.tcl####################
+[db_list]
+  
+ ------------ 
+
+      select distinct package_key
+	from apm_package_versions
+	where enabled_p='t'
+       
+b(apm_package_by_version_id):[db_1row]
+ {
+	    select pretty_name, version_name, package_key, installed_p, distribution_uri, tagged_p
+	    from apm_package_version_info where version_id = :version_id
+	} 
+ ------------ 
+      
+	    select pretty_name, version_name, package_key, installed_p, distribution_uri, tagged_p
+	    from apm_package_version_info where version_id = :version_id
+	
+       
+b(apm_package_registered_p):[db_string]
+ {
+	select 1 from apm_package_types 
+	where package_key = :package_key
+    } 
+ ------------ 
+      
+	select 1 from apm_package_types 
+	where package_key = :package_key
+    
+       
+q(pretty_name_select):[db_string]
+ "
+        select pretty_name
+        from apm_package_file_types
+        where file_type_key = :type
+    " 
+ ------------ 
+      
+        select pretty_name
+        from apm_package_file_types
+        where file_type_key = :type
+    
+       
+b(parameter_update):[db_dml]
+ {
+       update apm_parameters 
+	set parameter_name = :parameter_name,
+            default_value  = :default_value,
+            datatype       = :datatype, 
+	    description	   = :description,
+	    section_name   = :section_name,
+            min_n_values   = :min_n_values,
+            max_n_values   = :max_n_values
+      where parameter_id = :parameter_id
+    } 
+ ------------ 
+      
+       update apm_parameters 
+	set parameter_name = :parameter_name,
+            default_value  = :default_value,
+            datatype       = :datatype, 
+	    description	   = :description,
+	    section_name   = :section_name,
+            min_n_values   = :min_n_values,
+            max_n_values   = :max_n_values
+      where parameter_id = :parameter_id
+    
+       
+b(all_parameters_packages):[db_foreach]
+ {
+	select package_id, parameter_id, parameter_name 
+	from apm_packages p, apm_parameters ap
+	where p.package_key = ap.package_key
+	and ap.parameter_id = :parameter_id
+
+    } 
+ ------------ 
+      
+	select package_id, parameter_id, parameter_name 
+	from apm_packages p, apm_parameters ap
+	where p.package_key = ap.package_key
+	and ap.parameter_id = :parameter_id
+
+    
+       
+b(apm_package_id_from_key):[db_string]
+ {
+	select package_id from apm_packages where package_key = :package_key
+    } 
+ ------------ 
+      
+	select package_id from apm_packages where package_key = :package_key
+    
+       
+b(apm_package_installed_p):[db_string]
+ {
+	select 1 from apm_package_versions
+	where package_key = :package_key
+	and installed_p = 't'
+    } 
+ ------------ 
+      
+	select 1 from apm_package_versions
+	where package_key = :package_key
+	and installed_p = 't'
+    
+       
+b(apm_version_installed_p):[db_string]
+ {
+	select 1 from apm_package_versions
+	where version_id = :version_id
+	and installed_p = 't'
+    } 
+ ------------ 
+      
+	select 1 from apm_package_versions
+	where version_id = :version_id
+	and installed_p = 't'
+    
+       
+b(apm_package_key_from_id):[db_string]
+ {
+	select package_key from apm_packages where package_id = :package_id
+    } 
+ ------------ 
+      
+	select package_key from apm_packages where package_id = :package_id
+    
+       
+b(apm_parameter_cache_update):[db_foreach]
+ {
+	select v.package_id, p.parameter_name, nvl(p.default_value, v.attr_value) as attr_value
+	from apm_parameters p, apm_parameter_values v
+	where p.package_key = :package_key
+	and p.parameter_id = v.parameter_id (+)
+    } 
+ ------------ 
+
+	select v.package_id, p.parameter_name, 
+               coalesce(p.default_value, v.attr_value) as attr_value
+	from apm_parameters p left outer join apm_parameter_values v
+             using (parameter_id)
+	where p.package_key = :package_key
+    
+       
+b(apm_parameter_names_and_values):[db_list_of_lists]
+ {
+	select parameter_name, attr_value
+	from apm_parameters p, apm_parameter_values v, apm_packages a
+	where p.parameter_id = v.parameter_id
+	and a.package_id = v.package_id
+	and a.package_id = :package_id
+    } 
+ ------------ 
+      
+	select parameter_name, attr_value
+	from apm_parameters p, apm_parameter_values v, apm_packages a
+	where p.parameter_id = v.parameter_id
+	and a.package_id = v.package_id
+	and a.package_id = :package_id
+    
+       
+b(apm_package_version_installed_p):[db_string]
+ {
+	select decode(count(*), 0, 0, 1) from apm_package_versions
+	where version_id = :version_id
+	and enabled_p = 't'
+    } 
+ ------------ 
+
+	select case when count(*) = 0 then 0 else 1 end from apm_package_versions
+	where version_id = :version_id
+	and enabled_p = 't'
+       
+b(get_names):[db_list]
+ {
+	select parameter_name from apm_parameters
+	where package_key = :package_key
+    } 
+ ------------ 
+      
+	select parameter_name from apm_parameters
+	where package_key = :package_key
+    
+       
+q(pretty_db_name_select):[db_string]
+ "
+        select pretty_db_name
+        from apm_package_db_types
+        where db_type_key = :db_type
+    " 
+ ------------ 
+      
+        select pretty_db_name
+        from apm_package_db_types
+        where db_type_key = :db_type
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/admin-init.tcl####################
+b(path_select):[db_foreach]
+ {
+	select package_id, site_node.url(node_id) as url from apm_packages p, site_nodes n
+	where p.package_id = n.object_id
+    } 
+ ------------ 
+      
+	select package_id, site_node__url(node_id) as url from apm_packages p, site_nodes n
+	where p.package_id = n.object_id
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/security-init.tcl####################
+q(secret_tokens_exists):[db_string]
+ "select decode(count(*),0,0,1) from secret_tokens" 
+ ------------ 
+
+      select case when count(*) = 0 then 0 else 1 end from secret_tokens
+
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-bootstrap-installer/installer/create-administrator.tcl####################
+q(user_exists):[db_0or1row]
+ "select email from cc_users where rownum = 1" 
+ ------------ 
+select email from cc_users limit 1
+ 
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/apm-install-procs.tcl####################
+b(all_dependencies_for_version):[db_foreach]
+ {
+	select dependency_id from apm_package_dependencies
+	where version_id = :version_id
+    } 
+ ------------ 
+      
+	select dependency_id from apm_package_dependencies
+	where version_id = :version_id
+    
+       
+b(all_parameters_for_package_key):[db_foreach]
+ {
+	select parameter_id, parameter_name
+	from apm_parameters
+	where package_key =:package_key
+    } 
+ ------------ 
+      
+	select parameter_id, parameter_name
+	from apm_parameters
+	where package_key =:package_key
+    
+       
+b(apm_spec_file_register):[db_dml]
+ {
+	    update apm_package_types
+		set spec_file_path = :path
+	        where package_key = :package_key
+	} 
+ ------------ 
+      
+	    update apm_package_types
+		set spec_file_path = :path
+	        where package_key = :package_key
+	
+       
+b(package_spec_path_select):[db_0or1row]
+ {
+            select path
+            from apm_package_files
+            where version_id = :version_id
+            and file_type = 'package_spec'
+	    and path = :info_file_name
+        } 
+ ------------ 
+      
+            select path
+            from apm_package_files
+            where version_id = :version_id
+            and file_type = 'package_spec'
+	    and path = :info_file_name
+        
+       
+b(package_version_info_select):[db_1row]
+ {
+	select package_key, version_id
+	from apm_package_version_info 
+	where version_id = :version_id
+    } 
+ ------------ 
+      
+	select package_key, version_id
+	from apm_package_version_info 
+	where version_id = :version_id
+    
+       
+b(owner_insert):[db_dml]
+ {
+	    insert into apm_package_owners(version_id, owner_uri, owner_name, sort_key)
+	    values(:version_id, :owner_uri, :owner_name, :counter)
+	} 
+ ------------ 
+      
+	    insert into apm_package_owners(version_id, owner_uri, owner_name, sort_key)
+	    values(:version_id, :owner_uri, :owner_name, :counter)
+	
+       
+b(parameter_id_get):[db_0or1row]
+ {
+	    select parameter_id from apm_parameters
+	    where parameter_name = :parameter_name
+	    and package_key = :package_key
+	} 
+ ------------ 
+      
+	    select parameter_id from apm_parameters
+	    where parameter_name = :parameter_name
+	    and package_key = :package_key
+	
+       
+b(files_delete):[db_dml]
+ {
+	delete from apm_package_files where version_id = :version_id
+    } 
+ ------------ 
+      
+	delete from apm_package_files where version_id = :version_id
+    
+       
+b(apm_uninstall_record):[db_dml]
+ {
+	update apm_package_versions
+	set    installed_p = 'f', enabled_p = 'f'
+	where package_key = :package_key
+    } 
+ ------------ 
+      
+	update apm_package_versions
+	set    installed_p = 'f', enabled_p = 'f'
+	where package_key = :package_key
+    
+       
+b(apm_delete_owners):[db_dml]
+ {
+	delete from apm_package_owners where version_id = :version_id
+    } 
+ ------------ 
+      
+	delete from apm_package_owners where version_id = :version_id
+    
+       
+b(apm_package_version_count):[db_string]
+ {
+	select count(*) from apm_package_versions
+	where package_key = :package_key
+    } 
+ ------------ 
+      
+	select count(*) from apm_package_versions
+	where package_key = :package_key
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/deprecated-utilities-procs.tcl####################
+q(nmc_getnewidnumber):[db_string]
+ "select unique :id_name from id_numbers" 
+ ------------ 
+      select unique :id_name from id_numbers
+       
+q(id_number_update):[db_dml]
+ "update id_numbers set :id_name = :id_name + 1" 
+ ------------ 
+      update id_numbers set :id_name = :id_name + 1
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/object-type-procs.tcl####################
+q(object_types):[db_foreach]
+ "$sql" 
+ ------------ 
+        $sql
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/request-processor-procs.tcl####################
+b(acs_kernel_id_get):[db_string]
+ {
+	select package_id from apm_packages
+	where package_key = 'acs-kernel'
+    } 
+ ------------ 
+      
+	select package_id from apm_packages
+	where package_key = 'acs-kernel'
+    
+       
+b(acs_admin_id_get):[db_string]
+ {
+        select package_id from apm_packages
+        where package_key = 'acs-admin'
+    } 
+ ------------ 
+      
+        select package_id from apm_packages
+        where package_key = 'acs-admin'
+    
+       
+b(node_id):[db_1]
+ {
+	select node_id 
+	from host_node_map
+	where host = :host
+    } 
+ ------------ 
+
+        select node_id 
+	from host_node_map
+	where host = :host
+
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/site-nodes-procs.tcl####################
+b(unmount):[db_dml]
+ {
+	update site_nodes
+	   set object_id = null
+	 where node_id = :node_id
+    } 
+ ------------ 
+      
+	update site_nodes
+	   set object_id = null
+	 where node_id = :node_id
+    
+       
+b(update_site_nodes):[db_dml]
+ {
+	update site_nodes
+	   set object_id = :package_id
+	 where node_id = :node_id
+    } 
+ ------------ 
+      
+	update site_nodes
+	   set object_id = :package_id
+	 where node_id = :node_id
+    
+       
+b(get_context):[db_0or1row]
+ {
+        select object_id as context_id
+          from site_nodes 
+         where node_id = :parent_node_id
+    } 
+ ------------ 
+      
+        select object_id as context_id
+          from site_nodes 
+         where node_id = :parent_node_id
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/apm-file-procs.tcl####################
+q(db_type_keys):[db_list]
+ "select db_type_key from apm_package_db_types" 
+ ------------ 
+      select db_type_key from apm_package_db_types
+       
+b(apm_all_files):[db_foreach]
+ {
+	select f.file_id, f.path
+	from   apm_package_files f
+	where  f.version_id = :version_id
+	order by path
+    } 
+ ------------ 
+      
+	select f.file_id, f.path
+	from   apm_package_files f
+	where  f.version_id = :version_id
+	order by path
+    
+       
+b(apm_version_id_from_file):[db_string]
+ {
+	select version_id from apm_package_files
+	where file_id = :file_id
+    } 
+ ------------ 
+      
+	select version_id from apm_package_files
+	where file_id = :file_id
+    
+       
+q(set_item_id):[db_dml]
+ "update apm_package_versions 
+                               set item_id = :item_id 
+                             where version_id = :version_id" 
+ ------------ 
+
+        update apm_package_versions 
+        set item_id = :item_id 
+        where version_id = :version_id
+
+       
+b(item_exists_p):[db_1row]
+ {select case when item_id is null 
+                                    then 0 
+                                    else item_id 
+                                  end as item_id
+                             from apm_package_versions 
+                            where version_id = :version_id} 
+ ------------ 
+
+        select case when item_id is null then 0 else item_id end as item_id
+          from apm_package_versions 
+         where version_id = :version_id
+
+       
+q(get_revision_id):[db_0or1row]
+ "select live_revision as revision_id
+              from cr_items
+             where item_id = :item_id" 
+ ------------ 
+
+        select live_revision as revision_id
+          from cr_items
+         where item_id = :item_id
+
+       
+b(package_key_select):[db_1row]
+ {
+                                select package_key 
+                                  from apm_package_version_info 
+                                 where version_id = :version_id
+                               } 
+ ------------ 
+      select package_key from apm_package_version_info where version_id = :version_id
+       
+b(package_key_for_version_id):[db_string]
+ {
+	select package_key from apm_package_versions 
+	where version_id = :version_id
+    } 
+ ------------ 
+      
+	select package_key from apm_package_versions 
+	where version_id = :version_id
+    
+       
+q(path_select):[db_list]
+ "
+        select path from apm_package_files
+        where  version_id = :version_id
+        $type_sql $db_type_sql order by path
+    " 
+ ------------ 
+      
+        select path from apm_package_files
+        where  version_id = :version_id
+        $type_sql $db_type_sql order by path
+    
+       
+q(file_type_keys):[db_list]
+ "select file_type_key from apm_package_file_types" 
+ ------------ 
+      select file_type_key from apm_package_file_types
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/widgets-procs.tcl####################
+b(currency_info):[db_foreach]
+ {
+	select currency_name, iso 
+	from currency_codes 
+	where supported_p='t'
+	order by currency_name 
+    } 
+ ------------ 
+      
+	select currency_name, iso 
+	from currency_codes 
+	where supported_p='t'
+	order by currency_name 
+    
+       
+b(all_countries):[db_foreach]
+ {
+	select default_name, iso from countries order by default_name 
+    } 
+ ------------ 
+      
+	select default_name, iso from countries order by default_name 
+    
+       
+b(all_states):[db_foreach]
+ {
+	select state_name, abbrev from us_states order by state_name
+    } 
+ ------------ 
+      
+	select state_name, abbrev from states order by state_name
+    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/defs-procs.tcl####################
+b(parameters_get_all):[db_foreach]
+ {
+	select v.package_id, p.parameter_name, v.attr_value
+	from apm_parameters p, apm_parameter_values v
+	where p.parameter_id = v.parameter_id
+    } 
+ ------------ 
+      
+	select v.package_id, p.parameter_name, v.attr_value
+	from apm_parameters p, apm_parameter_values v
+	where p.parameter_id = v.parameter_id
+    
+       
+b(user_name_select):[db_1row]
+ {
+		select first_names, last_name, email
+		from persons, parties
+		where person_id = :user_id
+		and person_id = party_id
+	    } 
+ ------------ 
+      
+		select first_names, last_name, email
+		from persons, parties
+		where person_id = :user_id
+		and person_id = party_id
+	    
+       
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-tcl/tcl/utilities-procs.tcl####################
+b(zip_code_exists):[db_0or1row]
+ {
+		    select 1
+		      from dual
+		     where exists (select 1
+				     from zip_codes
+				    where zip_code like :zip_5)
+		} 
+ ------------ 
+		    select 1
+		      from dual
+		     where exists (select 1
+				     from zip_codes
+				    where zip_code like :zip_5)
+       
+q(double_click_check):[db_0or1row]
+ "
+		
+		select 1 as one
+		from $table_name
+		where $id_column_name = :generated_id
+		
+	    " 
+ ------------ 
+      
+		
+		select 1 as one
+		from $table_name
+		where $id_column_name = :generated_id
+		
+	    
+       
+b(email_unique_p):[db_string]
+ {} 
+ ------------ 
+    select count(*)
+    from dual
+    where not exists (select 1
+                      from parties
+                      where email = lower(:email))
+   
+FILE:#############################################d:/projects/portable.nsd/openacs-4/packages/acs-bootstrap-installer/installer/auto-install.tcl####################
+b(main_site_id_select):[db_string]
+ { 
+    select package_id from apm_packages
+    where instance_name = 'Main Site' 
+} 
+ ------------ 
+	select package_id
+	from apm_packages
+	where instance_name = 'Main Site' 
+ 
+q(db_types_exists):[db_string]
+ "
+	select case when count(*) = 0 then 0 else 1 end from apm_package_db_types" 
+ ------------ 
+	select case when count(*) = 0 then 0 else 1 end
+	from apm_package_db_types
+ 
+b(all_unmounted_package_key):[db_foreach]
+ {
+    select t.package_key 
+    from apm_package_types t, apm_packages p
+    where t.package_key = p.package_key(+) 
+    and p.package_id is null
+} 
+ ------------ 
+	select t.package_key
+	from apm_package_types t
+	    left join apm_packages p
+	    using (package_key)
+	where p.package_id is null
+ 
+b(insert_apm_db_type):[db_dml]
+ {
+		insert into apm_package_db_types
+		    (db_type_key, pretty_db_name)
+		values
+		    (:db_type, :db_pretty_name)
+	    } 
+ ------------ 
+	insert into apm_package_db_types
+		(db_type_key, pretty_db_name)
+	values
+		(:db_type, :db_pretty_name)
+ 
+
+d:\Projects\ms_oacs\xql_parser>

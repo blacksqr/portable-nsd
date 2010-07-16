@@ -1,0 +1,44 @@
+portable.nsd Installation Steps
+
+PREREQUISITES:
+
+You'll need tcl,  PostgreSQL,  Michael Cleverly's nstcl (currently included), tDom,  and the tcl postgresql library libpgtcl.so if you'll be working with postgres ( available from http://ftp.postgresql.org ).  FastCGI and tclhttpd support have other dependencies (see their respective install files).
+
+SETUP:
+
+1) Extract the tgz file to the installation location.
+
+2) Config file
+
+See the subdirectory /conf/nsd.tcl 
+This contains a sample configuration file.  Make sure to change the db, dbuser and dbpwd variables.  
+
+3) Also make sure to modify the /pnsd-init.tcl file.  Look for where the pnsd::root variable is defined.  This should point to your openacs root folder (i.e. /web/openacs-4).  It will definitely migrate to the config file ASAP.
+
+2) Database
+
+I'm assuming you've already got postgresql installed.
+Make sure you have the plpgsql language installed in the database:  "createlang -d <database_name> plpgsql"
+Execute "createdb <database_name>".  
+
+3) XQL files
+
+xql files can be parsed on each start-up.  Alternately,  you can preparse the xql files and cache the parse results in a single file.  This is the recommended way to run,  because it's much faster and avoids any bugs in the interaction between nstcl and OpenACS's database API.  To create the cache,  run the following script:
+
+[portable.nsd] bin/xql-cacher.tcl
+
+
+
+4) Packages
+
+eOnce the database connectivity is in place,  you're ready to install OpenACS.  To run the OpenACS installer,  
+cd to the portable.nsd home folder,  and type "tclsh bin/install-openacs.tcl".  This loads all the openacs tcl libraries and runs the auto-install code.  The end result should be a working openacs postgres database.  You can skip this step if you're working with an existing OpenACS installation.
+
+
+5) Testing
+
+[TBD] info on automated testing with tcltest... 
+
+John Sequeira
+johnseq@pobox.com
+

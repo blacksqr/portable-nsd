@@ -1,0 +1,733 @@
+info      {ns_cache re-initializing}
+info      {NOT redefining empty_string_p}
+info      {NOT redefining ad_arg_parser}
+notice    {Bootstrap: sourcing d:/temp/openacs-4/packages/acs-bootstrap-installer/tcl/00-proc-procs.tcl}
+info      {NOT redefining empty_string_p}
+info      {NOT redefining ad_arg_parser}
+notice    {Bootstrap: sourcing d:/temp/openacs-4/packages/acs-bootstrap-installer/tcl/10-utilities-procs.tcl}
+notice    {Bootstrap: sourcing d:/temp/openacs-4/packages/acs-bootstrap-installer/tcl/20-db-bootstrap-procs.tcl}
+notice    {Bootstrap: sourcing d:/temp/openacs-4/packages/acs-bootstrap-installer/tcl/30-apm-load-procs.tcl}
+notice    {Bootstrap: sourcing d:/temp/openacs-4/packages/acs-bootstrap-installer/tcl/40-db-query-dispatcher-procs.tcl}
+info      {NOT defining db_qd_load_query_file ... it's locked}
+warning   {no-op: ns_configsection called with arg ns/server/openacs/acs/database }
+notice    {Database API: The following pools are available: main log subquery}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -db_bootstrap_checks-}
+debug     {QD_LOGGER = there is no documented proc with name db_bootstrap_checks -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {Loading packages/acs-tcl/tcl/00-database-procs-postgresql.tcl...}
+info      {NOT defining db_exec_plsql ... it's locked}
+info      {NOT defining db_exec_plpgsql ... it's locked}
+info      {NOT defining db_exec ... it's locked}
+info      {NOT defining db_dml ... it's locked}
+notice    {Loading packages/acs-tcl/tcl/00-database-procs.tcl...}
+info      {NOT defining db_quote ... it's locked}
+info      {NOT defining db_string ... it's locked}
+info      {NOT defining db_list ... it's locked}
+info      {NOT defining db_list_of_lists ... it's locked}
+info      {NOT defining db_list_of_ns_sets ... it's locked}
+info      {NOT defining db_foreach ... it's locked}
+info      {NOT defining db_multirow ... it's locked}
+info      {NOT defining db_0or1row ... it's locked}
+info      {NOT defining db_1row ... it's locked}
+info      {NOT defining db_transaction ... it's locked}
+info      {NOT defining db_abort_transaction ... it's locked}
+info      {NOT defining db_abort_transaction_p ... it's locked}
+info      {NOT defining db_name ... it's locked}
+notice    {Loading packages/acs-tcl/tcl/10-charset-compat-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/20-memoize-init.tcl...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id_mem-}
+debug     {QD_LOGGER = there is no documented proc with name ad_acs_kernel_id_mem -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_admin_id_mem-}
+debug     {QD_LOGGER = there is no documented proc with name ad_acs_admin_id_mem -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {ns_register_filter: registering preauth rp_filter for GET all * 
+
+}
+debug     {ns_register_proc called with TYPE: GET PATH: / PROCNAM: rp_handler }
+notice    {ns_register_filter: registering preauth rp_filter for HEAD all * 
+
+}
+debug     {ns_register_proc called with TYPE: HEAD PATH: / PROCNAM: rp_handler }
+notice    {ns_register_filter: registering preauth rp_filter for POST all * 
+
+}
+debug     {ns_register_proc called with TYPE: POST PATH: / PROCNAM: rp_handler }
+debug     {ns_unregister_proc called with TYPE: GET PATH: /*.tcl PROCNAM:   }
+debug     {ns_unregister_proc called with TYPE: HEAD PATH: /*.tcl PROCNAM:   }
+debug     {ns_unregister_proc called with TYPE: POST PATH: /*.tcl PROCNAM:   }
+notice    {Registering rp_handle_tcl_request to handle files with extension tcl}
+notice    {Registering rp_handle_adp_request to handle files with extension adp}
+notice    {Registering rp_handle_tcl_request to handle files with extension vuh}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+info      {(no-op)ns_cache creating util_memoize}
+notice    {Loading packages/acs-tcl/tcl/30-xml-utils-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/acs-kernel-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/acs-permissions-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/acs-private-data-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/admin-init.tcl...}
+notice    {ns_config called with ns/server/openacs/modules nsssl}
+notice    {ns_config called with ns/server/openacs/modules nsssle}
+notice    {ns_config called with ns/server/openacs/modules nsopenssl}
+notice    {Loading packages/acs-tcl/tcl/admin-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/adp-parser-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/aolserver-3-procs.tcl...}
+warning   {ns_share not really implemented:  apm_source d:/temp/openacs-4/packages/acs-tcl/tcl/aolserver-3-procs.tcl}
+notice    {Loading packages/acs-tcl/tcl/apm-file-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/apm-install-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/apm-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/apm-xml-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/community-core-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/database-init.tcl...}
+notice    {Loading packages/acs-tcl/tcl/defs-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/deprecated-utilities-procs.tcl...}
+info      {NOT redefining set_variables_after_query}
+info      {NOT redefining set_variables_after_subquery}
+info      {NOT redefining database_to_tcl_string}
+info      {NOT redefining database_to_tcl_string_or_null}
+info      {NOT redefining database_to_tcl_list}
+notice    {Loading packages/acs-tcl/tcl/document-init.tcl...}
+debug     {ns_register_adptag called with ad-document /ad-document doc_tag_ad_document }
+debug     {ns_register_adptag called with ad-property /ad-property doc_tag_ad_property }
+notice    {Loading packages/acs-tcl/tcl/document-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/exception-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/memoize-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/navigation-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/object-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/object-type-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/request-processor-init.tcl...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id_mem-}
+debug     {QD_LOGGER = there is no documented proc with name ad_acs_kernel_id_mem -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_admin_id_mem-}
+debug     {QD_LOGGER = there is no documented proc with name ad_acs_admin_id_mem -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {ns_register_filter: registering preauth rp_filter for GET all * 
+
+}
+debug     {ns_register_proc called with TYPE: GET PATH: / PROCNAM: rp_handler }
+notice    {ns_register_filter: registering preauth rp_filter for HEAD all * 
+
+}
+debug     {ns_register_proc called with TYPE: HEAD PATH: / PROCNAM: rp_handler }
+notice    {ns_register_filter: registering preauth rp_filter for POST all * 
+
+}
+debug     {ns_register_proc called with TYPE: POST PATH: / PROCNAM: rp_handler }
+debug     {ns_unregister_proc called with TYPE: GET PATH: /*.tcl PROCNAM:   }
+debug     {ns_unregister_proc called with TYPE: HEAD PATH: /*.tcl PROCNAM:   }
+debug     {ns_unregister_proc called with TYPE: POST PATH: /*.tcl PROCNAM:   }
+notice    {Registering rp_handle_tcl_request to handle files with extension tcl}
+notice    {Registering rp_handle_adp_request to handle files with extension adp}
+notice    {Registering rp_handle_tcl_request to handle files with extension vuh}
+notice    {Loading packages/acs-tcl/tcl/request-processor-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/security-init.tcl...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+info      {NOT redefining DoubleApos}
+info      {NOT redefining util_get_http_status}
+info      {NOT redefining util_httppost}
+info      {NOT redefining util_httpget}
+info      {NOT redefining ad_get_tcl_call_stack}
+info      {NOT redefining ad_ns_set_to_tcl_vars}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+notice    {Scheduling proc sec_sweep_sessions}
+debug     {(no-op)ns_schedule_proc called with 60 ad_run_scheduled_proc {{f f 60 sec_sweep_sessions {} 1048030244 0 t}} }
+debug     {QD_LOGGER = LEVEL=0= db_string secret_tokens_exists {select decode(count(*),0,0,1) from secret_tokens}}
+debug     {QD_LOGGER = LEVEL=1= apm_source d:/temp/openacs-4/packages/acs-tcl/tcl/security-init.tcl}
+debug     {QD_LOGGER = LEVEL=2= apm_bootstrap_load_file d:/temp/openacs-4 d:/temp/openacs-4/packages/acs-tcl/tcl/security-init.tcl}
+debug     {QD_LOGGER = LEVEL=3= apm_bootstrap_load_libraries -init -procs acs-tcl}
+debug     {QD_LOGGER = the ad_conn file is }
+debug     {QD_LOGGER = We are in a WWW page sourced by apm_source, woohoo!}
+debug     {QD_LOGGER = package key is acs-tcl and rest is .tcl.security-init}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.security-init.secret_tokens_exists}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.security-init.secret_tokens_exists from d:/temp/openacs-4/packages/acs-tcl/tcl/security-init.xql}
+notice    {Creating secret_tokens ns_cache...}
+info      {(no-op)ns_cache creating secret_tokens}
+notice    {Populating secret_tokens ns_cache...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -db_table_exists-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/00-database-procs-postgresql.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is db_table_exists}
+debug     {QD_LOGGER = TEMP - QD: local_name is table_count}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.00-database-procs-postgresql.db_table_exists.table_count}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd.acs-tcl.tcl.00-database-procs-postgresql.db_table_exists.table_count --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -populate_secret_tokens_cache-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/security-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is populate_secret_tokens_cache}
+debug     {QD_LOGGER = TEMP - QD: local_name is get_secret_tokens}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.security-procs.populate_secret_tokens_cache.get_secret_tokens}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.security-procs.populate_secret_tokens_cache.get_secret_tokens from d:/temp/openacs-4/packages/acs-tcl/tcl/security-procs-postgresql.xql}
+info      {ns_cache SET ns_cache set secret_tokens 194 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 195 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 196 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 197 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 198 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 199 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 200 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 201 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 202 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 203 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 204 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 205 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 206 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 207 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set secret_tokens 208 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+notice    {Loading packages/acs-tcl/tcl/security-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/server-cluster-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/set-operation-procs.tcl...}
+info      {NOT redefining set_member?}
+info      {NOT redefining set_append!}
+info      {NOT redefining set_union}
+info      {NOT redefining set_union!}
+info      {NOT redefining set_intersection}
+info      {NOT redefining set_intersection!}
+info      {NOT redefining set_difference}
+info      {NOT redefining set_difference!}
+notice    {Loading packages/acs-tcl/tcl/site-nodes-init.tcl...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -site_nodes_sync_helper-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/site-nodes-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is site_nodes_sync_helper}
+debug     {QD_LOGGER = TEMP - QD: local_name is nodes_select}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.site-nodes-procs.site_nodes_sync_helper.nodes_select}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.site-nodes-procs.site_nodes_sync_helper.nodes_select from d:/temp/openacs-4/packages/acs-tcl/tcl/site-nodes-procs-postgresql.xql}
+info      {ns_cache SET ns_cache set util_memoize site_nodes_sync_helper {1048030245 {/doc/ {package_id 1293 package_key acs-core-docs object_type apm_package directory_p t pattern_p t node_id 2535 object_id 1293 url /doc/} /acs-workflow/ {package_id 2476 package_key acs-workflow object_type apm_package directory_p t pattern_p t node_id 2534 object_id 2476 url /acs-workflow/} /acs-content-repository/ {package_id 1020 package_key acs-content-repository object_type apm_package directory_p t pattern_p t node_id 2533 object_id 1020 url /acs-content-repository/} /acs-service-contract/ {package_id 486 package_key acs-service-contract object_type apm_package directory_p t pattern_p t node_id 2532 object_id 486 url /acs-service-contract/} / {package_id 2505 package_key acs-subsite object_type apm_service directory_p t pattern_p t node_id 2530 object_id 2505 url /} /api-doc/ {package_id 388 package_key acs-api-browser object_type apm_package directory_p t pattern_p t node_id 2536 object_id 388 url /api-doc/} /acs-admin/ {package_id 350 package_key acs-admin object_type apm_package directory_p t pattern_p t node_id 2531 object_id 350 url /acs-admin/}}}}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {ns_eval (disabled) called with {
+	global tcl_site_nodes
+	if {[info exists tcl_site_nodes]} {
+	    unset tcl_site_nodes
+	}
+    }}
+notice    {Loading packages/acs-tcl/tcl/site-nodes-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/sql-statement-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/table-display-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/tcl-documentation-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/text-html-procs.tcl...}
+info      {NOT redefining util_expand_entities}
+notice    {Loading packages/acs-tcl/tcl/user-extensions-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/utilities-init.tcl...}
+notice    {Loading packages/acs-tcl/tcl/utilities-procs.tcl...}
+info      {NOT redefining DoubleApos}
+info      {NOT redefining util_get_http_status}
+info      {NOT redefining util_httppost}
+info      {NOT redefining util_httpget}
+info      {NOT redefining ad_get_tcl_call_stack}
+info      {NOT redefining ad_ns_set_to_tcl_vars}
+notice    {Loading packages/acs-tcl/tcl/widgets-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/xml-0-sgml-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/xml-1-dom-procs.tcl...}
+notice    {Loading packages/acs-tcl/tcl/xml-2-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/0-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/acs-integration-init.tcl...}
+notice    {Registering adp_parse_ad_conn_file to handle files with extension adp}
+notice    {Registering adp_parse_ad_conn_file to handle files with extension tcl}
+notice    {Loading packages/acs-templating/tcl/acs-integration-procs.tcl...}
+info      {NOT defining adp_parse_ad_conn_file ... it's locked}
+notice    {Loading packages/acs-templating/tcl/currency-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/data-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/date-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/debug-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/doc-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/doc-tcl-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/element-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/filter-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/form-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/mime-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/paginator-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/parse-procs.tcl...}
+info      {NOT defining template::adp_parse ... it's locked}
+info      {NOT defining template::adp_abort ... it's locked}
+info      {NOT defining template::adp_eval ... it's locked}
+info      {NOT defining template::adp_prepare ... it's locked}
+info      {NOT defining template::adp_init ... it's locked}
+info      {NOT defining template::adp_compile ... it's locked}
+info      {NOT defining template::adp_puts ... it's locked}
+notice    {Loading packages/acs-templating/tcl/query-procs.tcl...}
+info      {NOT defining template::multirow ... it's locked}
+notice    {Loading packages/acs-templating/tcl/request-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/tab-procs.tcl...}
+debug     {ns_register_adptag called with tabstrip /tabstrip template_tag_tabstrip }
+notice    {Loading packages/acs-templating/tcl/table-procs.tcl...}
+debug     {ns_register_adptag called with tablewidget /tablewidget template_tag_tablewidget }
+notice    {Loading packages/acs-templating/tcl/tag-init.tcl...}
+debug     {ns_register_adptag called with tcl /tcl template_tag_tcl }
+debug     {ns_register_adptag called with property /property template_tag_property }
+debug     {ns_register_adptag called with master template_tag_master }
+debug     {ns_register_adptag called with slave template_tag_slave }
+debug     {ns_register_adptag called with include template_tag_include }
+debug     {ns_register_adptag called with multiple /multiple template_tag_multiple }
+debug     {ns_register_adptag called with list /list template_tag_list }
+debug     {ns_register_adptag called with group /group template_tag_group }
+debug     {ns_register_adptag called with grid /grid template_tag_grid }
+debug     {ns_register_adptag called with if /if template_tag_if }
+debug     {ns_register_adptag called with elseif /elseif template_tag_elseif }
+debug     {ns_register_adptag called with else /else template_tag_else }
+debug     {ns_register_adptag called with noparse /noparse template_tag_noparse }
+debug     {ns_register_adptag called with formwidget template_tag_formwidget }
+debug     {ns_register_adptag called with formhelp template_tag_formhelp }
+debug     {ns_register_adptag called with formerror /formerror template_tag_formerror }
+debug     {ns_register_adptag called with formgroup /formgroup template_tag_formgroup }
+debug     {ns_register_adptag called with formtemplate /formtemplate template_tag_formtemplate }
+debug     {ns_register_adptag called with child template_tag_child }
+debug     {ns_register_adptag called with relation template_tag_relation }
+debug     {ns_register_adptag called with content template_tag_content }
+notice    {Loading packages/acs-templating/tcl/tag-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/template-init.tcl...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -apm_package_id_from_key_mem-}
+debug     {QD_LOGGER = there is no documented proc with name apm_package_id_from_key_mem -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+info      {ns_cache SET ns_cache set util_memoize {apm_package_id_from_key_mem acs-templating} {1048030247 795}}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {ns_config called with ns/server/openacs/acs/dummy ShowCompiledTemplatesP}
+warning   {APM: ShowCompiledTemplatesP does not exist}
+notice    {ns_config called with ns/server/openacs/acs/dummy ShowDataDictionariesP}
+warning   {APM: ShowDataDictionariesP does not exist}
+notice    {Loading packages/acs-templating/tcl/util-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/widget-procs.tcl...}
+notice    {Loading packages/acs-templating/tcl/wizard-procs.tcl...}
+notice    {Multiple definition of rp_handler in d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.tcl and go-cgi.tcl}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -db_nextval-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/00-database-procs-postgresql.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is db_nextval}
+debug     {QD_LOGGER = TEMP - QD: local_name is nextval}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.00-database-procs-postgresql.db_nextval.nextval}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd.acs-tcl.tcl.00-database-procs-postgresql.db_nextval.nextval --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -sec_update_user_session_info-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/security-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is sec_update_user_session_info}
+debug     {QD_LOGGER = TEMP - QD: local_name is update_last_visit}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.security-procs.sec_update_user_session_info.update_last_visit}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.security-procs.sec_update_user_session_info.update_last_visit from d:/temp/openacs-4/packages/acs-tcl/tcl/security-procs-postgresql.xql}
+notice    {Security: 1048030247 sec_generate_session_id_cookie setting 2430001, 2537.}
+debug     {Security: 1048030247 sec_generate_session_id_cookie setting 2430001, 2537.}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {Security: Getting token_id 202, value 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -root_of_host-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is root_of_host}
+debug     {QD_LOGGER = TEMP - QD: local_name is node_id}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.root_of_host.node_id}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.root_of_host.node_id from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+info      {ns_cache SET ns_cache set util_memoize {ad_parameter -package_id [ad_acs_kernel_id] DebugP request-processor 0} {1048030247 1}}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+info      {ns_cache SET ns_cache set util_memoize {ad_parameter -package_id [ad_acs_kernel_id] LogDebugP request-processor 0} {1048030247 1}}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {RP (0.188 ms): rp_filter: setting up request: GET / }
+debug     {Security: Getting token_id 202, value 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {Security: Expire_Time is 1048030847 (compare to 1048030247), hash is 3030e728f154bf51419109efb93b6b8aeec9a976}
+debug     {Security: Done calling get_cookie 2430001,2537 {202 1048030847 3030e728f154bf51419109efb93b6b8aeec9a976} for ad_session_id; received 1048030847 expiration, getting 2430001,2537 and 202 1048030847 3030e728f154bf51419109efb93b6b8aeec9a976.}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_permission_p-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/acs-permissions-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_permission_p}
+debug     {QD_LOGGER = TEMP - QD: local_name is result}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.acs-permissions-procs.ad_permission_p.result}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.acs-permissions-procs.ad_permission_p.result from d:/temp/openacs-4/packages/acs-tcl/tcl/acs-permissions-procs-postgresql.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {RP (0.281 ms): rp_filter: return filter_ok}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+notice    {RP (0.313 ms): rp_handler: handling request: GET /?}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {YYY(adp_parse_ad_conn_file): d:/temp/openacs-4/www/index.adp
+ 1 d:/temp/openacs-4/www/index }
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {template::adp_init returning ::template::code::tcl::d:/temp/openacs-4/www/index }
+debug     {jjs ... looking for properties}
+debug     {jjs.. 1a) acs_root_dir focus remember_password acs_version node email name home_url home_url_name system_name allow_persistent_login_p form_vars }
+debug     {jjs.. 2) system_name onevalue form_vars onevalue allow_persistent_login_p onevalue remember_password onevalue node {multirow {}} name onevalue email onevalue home_url onevalue home_url_name onevalue acs_version onevalue acs_root_dir onevalue focus onevalue }
+notice    {ns_getform returning
+ cgivars:
+}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = LEVEL=0= db_multirow nodes site_nodes {
+    select site_node.url(node_id) as url, 
+    acs_object.name(object_id) as name
+      from site_nodes
+      where parent_id = site_node.node_id('/')
+      and object_id is not null
+      and acs_permission.permission_p(
+          object_id, 
+          nvl(:user_id, acs.magic_object_id('the_public')), 
+          'read') = 't'
+}}
+debug     {QD_LOGGER = LEVEL=1= adp_parse_ad_conn_file}
+debug     {QD_LOGGER = LEVEL=2= rp_serve_concrete_file d:/temp/openacs-4/www/index.adp}
+debug     {QD_LOGGER = LEVEL=3= rp_serve_abstract_file d:/temp/openacs-4/www//}
+debug     {QD_LOGGER = LEVEL=4= rp_handler}
+debug     {QD_LOGGER = the ad_conn file is d:/temp/openacs-4/www/index.adp}
+debug     {QD_LOGGER = We are in a VUH page sourced by adp_parse_ad_conn_file, woohoo!}
+debug     {QD_LOGGER = package key is www and rest is .index}
+debug     {QD_LOGGER = generated fullname of dbqd.www.index.site_nodes}
+debug     {QD_LOGGER = query dbqd.www.index.site_nodes from d:/temp/openacs-4/www/index-postgresql.xql}
+debug     {JJS: db_multirow executing the following : ::nstcl::db_multirow nodes site_nodes {  select site_node__url(node_id) as url, acs_object__name(object_id) as name
+      from site_nodes
+      where parent_id = site_node__node_id('/',NULL)
+      and object_id is not null
+      and acs_permission__permission_p(
+          object_id, 
+          coalesce(:user_id, acs__magic_object_id('the_public')), 
+          'read') = 't'
+    } }
+debug     {QD_LOGGER = LEVEL=0= db_0or1row user_name_select {
+	select first_names || ' ' || last_name as name, email
+	from persons, parties
+	where person_id = :user_id
+	and person_id = party_id
+    }}
+debug     {QD_LOGGER = LEVEL=1= adp_parse_ad_conn_file}
+debug     {QD_LOGGER = LEVEL=2= rp_serve_concrete_file d:/temp/openacs-4/www/index.adp}
+debug     {QD_LOGGER = LEVEL=3= rp_serve_abstract_file d:/temp/openacs-4/www//}
+debug     {QD_LOGGER = LEVEL=4= rp_handler}
+debug     {QD_LOGGER = the ad_conn file is d:/temp/openacs-4/www/index.adp}
+debug     {QD_LOGGER = We are in a VUH page sourced by adp_parse_ad_conn_file, woohoo!}
+debug     {QD_LOGGER = package key is www and rest is .index}
+debug     {QD_LOGGER = generated fullname of dbqd.www.index.user_name_select}
+debug     {QD_LOGGER = query dbqd.www.index.user_name_select from d:/temp/openacs-4/www/index.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+debug     {Executed data procedure}
+debug     puts {Parsing template ...}
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ns_cache-}
+debug     {QD_LOGGER = there is no documented proc with name ns_cache -- we used default SQL}
+debug     {QD_LOGGER = NO FULLQUERY FOR dbqd..NULL --> using default SQL}
+debug     {template::adp_init returning ::template::code::adp::d:/temp/openacs-4/www/index }
+debug     {ns_adp_parse evaling  ::template::adp_compile -file d:/temp/openacs-4/www/index.adp  }
+debug     {initing properties adp_parse_ad_conn_file}
+debug     {setting 'acs_root_dir' }
+debug     {setting 'focus' }
+debug     {setting 'remember_password' }
+debug     {setting 'acs_version' }
+debug     {setting 'node' }
+debug     {setting 'email' }
+debug     {setting 'name' }
+debug     {setting 'home_url' }
+debug     {setting 'home_url_name' }
+debug     {setting 'system_name' }
+debug     {setting 'allow_persistent_login_p' }
+debug     {setting 'form_vars' }
+debug     {QD_LOGGER = calling namespace = }
+debug     {QD_LOGGER = proc_name is -ad_acs_kernel_id-}
+debug     {QD_LOGGER = tcl file is packages/acs-tcl/tcl/request-processor-procs.tcl}
+debug     {QD_LOGGER = TEMP - QD: proc_name is ad_acs_kernel_id}
+debug     {QD_LOGGER = TEMP - QD: local_name is acs_kernel_id_get}
+debug     {QD_LOGGER = generated fullname of dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get}
+debug     {QD_LOGGER = query dbqd.acs-tcl.tcl.request-processor-procs.ad_acs_kernel_id.acs_kernel_id_get from d:/temp/openacs-4/packages/acs-tcl/tcl/request-processor-procs.xql}
+notice    {ns_config called with ns/server/openacs/acs/dummy bgcolor}
+warning   {APM: bgcolor does not exist}
+notice    {ns_config called with ns/server/openacs/acs/dummy textcolor}
+warning   {APM: textcolor does not exist}
+debug     {initing properties ::nstcl::template::adp_eval ::n}
+warning   {template::init_properties: __couldn't find __page_contract_property}
+notice    { ns_return: status 200 type=text/html length=6032 }

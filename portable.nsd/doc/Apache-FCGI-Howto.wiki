@@ -1,0 +1,43 @@
+OpenACS on Apache with FastCGI
+
+Running OpenACS applications on Apache with portable.nsd is possible.  It's important to note that not all of AOLServer's tcl/database API has been implemented.  These limitations are listed at the bottom of this page,  but you should be able to get most modules running under Apache without too much difficulty.  
+
+How do we run under Apache?  We definitely want to use the TCL interpreter - there are several projects that embed the TCL interpreter within Apache and expose some of the Apache API,  but we've opted to avoid those.  They tend not to be portable across different Apache versions,   they introduce threading issues that we're not prepared to address,  and they might not actually be any faster or more robust.  Using FastCGI,  we separate out the dynamic page serving from the web serving.  Apache web server acts as a proxy front end to our TCL interpreter back ends,  and communicates with them via TCP/IP sockets.  In this configuration,  we introduce a slightly more distributed and complicated web architecture,  but with individual pieces that are appeallingly simple.  Since we're just using TCL on the back end,  any library that works with TCL should perform fine:  CriTCL, JavaBlend, tcom, XOTCL, tclperl, etc should all work with your OpenACS code.
+
+
+
+Prerequisites:
+
+Apache and mod_fastcgi (www.fastcgi.com.)
+A recent version of TCL.
+cgi.tcl   ( http://expect.nist.gov/cgi.tcl/ )
+portable.nsd
+oratcl or libpgtcl depending on your database.
+
+
+Unresolved Issues:
+
+ad_register_tag not implemented.  This means ad_form* doesn't work.  
+clob support exists in the underlying database libraries,  but has not been implemented in nstcl.
+
+binary files - ns_returnfile only currently works for text files.  
+garbage collection - rather than addressing memory leaks head-on,  we'll instead try to figure out a way to restart the tcl interpreters after a certain number of hits.  
+
+ad_scheduled procs is not implemented.  The easiest way for this to work is to simply run a cron-job.
+
+
+
+
+  
+
+
+
+
+
+References
+
+mod_rewrite cookbook
+
+http://www.zope.org/Members/kedai/apache_zope_fcgi
+
+

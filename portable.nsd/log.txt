@@ -1,0 +1,31 @@
+error     {RDBMS type could not be determined for any pool.}
+error     {<p>The following database pools generated errors:
+error         <ul><li>OpenACS could not determine the RDBMS type associated with
+error         pool "main".
+error     <li>OpenACS could not determine the RDBMS type associated with
+error         pool "log".
+error     <li>OpenACS could not determine the RDBMS type associated with
+error         pool "subquery".</ul><p>
+error     Possible causes might include:<p>
+error         <ul>
+error         <li>The database is not running.
+error         <li>The database driver has not been correctly installed.
+error         <li>The datasource or database user/password are incorrect.
+error         <li>You didn't define any database pools.
+error         </ul><p>}
+error     {RDBMS type could not be determined for any pool.}
+error     {<p>The following database pools generated errors:
+error         <ul><li>OpenACS could not determine the RDBMS type associated with
+error         pool "main".
+error     <li>OpenACS could not determine the RDBMS type associated with
+error         pool "log".
+error     <li>OpenACS could not determine the RDBMS type associated with
+error         pool "subquery".</ul><p>
+error     Possible causes might include:<p>
+error         <ul>
+error         <li>The database is not running.
+error         <li>The database driver has not been correctly installed.
+error         <li>The datasource or database user/password are incorrect.
+error         <li>You didn't define any database pools.
+error         </ul><p>}
+error     Error\ sourcing\ /var/lib/aolserver/portable.nsd/openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl:\ninvalid\ command\ name\ \"db_table_exists\"\n\ \ \ \ while\ executing\n\"db_table_exists\ apm_packages\"\n\ \ \ \ (procedure\ \"ad_verify_install\"\ line\ 2)\n\ \ \ \ invoked\ from\ within\n\"ad_verify_install\"\n\ \ \ \ invoked\ from\ within\n\"if\ \{\ \[ad_verify_install\]\ \}\ \{\n\ \ \ \ ns_write\ \[install_header\ 200\ \"Installation\ Complete.\"\]\n\ \ \ \ ns_write\ \"The\ Installation\ is\ complete.<p>\[install_footer\]...\"\n\ \ \ \ (file\ \"/var/lib/aolserver/portable.nsd/openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl\"\ line\ 35)\n\ \ \ \ invoked\ from\ within\n\"source\ \$__file\ \"

@@ -1,0 +1,572 @@
+;; -*- coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Oct 01 20:47:11 2003
+;; Emacs version 21.2.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+
+;; Buffer section:
+(desktop-create-buffer 205
+  nil
+  "portable.nsd"
+  'dired-mode
+  '(global-auto-revert-mode)
+  222
+  '(nil nil)
+  t
+  '("c:/projects/portable.nsd/")
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/home/John/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(fast-lock-mode folding-mode global-auto-revert-mode)
+  28738
+  '(2569 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/bin/xql-cacher.tcl"
+  "xql-cacher.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  568
+  '(568 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/openacs-proc-simple.test"
+  "openacs-proc-simple.test"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1250
+  '(22564 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/xql.dat"
+  "xql.dat"
+  'text-mode
+  '(global-auto-revert-mode)
+  1
+  '(40 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  nil
+  "openacs-4.6.3"
+  'dired-mode
+  '(global-auto-revert-mode)
+  233
+  '(nil nil)
+  t
+  '("c:/projects/portable.nsd/openacs-4.6.3/")
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-tcl/tcl/security-procs.tcl"
+  "security-procs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  39273
+  '(39301 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/xql.dat"
+  "xql.dat<2>"
+  'text-mode
+  '(global-auto-revert-mode)
+  1
+  '(4929843 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/openacs.test"
+  "openacs.test"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  189391
+  '(189422 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/xql.test"
+  "xql.test"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1907
+  '(2229 nil)
+  nil
+  nil
+  '((overwrite-mode) (case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/pnsd-database.tcl"
+  "pnsd-database.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  2
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/_xqldump.tcl"
+  "_xqldump.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  249
+  '(107 nil)
+  nil
+  nil
+  '((overwrite-mode) (case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-bootstrap-installer/tcl/40-db-query-dispatcher-procs.tcl"
+  "40-db-query-dispatcher-procs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  12867
+  '(12838 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/xql-fullqueries.test"
+  "xql-fullqueries.test"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  894792
+  '(894759 nil)
+  nil
+  nil
+  '((overwrite-mode) (case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/_empty.test"
+  "_empty.test"
+  'text-mode
+  '(global-auto-revert-mode)
+  412
+  '(364 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "//cbr900rr/d$/Temp/foo-code.tcl"
+  "foo-code.tcl<2>"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  12268
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/pnsd-templating.tcl"
+  "pnsd-templating.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1
+  '(2087 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "//cbr900rr/d$/Projects/portable.nsd/pnsd-templating.tcl"
+  "pnsd-templating.tcl<3>"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  873
+  '(1256 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/temp/openacs-4/packages/acs-templating/tcl/element-procs.tcl"
+  "element-procs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  2888
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-templating/tcl/element-procs.tcl"
+  "element-procs.tcl<2>"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  1
+  '(19546 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-templating/tcl/form-procs.tcl"
+  "form-procs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  23671
+  '(23533 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/temp/openacs-4/packages/acs-templating/tcl/form-procs.tcl"
+  "form-procs.tcl<2>"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  5378
+  '(4688 nil)
+  nil
+  nil
+  '((case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/Tcl/lib/nstcl-1.0/nstcl-templating.tcl"
+  "nstcl-templating.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  44610
+  '(1 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/home/John/Wiki/MyBlog"
+  "MyBlog"
+  'emacs-wiki-mode
+  '(fast-lock-mode nil global-auto-revert-mode footnote-mode)
+  391
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/home/John/Wiki/JesseBook"
+  "JesseBook"
+  'emacs-wiki-mode
+  '(fast-lock-mode nil global-auto-revert-mode footnote-mode)
+  9658
+  '(9656 t)
+  nil
+  nil
+  '((overwrite-mode) (case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/Documents and Settings/John/My Documents/SharpDevelop Projects/SummaryTable/SummaryTable.cmbx"
+  "SummaryTable.cmbx"
+  'text-mode
+  '(global-auto-revert-mode)
+  46
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/Documents and Settings/John/My Documents/SharpDevelop Projects/SummaryTable/MyRepeater.prjx"
+  "MyRepeater.prjx"
+  'text-mode
+  '(global-auto-revert-mode)
+  284
+  '(61 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/WINDOWS/SYSTEM32/DRIVERS/ETC/HOSTS"
+  "HOSTS"
+  'text-mode
+  '(global-auto-revert-mode)
+  764
+  '(763 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/temp/foo-code.tcl"
+  "foo-code.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  13716
+  '(4653 nil)
+  nil
+  nil
+  '((case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/conf/nsd.tcl"
+  "nsd.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  5090
+  '(5114 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/bin/pg_config"
+  "pg_config"
+  'sh-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  494
+  '(361 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/usr/local/bin/go-pg.sh"
+  "go-pg.sh"
+  'sh-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  145
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/usr/local/pgsql/data/pg_hba.conf"
+  "pg_hba.conf"
+  'text-mode
+  '(global-auto-revert-mode)
+  2330
+  '(1345 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/usr/local/pgsql/data/postgresql.conf"
+  "postgresql.conf"
+  'text-mode
+  '(global-auto-revert-mode)
+  1
+  '(4458 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/bin/install-packages.tcl"
+  "install-packages.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  586
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/bin/install-traintrak.tcl"
+  "install-traintrak.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1811
+  '(nil nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/home/John/Wiki/NsTcl"
+  "NsTcl"
+  'emacs-wiki-mode
+  '(fast-lock-mode nil global-auto-revert-mode footnote-mode)
+  39344
+  '(37359 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/go.tcl"
+  "go.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1320
+  '(1322 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/t/ns_db.test"
+  "ns_db.test"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  304
+  '(48 nil)
+  nil
+  nil
+  '((overwrite-mode)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/pnsd-init.tcl"
+  "pnsd-init.tcl"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  1066
+  '(1 nil)
+  nil
+  nil
+  '((overwrite-mode) (case-fold-search . t)))
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-templating/tcl/template-init.tcl"
+  "template-init.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  644
+  '(457 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/openacs-4.6.3/packages/acs-templating/tcl/0-procs.tcl"
+  "0-procs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  854
+  '(500 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/bin/install-openacs.tcl"
+  "install-openacs.tcl"
+  'tcl-mode
+  '(fast-lock-mode global-auto-revert-mode)
+  259
+  '(282 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/pnsd-templating.tcl"
+  "pnsd-templating.tcl<2>"
+  'tcl-mode
+  '(fast-lock-mode nil global-auto-revert-mode)
+  16954
+  '(1 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/projects/portable.nsd/log.txt"
+  "log.txt"
+  'text-mode
+  '(global-auto-revert-mode)
+  1
+  '(1 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/postgres_beta4/setenv.bat"
+  "setenv.bat"
+  'text-mode
+  '(global-auto-revert-mode)
+  29
+  '(128 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/postgres_beta4/README.txt"
+  "README.txt"
+  'text-mode
+  '(global-auto-revert-mode)
+  2412
+  '(2411 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/postgres_beta4/data/postmaster.opts"
+  "postmaster.opts"
+  'text-mode
+  '(global-auto-revert-mode)
+  1
+  '(77 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/postgres_beta4/data/pg_hba.conf"
+  "pg_hba.conf<2>"
+  'text-mode
+  '(global-auto-revert-mode)
+  10007
+  '(4 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/cygwin/home/John/Wiki/HuxleyRti"
+  "HuxleyRti"
+  'emacs-wiki-mode
+  '(fast-lock-mode nil global-auto-revert-mode footnote-mode)
+  7126
+  '(283 nil)
+  nil
+  nil
+  nil)
+
+(desktop-create-buffer 205
+  "c:/postgres_beta4/data/postgresql.conf"
+  "postgresql.conf<2>"
+  'text-mode
+  '(global-auto-revert-mode)
+  3812
+  '(2966 nil)
+  nil
+  nil
+  nil)
+

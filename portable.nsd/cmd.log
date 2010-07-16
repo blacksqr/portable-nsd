@@ -1,0 +1,184 @@
+ 1:  auth::create_user -username 'oneuser'
+ 2:    auth::create_user__arg_parser
+ 3:      ::upvar args args
+ 3:      ::upvar password_confirm val
+ 3:      ::set val {}
+ 3:      ::upvar verify_password_confirm_p val
+ 3:      ::set val 0
+ 3:      ::upvar first_names val
+ 3:      ::set val {}
+ 3:      ::upvar password val
+ 3:      ::set val {}
+ 3:      ::upvar url val
+ 3:      ::set val {}
+ 3:      ::upvar email_verified_p val
+ 3:      ::set val {}
+ 3:      ::upvar last_name val
+ 3:      ::set val {}
+ 3:      ::upvar secret_answer val
+ 3:      ::set val {}
+ 3:      ::upvar username val
+ 3:      ::set val {}
+ 3:      ::upvar email val
+ 3:      ::set val {}
+ 3:      ::upvar screen_name val
+ 3:      ::set val {}
+ 3:      ::upvar user_id val
+ 3:      ::set val {}
+ 3:      ::upvar secret_question val
+ 3:      ::set val {}
+ 3:      ::for { ::set i 0 } { $i < [::llength $args] } { ::incr i } {\n        ::set arg [::lindex $args $i]\n        ::if { ![::ad_proc_valid_switch_p $arg] } {\n            ::break\n        }\n        ::if { [::string equal $arg "--"] } {\n            ::incr i\n            ::break\n        }\n        ::switch -- $arg {\n            -verify_password_confirm - -verify_password_confirm=1 - -verify_password_confirm=t - -verify_password_confirm=true {\n                ::uplevel ::set verify_password_confirm_p 1\n            }\n            -verify_password_confirm=0 - -verify_password_confirm=f - -verify_password_confirm=false {\n                ::uplevel ::set verify_password_confirm_p 0\n            }\n            -user_id {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -user_id"\n                }\n                ::upvar user_id val ; ::set val [::lindex $args [::incr i]]\n            }\n            -username {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -username"\n                }\n                ::upvar username val ; ::set val [::lindex $args [::incr i]]\n            }\n            -email {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -email"\n                }\n                ::upvar email val ; ::set val [::lindex $args [::incr i]]\n            }\n            -first_names {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -first_names"\n                }\n                ::upvar first_names val ; ::set val [::lindex $args [::incr i]]\n            }\n            -last_name {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -last_name"\n                }\n                ::upvar last_name val ; ::set val [::lindex $args [::incr i]]\n            }\n            -screen_name {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -screen_name"\n                }\n                ::upvar screen_name val ; ::set val [::lindex $args [::incr i]]\n            }\n            -password {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -password"\n                }\n                ::upvar password val ; ::set val [::lindex $args [::incr i]]\n            }\n            -password_confirm {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -password_confirm"\n                }\n                ::upvar password_confirm val ; ::set val [::lindex $args [::incr i]]\n            }\n            -url {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -url"\n                }\n                ::upvar url val ; ::set val [::lindex $args [::incr i]]\n            }\n            -secret_question {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -secret_question"\n                }\n                ::upvar secret_question val ; ::set val [::lindex $args [::incr i]]\n            }\n            -secret_answer {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -secret_answer"\n                }\n                ::upvar secret_answer val ; ::set val [::lindex $args [::incr i]]\n            }\n            -email_verified_p {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -email_verified_p"\n                }\n                ::upvar email_verified_p val ; ::set val [::lindex $args [::incr i]]\n            }\n\n            default { ::return -code error "Invalid switch: \"$arg\"" }\n        }\n    }
+ 4:        ::set i 0
+ 3:      ::llength {-username 'oneuser'}
+ 4:        ::lindex {-username 'oneuser'} 0
+ 4:        ::set arg -username
+ 4:        ::if { ![::ad_proc_valid_switch_p $arg] } {\n            ::break\n        }
+ 4:        ::ad_proc_valid_switch_p -username
+ 4:        ::if { [::string equal $arg "--"] } {\n            ::incr i\n            ::break\n        }
+ 4:        ::string equal -username --
+ 4:        ::switch -- -username {\n            -verify_password_confirm - -verify_password_confirm=1 - -verify_password_confirm=t - -verify_password_confirm=true {\n                ::uplevel ::set verify_password_confirm_p 1\n            }\n            -verify_password_confirm=0 - -verify_password_confirm=f - -verify_password_confirm=false {\n                ::uplevel ::set verify_password_confirm_p 0\n            }\n            -user_id {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -user_id"\n                }\n                ::upvar user_id val ; ::set val [::lindex $args [::incr i]]\n            }\n            -username {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -username"\n                }\n                ::upvar username val ; ::set val [::lindex $args [::incr i]]\n            }\n            -email {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -email"\n                }\n                ::upvar email val ; ::set val [::lindex $args [::incr i]]\n            }\n            -first_names {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -first_names"\n                }\n                ::upvar first_names val ; ::set val [::lindex $args [::incr i]]\n            }\n            -last_name {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -last_name"\n                }\n                ::upvar last_name val ; ::set val [::lindex $args [::incr i]]\n            }\n            -screen_name {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -screen_name"\n                }\n                ::upvar screen_name val ; ::set val [::lindex $args [::incr i]]\n            }\n            -password {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -password"\n                }\n                ::upvar password val ; ::set val [::lindex $args [::incr i]]\n            }\n            -password_confirm {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -password_confirm"\n                }\n                ::upvar password_confirm val ; ::set val [::lindex $args [::incr i]]\n            }\n            -url {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -url"\n                }\n                ::upvar url val ; ::set val [::lindex $args [::incr i]]\n            }\n            -secret_question {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -secret_question"\n                }\n                ::upvar secret_question val ; ::set val [::lindex $args [::incr i]]\n            }\n            -secret_answer {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -secret_answer"\n                }\n                ::upvar secret_answer val ; ::set val [::lindex $args [::incr i]]\n            }\n            -email_verified_p {\n                if { $i >= [llength $args] - 1 } {\n                    ::return -code error "No argument to switch -email_verified_p"\n                }\n                ::upvar email_verified_p val ; ::set val [::lindex $args [::incr i]]\n            }\n\n            default { ::return -code error "Invalid switch: \"$arg\"" }\n        }
+ 4:        ::incr i
+ 3:      ::llength {-username 'oneuser'}
+ 3:      ::expr { [::llength $args] - $i }
+ 3:      ::llength {-username 'oneuser'}
+ 3:      ::set n_args_remaining 0
+ 3:      ::if { $n_args_remaining < 0 } {\n        ::return -code error "No value specified for argument [::lindex {  } $n_args_remaining]"\n    }
+ 3:      ::if { $n_args_remaining > 0 } {\n        return -code error "Too many positional parameters specified"\n    }
+ 3:      ::unset args
+ 2:    auth::get_register_authority
+ 3:      parameter::get_from_package_key -parameter RegisterAuthority -package_key acs-authentication
+ 4:        get_from_package_key__arg_parser
+ 4:        ad_parameter_from_file RegisterAuthority acs-authentication
+ 4:        ::set value {}
+ 4:        if {[empty_string_p $value]} {\n            with_catch errmsg {\n                ::set value [get  -localize=$localize_p  -boolean=$boolean_p  -package_id [apm_package_id_from_key $package_key]  -parameter $parameter  -default $default  ]\n            } {\n                ::set value $default\n            }\n        }
+ 4:        empty_string_p {}
+ 4:        return local
+ 3:      set parameter_value local
+ 3:      if { [lsearch [auth::authority::get_short_names] $parameter_value] != -1} {\n        # The authority exists\n        set authority_id [auth::authority::get_id -short_name $parameter_value]\n\n        # Check that the authority has a register implementation\n        auth::authority::get -authority_id $authority_id -array authority\n        \n        if { [empty_string_p $authority(register_impl_id)] } {\n            ns_log Error "auth::get_register_authority: parameter value for RegisterAuthority is an authority without registration driver, defaulting to local authority"\n            set authority_id [auth::authority::local]\n        }\n    } else {\n        # The authority doesn't exist - use the local authority\n        ns_log Error "auth::get_register_authority: parameter RegisterAuthority has the invalid value $parameter_value. Defaulting to local authority"\n        set authority_id [auth::authority::local]\n    }
+ 3:      auth::authority::get_short_names
+ 4:        db_list select_authority_short_names {\n        select short_name\n        from auth_authorities\n    }
+ 4:        return local
+ 3:      lsearch local local
+ 4:        auth::authority::get_id -short_name local
+ 4:        set authority_id 9
+ 4:        auth::authority::get -authority_id 9 -array authority
+ 4:        if { [empty_string_p $authority(register_impl_id)] } {\n            ns_log Error "auth::get_register_authority: parameter value for RegisterAuthority is an authority without registration driver, defaulting to local authority"\n            set authority_id [auth::authority::local]\n        }
+ 4:        empty_string_p 285
+ 3:      return 9
+ 2:    set authority_id 9
+ 2:    list
+ 2:    array set element_messages {}
+ 2:    if { $verify_password_confirm_p } {\n        if { ![string equal $password $password_confirm] } {\n            return [list  creation_status datta_error  creation_message "Passwords don't match"  element_messages [list  password_confirm "Passwords don't match"]]\n        }\n    }
+ 2:    get_all_registration_elements
+ 3:      auth::get_all_registration_elements__arg_parser
+ 4:        ::upvar args args
+ 4:        ::upvar include_password_confirm_p val
+ 4:        ::set val 0
+ 4:        ::for { ::set i 0 } { $i < [::llength $args] } { ::incr i } {\n        ::set arg [::lindex $args $i]\n        ::if { ![::ad_proc_valid_switch_p $arg] } {\n            ::break\n        }\n        ::if { [::string equal $arg "--"] } {\n            ::incr i\n            ::break\n        }\n        ::switch -- $arg {\n            -include_password_confirm - -include_password_confirm=1 - -include_password_confirm=t - -include_password_confirm=true {\n                ::uplevel ::set include_password_confirm_p 1\n            }\n            -include_password_confirm=0 - -include_password_confirm=f - -include_password_confirm=false {\n                ::uplevel ::set include_password_confirm_p 0\n            }\n\n            default { ::return -code error "Invalid switch: \"$arg\"" }\n        }\n    }
+ 4:        ::llength {}
+ 4:        ::expr { [::llength $args] - $i }
+ 4:        ::llength {}
+ 4:        ::set n_args_remaining 0
+ 4:        ::if { $n_args_remaining < 0 } {\n        ::return -code error "No value specified for argument [::lindex {  } $n_args_remaining]"\n    }
+ 4:        ::if { $n_args_remaining > 0 } {\n        return -code error "Too many positional parameters specified"\n    }
+ 4:        ::unset args
+ 3:      if { $include_password_confirm_p } {\n        return { email username first_names last_name password password_confirm screen_name url secret_question secret_answer }\n    } else {\n        return { email username first_names last_name password screen_name url secret_question secret_answer }\n    }
+ 4:        return { email username first_names last_name password screen_name url secret_question secret_answer }
+ 2:    foreach elm { email username first_names last_name password screen_name url secret_question secret_answer } {\n        if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }\n    }
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists email
+ 4:        set email
+ 4:        set user_info(email) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists username
+ 4:        set username
+ 4:        set user_info(username) 'oneuser'
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists first_names
+ 4:        set first_names
+ 4:        set user_info(first_names) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists last_name
+ 4:        set last_name
+ 4:        set user_info(last_name) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists password
+ 4:        set password
+ 4:        set user_info(password) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists screen_name
+ 4:        set screen_name
+ 4:        set user_info(screen_name) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists url
+ 4:        set url
+ 4:        set user_info(url) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists secret_question
+ 4:        set secret_question
+ 4:        set user_info(secret_question) {}
+ 3:      if { [info exists $elm] } {\n            set user_info($elm) [set $elm]\n        }
+ 3:      info exists secret_answer
+ 4:        set secret_answer
+ 4:        set user_info(secret_answer) {}
+ 2:    db_transaction {\n        array set creation_info [auth::create_local_account  -user_id $user_id  -authority_id $authority_id  -username $username  -array user_info]\n\n        # Returns: \n        #   creation_info(creation_status)\n        #   creation_info(creation_message)  \n        #   creation_info(element_messages)  \n        #   creation_info(account_status)\n        #   creation_info(account_message)  \n        #   creation_info(user_id)\n\n        # We don't do any fancy error checking here, because create_local_account is not a service contract\n        # so we control it 100%\n\n        # Local account creation ok?\n        if { [string equal $creation_info(creation_status) "ok"] } {\n            # Need to find out which username was set\n            set username $creation_info(username)\n\n            # Save the local account information for later\n            set local_account_status $creation_info(account_status)\n            set local_account_message $creation_info(account_message)\n\n            # Clear out remote creation_info array for reuse\n            array set creation_info {\n                creation_status {}\n                creation_message {}  \n                element_messages {}  \n                account_status {}\n                account_message {}  \n            }\n\n\n            #####\n            #\n            # Create remote account\n            #\n            #####\n\n            array set creation_info [auth::registration::Register  -authority_id $authority_id  -username $username  -password $password  -first_names $first_names  -last_name $last_name  -screen_name $screen_name  -email $email  -url $url  -secret_question $secret_question  -secret_answer $secret_answer]\n            \n            # Returns:\n            #   creation_info(creation_status) \n            #   creation_info(creation_message) \n            #   creation_info(element_messages) \n            #   creation_info(account_status) \n            #   creation_info(account_message) \n\n            # Verify creation_info/creation_message return codes\n            array set default_creation_message {\n                data_error {Problem with user data}\n                reg_error {Unknown registration error}\n                failed_to_connect {Error communicating with account server}\n            }\n\n            switch $creation_info(creation_status) {\n                ok { \n                    # Continue below\n                }\n                data_error -\n                reg_error -\n                failed_to_connect {\n                    if { ![exists_and_not_null creation_info(creation_message)] } {\n                        set creation_info(creation_message) $default_creation_message($creation_info(creation_status))\n                    }\n                    if { ![info exists creation_info(element_messages)] } {\n                        set creation_info(element_messages) {}\n                    }\n                    return [array get creation_info]\n                }\n                default {\n                    set creation_info(creation_status) "failed_to_connect"\n                    set creation_info(creation_message) "Illegal error code returned from account creation driver"\n                    return [array get creation_info]\n                }\n            }\n\n            # Verify remote account_info/account_message return codes\n            switch $creation_info(account_status) {\n                ok { \n                    # Continue below\n                    set creation_info(account_message) {}\n                }\n                closed {\n                    if { ![exists_and_not_null creation_info(account_message)] } {\n                        set creation_info(account_message) "This account is not available at this time"\n                    }\n                }\n                default {\n                    set creation_info(account_status) "closed"\n                    set creation_info(account_message) "Illegal error code returned from creationentication driver"\n                }\n            }\n        }\n\n    } on_error {\n        set creation_info(creation_status) failed_to_connect\n        set creation_info(creation_message) $errmsg\n        global errorInfo\n        ns_log Error "auth::create_user: Error invoking account registration driver for authority_id = $authority_id: $errorInfo"\n    }
+ 3:      llength {on_error {\n        set creation_info(creation_status) failed_to_connect\n        set creation_info(creation_message) $errmsg\n        global errorInfo\n        ns_log Error "auth::create_user: Error invoking account registration driver for authority_id = $authority_id: $errorInfo"\n    }}
+ 3:      set argc 2
+ 3:      if {($argc != 0 && $argc != 2) ||\n        ($argc == 2 && ![string equal [lindex $args 0] "on_error"])} {\n        error "db_transaction called with invalid syntax.  Should be: \"db_transaction code ?on_error on_error_code?\"" ;# "\n    }
+ 3:      lindex {on_error {\n        set creation_info(creation_status) failed_to_connect\n        set creation_info(creation_message) $errmsg\n        global errorInfo\n        ns_log Error "auth::create_user: Error invoking account registration driver for authority_id = $authority_id: $errorInfo"\n    }} 0
+ 3:      string equal on_error on_error
+ 3:      if {$argc == 2} {\n        set exception_code [lindex $args 1]\n    }
+ 4:        lindex {on_error {\n        set creation_info(creation_status) failed_to_connect\n        set creation_info(creation_message) $errmsg\n        global errorInfo\n        ns_log Error "auth::create_user: Error invoking account registration driver for authority_id = $authority_id: $errorInfo"\n    }} 1
+ 4:        set exception_code {\n        set creation_info(creation_status) failed_to_connect\n        set creation_info(creation_message) $errmsg\n        global errorInfo\n        ns_log Error "auth::create_user: Error invoking account registration driver for authority_id = $authority_id: $errorInfo"\n    }
+ 3:      upvar 0 ::nstcl::database::transaction transaction
+ 3:      incr transaction(depth)
+ 3:      if {$transaction(depth) == 1} {\n        set transaction(abort_p) 0\n        set transaction(available) {}\n    }
+ 4:        set transaction(abort_p) 0
+ 4:        set transaction(available) {}
+ 3:      catch { uplevel 1 $code } result
+ 4:        uplevel 1 {\n        array set creation_info [auth::create_local_account  -user_id $user_id  -authority_id $authority_id  -username $username  -array user_info]\n\n        # Returns: \n        #   creation_info(creation_status)\n        #   creation_info(creation_message)  \n        #   creation_info(element_messages)  \n        #   creation_info(account_status)\n        #   creation_info(account_message)  \n        #   creation_info(user_id)\n\n        # We don't do any fancy error checking here, because create_local_account is not a service contract\n        # so we control it 100%\n\n        # Local account creation ok?\n        if { [string equal $creation_info(creation_status) "ok"] } {\n            # Need to find out which username was set\n            set username $creation_info(username)\n\n            # Save the local account information for later\n            set local_account_status $creation_info(account_status)\n            set local_account_message $creation_info(account_message)\n\n            # Clear out remote creation_info array for reuse\n            array set creation_info {\n                creation_status {}\n                creation_message {}  \n                element_messages {}  \n                account_status {}\n                account_message {}  \n            }\n\n\n            #####\n            #\n            # Create remote account\n            #\n            #####\n\n            array set creation_info [auth::registration::Register  -authority_id $authority_id  -username $username  -password $password  -first_names $first_names  -last_name $last_name  -screen_name $screen_name  -email $email  -url $url  -secret_question $secret_question  -secret_answer $secret_answer]\n            \n            # Returns:\n            #   creation_info(creation_status) \n            #   creation_info(creation_message) \n            #   creation_info(element_messages) \n            #   creation_info(account_status) \n            #   creation_info(account_message) \n\n            # Verify creation_info/creation_message return codes\n            array set default_creation_message {\n                data_error {Problem with user data}\n                reg_error {Unknown registration error}\n                failed_to_connect {Error communicating with account server}\n            }\n\n            switch $creation_info(creation_status) {\n                ok { \n                    # Continue below\n                }\n                data_error -\n                reg_error -\n                failed_to_connect {\n                    if { ![exists_and_not_null creation_info(creation_message)] } {\n                        set creation_info(creation_message) $default_creation_message($creation_info(creation_status))\n                    }\n                    if { ![info exists creation_info(element_messages)] } {\n                        set creation_info(element_messages) {}\n                    }\n                    return [array get creation_info]\n                }\n                default {\n                    set creation_info(creation_status) "failed_to_connect"\n                    set creation_info(creation_message) "Illegal error code returned from account creation driver"\n                    return [array get creation_info]\n                }\n            }\n\n            # Verify remote account_info/account_message return codes\n            switch $creation_info(account_status) {\n                ok { \n                    # Continue below\n                    set creation_info(account_message) {}\n                }\n                closed {\n                    if { ![exists_and_not_null creation_info(account_message)] } {\n                        set creation_info(account_message) "This account is not available at this time"\n                    }\n                }\n                default {\n                    set creation_info(account_status) "closed"\n                    set creation_info(account_message) "Illegal error code returned from creationentication driver"\n                }\n            }\n        }\n\n    }
+ 3:      set return_code 0
+ 3:      global errorInfo
+ 3:      global errorCode
+ 3:      if {$return_code != 0} {\n        set transaction(errorInfo) $errorInfo\n        set transaction(errorCode) $errorCode\n\n        ::nstcl::db_abort_transaction\n    }
+ 3:      if [::nstcl::db_abort_transaction_p] {\n        if {[info exists exception_code]} {\n            set return_code [catch { uplevel 1 $exception_code } result]\n            if {$return_code != 0} {\n                set transaction(errorInfo)  [join [list $transaction(errorInfo) $errorInfo)] \n]\n                ::nstcl::db_abort_transaction\n            }\n        }\n    }
+ 3:      ::nstcl::db_abort_transaction_p
+ 4:        return 0
+ 3:      incr transaction(depth) -1
+ 3:      if {$transaction(depth) == 0} {\n        switch [::nstcl::db_abort_transaction_p] {\n            0 { set action "end transaction" }\n            1 { set action "abort transaction" }\n        }\n\n        foreach dbhandle $transaction(dbhandles) {\n            catch { ::nstcl::ns_db flush $dbhandle }\n            ::nstcl::ns_db dml $dbhandle $action\n            ::nstcl::ns_db releasehandle $dbhandle\n        }\n\n        set transaction(dbhandles) {}\n    }
+ 4:        ::nstcl::db_abort_transaction_p
+ 4:        switch 0 {\n            0 { set action "end transaction" }\n            1 { set action "abort transaction" }\n        }
+ 4:        foreach dbhandle ::nstcl::database::nsdb-main-1 {\n            catch { ::nstcl::ns_db flush $dbhandle }\n            ::nstcl::ns_db dml $dbhandle $action\n            ::nstcl::ns_db releasehandle $dbhandle\n        }
+ 4:        set transaction(dbhandles) {}
+ 3:      if [::nstcl::db_abort_transaction_p] {\n        if {$transaction(depth) == 0} {\n            set transaction(abort_p) 0\n        }\n        error $result $transaction(errorInfo) $transaction(errorCode)\n    }
+ 3:      ::nstcl::db_abort_transaction_p
+ 4:        return 0
+ 2:    if { ![string equal $creation_info(creation_status) "ok"] } { \n        return [array get creation_info]\n    }
+ 2:    string equal data_error ok
+ 3:      array get creation_info
+ 3:      return {creation_status data_error element_messages {email Required last_name Required first_names Required} creation_message {}}
+ 1:  array set x {creation_status data_error element_messages {email Required last_name Required first_names Required} creation_message {}}
+ 2:    unknown parray x
+ 3:      global auto_noexec auto_noload env unknown_pending tcl_interactive
+ 3:      global errorCode errorInfo
+ 3:      lindex {parray x} 0
+ 3:      set cmd parray
+ 3:      if {[regexp "^namespace\[ \t\n\]+inscope" $cmd] && [llength $cmd] == 4} {\n        set arglist [lrange $args 1 end]\n	set ret [catch {uplevel 1 ::$cmd $arglist} result]\n        if {$ret == 0} {\n            return $result\n        } else {\n	    return -code $ret -errorcode $errorCode $result\n        }\n    }
+ 3:      regexp {^namespace[ 	\n]+inscope} parray
+ 3:      set savedErrorCode NONE
+ 3:      set savedErrorInfo {ns_cache get: Couldn't locate key in cache\n    while executing\n"error "ns_cache get: Couldn't locate key in cache""\n    invoked from within\n"if {[llength $args] == 3 } {\n		    return 0\n		} else {		    \n		    error "ns_cache get: Couldn't locate key in cache"\n		}"\n    invoked from within\n"if {[catch {\n		db_1row ns_cache_get "select cache_value from ns_cache where cacheid=:cachename and cache_key = :key"}]} {		\n		if {[llength $args] == 3..."\n    ("get" arm line 6)\n    invoked from within\n"switch $cmd { \n	"create"  { \n	    ns_log info "(no-op)ns_cache creating [lindex $args 0]"\n#	    set cachename [lindex $args 0]\n#	    global $cachename..."\n    (procedure "ns_cache" line 4)\n    invoked from within\n"ns_cache get $cachename $key"}
+ 3:      lindex {parray x} 0
+ 3:      set name parray
+ 3:      if {![info exists auto_noload]} {\n	#\n	# Make sure we're not trying to load the same proc twice.\n	#\n	if {[info exists unknown_pending($name)]} {\n	    return -code error "self-referential recursion in \"unknown\" for command \"$name\"";\n	}\n	set unknown_pending($name) pending;\n	set ret [catch {auto_load $name [uplevel 1 {::namespace current}]} msg]\n	unset unknown_pending($name);\n	if {$ret != 0} {\n	    append errorInfo "\n    (autoloading \"$name\")"\n	    return -code $ret -errorcode $errorCode -errorinfo $errorInfo $msg\n	}\n	if {![array size unknown_pending]} {\n	    unset unknown_pending\n	}\n	if {$msg} {\n	    set errorCode $savedErrorCode\n	    set errorInfo $savedErrorInfo\n	    set code [catch {uplevel 1 $args} msg]\n	    if {$code ==  1} {\n		#\n		# Strip the last five lines off the error stack (they're\n		# from the "uplevel" command).\n		#\n\n		set new [split $errorInfo \n]\n		set new [join [lrange $new 0 [expr {[llength $new] - 6}]] \n]\n		return -code error -errorcode $errorCode  -errorinfo $new $msg\n	    } else {\n		return -code $code $msg\n	    }\n	}\n    }
+ 3:      info exists auto_noload
+ 4:        if {[info exists unknown_pending($name)]} {\n	    return -code error "self-referential recursion in \"unknown\" for command \"$name\"";\n	}
+ 4:        info exists unknown_pending(parray)
+ 4:        set unknown_pending(parray) pending
+ 4:        catch {auto_load $name [uplevel 1 {::namespace current}]} msg
+ 4:        set ret 0
+ 4:        unset unknown_pending(parray)
+ 4:        if {$ret != 0} {\n	    append errorInfo "\n    (autoloading \"$name\")"\n	    return -code $ret -errorcode $errorCode -errorinfo $errorInfo $msg\n	}
+ 4:        if {![array size unknown_pending]} {\n	    unset unknown_pending\n	}
+ 4:        array size unknown_pending
+ 4:        if $msg {\n	    set errorCode $savedErrorCode\n	    set errorInfo $savedErrorInfo\n	    set code [catch {uplevel 1 $args} msg]\n	    if {$code ==  1} {\n		#\n		# Strip the last five lines off the error stack (they're\n		# from the "uplevel" command).\n		#\n\n		set new [split $errorInfo \n]\n		set new [join [lrange $new 0 [expr {[llength $new] - 6}]] \n]\n		return -code error -errorcode $errorCode  -errorinfo $new $msg\n	    } else {\n		return -code $code $msg\n	    }\n	}
+ 1:  cmdtrace off
