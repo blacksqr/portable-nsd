@@ -1,0 +1,36 @@
+
+RELEASE NOTES for portable.nsd 0.7b
+
+4/15/2003
+	
+tclsh support for headless OpenACS code is quite good.  This means that writing tclsh installers,  running OpenACS scripts as cron jobs,  debugging them with TclPro, running inside Postgresql using pg/tcl etc. should work fine.  The most problematic routines revolve around HTML generation,  because they often interact with the template engine in ways not directly supported by nstcl.  Also, that seems to be where the most churn has occurred in OpenACS long history.
+
+tclhttpd support is experimental.  It has not been extensively tested, and since it doesn't handle garbage collection.
+ 
+FastCGI support for AppClass connections is broken due to a Tcl feature that has since gone unmaintained.  FastCGI External Server (TCP/IP) connections work well.  In practice that means that you can have a single Tcl interpreter sitting behind a single web server.  To make this perform acceptably you would want to use some sort of round robin proxy or load balancing.   AppClass connections can be set to recycle after a certain number of hits,  which means they would work well even without robust garbage collection.
+
+All portable.nsd code assumes it's running in a single-threaded interpreter.  FastCGI is designed to handle this scenario,  but it puts serious constraints on implementing OpenACS+pnsd in native/threaded web server API's like Apache's mod_tcl and IIS's Active Server Pages.  Much of the AOLServer support for thread-safe globals has been implemented as simple globals,  which would choke mod_tcl and ASP.  
+
+Cache synchronization has been implemented by simply reading and writing cached values to the database.  This obviously doesn't really give you the speed increase of an in-memory cache,  but I believe between tequila or Michael C's shared nsset's this problem is solvable.
+
+ns_xml has been replaced by tDom calls.
+
+LIMITATIONS
+
+* portable.nsd only tested with postgresql 7.2.3  and OpenACS 4.5 at this time.  The majority of the framework is more concerned with web connectivity,  and is database agnostic.  I don't expect 4.6 support to be too painful,  but haven't tried it.
+
+* right now only the tclhttpd implementation supports serving non-HTML files (ad_returnfile).  Apache supports it indirectly using mod_rewrite directives.
+
+* Memoization and ns_cache have not been tested yet in a cluster.  ns_cache has been implemented using a database lookup table, so it's not the best performing.
+* ns_register_proc, ns_register_filter, ns_register_adptag are not supported. This means ad_form is not supported.
+
+* lobs are not supported by nstcl.  The underlying database libraries (ligpgtcl and oratcl) support them, so we just need to expose the functionality.
+
+* no load testing has been performed.
+
+
+John Sequeira
+johnseq@pobox.com
+3/2003
+
+

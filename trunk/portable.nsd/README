@@ -1,0 +1,33 @@
+Portable.NSD  ("pnsd")
+
+*README 
+
+This is portable.nsd,  a set of tcl commands that should make it easier to run OpenACS code in other environments. 
+
+The initial goal for portable.nsd was to allow arbitrary OpenACS to run outside AOLServer.  This turned out to be a bit too ambitious for a solo effort.  There is a decent amount of legacy code in OpenACS -> calls to nsv,  ns_share etc. that is not supported by pnsd.  Much of that has been implemented in pnsd in a straightforward, albeit single-threaded way,  but I keep finding arguments and parameters that my code doesn't cover.
+
+So while the pnsd code won't let the 70,000 lines of OpenACS TCL run unaltered on different web platforms,  it will let you run greater than 99%.  This means that if you are creating a new application to run on OpenACS,  you can stay away from the 1% that causes headaches and (soon) have multiple platform and webserver support for your application.  If you are porting an old OpenACS application to run in a different environment,  your porting effort will likely be quite brief.
+
+Portable.NSD consists of :
+1) a native TCL implementation of much of AOLServer's TCL API,  which map some AOLServer functions to it's appropriate analog in FastCGI/tclhttpd/tclsh/etc.  For this I'm relying heavily on Michael Cleverly's nstcl, and in the future will probably support AOLServer's unbundled DLL's.
+2) a set of redefined or overloaded OpenACS TCL commands which remove their platform dependencies and/or make them consistent with nstcl. 
+
+It includes the following, all of which are considered experimental:
+ An FastCGI implementation (tested with Apache)
+ An tclhttpd implementation 
+ A tclsh version of /acs-bootstrap-installer/installer/auto-install.tcl,  that can populate your database with a working OpenACS instance.
+
+A more package-specific installer,  which can install and enable arbitrary package(s) on top of a base install
+A cached startup:  XQL files are preparsed and inlined into TCL pagegs, OpenACS commands are auto-loaded on demand by a custom tclIndex implementation.  You don't have to load N thousand files to run a three line script.
+A simple unit testing framework,  based on tcltest, allowing you to invoke page code without going through the web server layer.  I've written tests for some of the bugs that exist in pnsd,  so that you will either know code to avoid,  or help fix some of them.
+
+I should note that all of the above can be run via tclsh or one of the tcl debuggers (I test with TclPro 1.2 and Komodo 2.5).
+
+There are definitely bugs to fix,  but I can confidently say that more things are working than not.  While that's not the most ambitious development milestone,  my hope is that it's turned to corner on becoming more widely useful to the OpenACS developer community.   
+
+I would like to make robust FastCGI deployment a reality,  because that will be the best short-term alternative to AOLServer.
+
+
+John Sequeira
+johnseq@pobox.com
+http://www.pobox.com/~johnseq/projects/portable.nsd

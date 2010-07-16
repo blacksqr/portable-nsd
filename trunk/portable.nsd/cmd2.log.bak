@@ -1,0 +1,922 @@
+ 1:  ad_user_new system system manager changeme {Who am I?} {system manager}
+ 2:    empty_string_p {}
+ 2:    db_nextval acs_object_id_seq
+ 3:      db_string nextval {select acs_object_id_seq.nextval from du...}
+ 4:        db_qd_get_fullname nextval
+ 5:          db_qd_relative_path_p nextval
+ 6:            db_qd_root_path
+ 5:          db_qd_log Debug {calling namespace = }
+ 6:            ns_log Debug {QD_LOGGER = calling namespace = }
+ 7:              log::log debug {{QD_LOGGER = calling namespace = }}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = calling namespace = }}
+ 5:          db_qd_log Debug {proc_name is -db_nextval-}
+ 6:            ns_log Debug {QD_LOGGER = proc_name is -db_nextval-}
+ 7:              log::log debug {{QD_LOGGER = proc_name is -db_nextval-}}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = proc_name is -db_nextval-}}
+ 5:          nsv_exists api_proc_doc db_nextval
+ 5:          nsv_get api_proc_doc db_nextval
+ 5:          db_qd_log Debug {tcl file is packages/acs-tcl/tcl/00-data...}
+ 6:            ns_log Debug {QD_LOGGER = tcl file is packages/acs-tcl...}
+ 7:              log::log debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+ 5:          db_qd_log Debug {TEMP - QD: proc_name is db_nextval}
+ 6:            ns_log Debug {QD_LOGGER = TEMP - QD: proc_name is db_n...}
+ 7:              log::log debug {{QD_LOGGER = TEMP - QD: proc_name is db_...}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = TEMP - QD: proc_name is db_...}
+ 5:          db_qd_log Debug {TEMP - QD: local_name is nextval}
+ 6:            ns_log Debug {QD_LOGGER = TEMP - QD: local_name is nex...}
+ 7:              log::log debug {{QD_LOGGER = TEMP - QD: local_name is ne...}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = TEMP - QD: local_name is ne...}
+ 5:          db_qd_make_absolute_path acs-tcl.tcl.00-database-procs-oracle.db_... nextval
+ 6:            db_qd_root_path
+ 5:          db_qd_log Debug {generated fullname of dbqd.acs-tcl.tcl.0...}
+ 6:            ns_log Debug {QD_LOGGER = generated fullname of dbqd.a...}
+ 7:              log::log debug {{QD_LOGGER = generated fullname of dbqd....}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = generated fullname of dbqd....}
+ 4:        db_qd_replace_sql dbqd.acs-tcl.tcl.00-database-procs-oracl... {select acs_object_id_seq.nextval from du...}
+ 5:          db_qd_fetch dbqd.acs-tcl.tcl.00-database-procs-oracl...
+ 6:            db_qd_internal_get_cache dbqd.acs-tcl.tcl.00-database-procs-oracl...
+ 7:              nsv_exists OACS_FULLQUERIES dbqd.acs-tcl.tcl.00-database-procs-oracl...
+ 5:          empty_string_p {}
+ 5:          db_qd_log Debug {NO FULLQUERY FOR dbqd.acs-tcl.tcl.00-dat...}
+ 6:            ns_log Debug {QD_LOGGER = NO FULLQUERY FOR dbqd.acs-tc...}
+ 7:              log::log debug {{QD_LOGGER = NO FULLQUERY FOR dbqd.acs-t...}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = NO FULLQUERY FOR dbqd.acs-t...}
+ 3:      ::nstcl::db_string nextval {select acs_object_id_seq.nextval from du...}
+ 4:        ad_arg_parser {default bind} {}
+ 4:        ::nstcl::database::api_get_dbhandle nextval
+ 5:          ::nstcl::database::pools
+ 5:          ::nstcl::ns_db gethandle main
+ 6:            ::nstcl::database::gethandle main
+ 7:              ::nstcl::_ad_proc_parser ::nstcl::database::gethandle main
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 8:                ::nstcl::ns_set get t12 allocated_p
+ 9:                  ::nstcl::nssets::get t12 allocated_p
+10:                    ::nstcl::nssets::find t12 allocated_p
+ 8:                ::nstcl::ns_set get t13 allocated_p
+ 9:                  ::nstcl::nssets::get t13 allocated_p
+10:                    ::nstcl::nssets::find t13 allocated_p
+ 8:                ::nstcl::ns_set get t14 allocated_p
+ 9:                  ::nstcl::nssets::get t14 allocated_p
+10:                    ::nstcl::nssets::find t14 allocated_p
+ 8:                ::nstcl::ns_set get t15 allocated_p
+ 9:                  ::nstcl::nssets::get t15 allocated_p
+10:                    ::nstcl::nssets::find t15 allocated_p
+ 8:                ::nstcl::ns_set get t16 allocated_p
+ 9:                  ::nstcl::nssets::get t16 allocated_p
+10:                    ::nstcl::nssets::find t16 allocated_p
+ 8:                ::nstcl::ns_set get t17 allocated_p
+ 9:                  ::nstcl::nssets::get t17 allocated_p
+10:                    ::nstcl::nssets::find t17 allocated_p
+ 8:                ::nstcl::ns_set get t18 allocated_p
+ 9:                  ::nstcl::nssets::get t18 allocated_p
+10:                    ::nstcl::nssets::find t18 allocated_p
+ 8:                ::nstcl::ns_set get t19 allocated_p
+ 9:                  ::nstcl::nssets::get t19 allocated_p
+10:                    ::nstcl::nssets::find t19 allocated_p
+ 8:                ::nstcl::ns_set get t20 allocated_p
+ 9:                  ::nstcl::nssets::get t20 allocated_p
+10:                    ::nstcl::nssets::find t20 allocated_p
+ 8:                ::nstcl::ns_set get t21 allocated_p
+ 9:                  ::nstcl::nssets::get t21 allocated_p
+10:                    ::nstcl::nssets::find t21 allocated_p
+ 8:                ::nstcl::ns_set get t22 allocated_p
+ 9:                  ::nstcl::nssets::get t22 allocated_p
+10:                    ::nstcl::nssets::find t22 allocated_p
+ 8:                ::nstcl::ns_set get t23 allocated_p
+ 9:                  ::nstcl::nssets::get t23 allocated_p
+10:                    ::nstcl::nssets::find t23 allocated_p
+ 8:                ::nstcl::ns_set get t24 allocated_p
+ 9:                  ::nstcl::nssets::get t24 allocated_p
+10:                    ::nstcl::nssets::find t24 allocated_p
+ 8:                ::nstcl::ns_set get t25 allocated_p
+ 9:                  ::nstcl::nssets::get t25 allocated_p
+10:                    ::nstcl::nssets::find t25 allocated_p
+ 8:                ::nstcl::ns_set update t11 allocated_p 1
+ 9:                  ::nstcl::nssets::update t11 allocated_p 1
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 8:                ::nstcl::ns_set get t11 conn
+ 9:                  ::nstcl::nssets::get t11 conn
+10:                    ::nstcl::nssets::find t11 conn
+ 5:          ::nstcl::ns_set get t11 bind_vars
+ 6:            ::nstcl::nssets::get t11 bind_vars
+ 7:              ::nstcl::nssets::find t11 bind_vars
+ 4:        ::nstcl::database::pseudo_bind_variables {select acs_object_id_seq.nextval from du...}
+ 4:        ::nstcl::ns_db 0or1row ::nstcl::database::nsdb-main-1 {select acs_object_id_seq.nextval from du...}
+ 6:            ::nstcl::ns_set get t11 allocated_p
+ 7:              ::nstcl::nssets::get t11 allocated_p
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set update t11 sql {select acs_object_id_seq.nextval from du...}
+ 7:              ::nstcl::nssets::update t11 sql {select acs_object_id_seq.nextval from du...}
+ 8:                ::nstcl::nssets::find t11 sql
+ 5:          ::nstcl::database::0or1row ::nstcl::database::nsdb-main-1 {select acs_object_id_seq.nextval from du...}
+ 6:            ::nstcl::database::select ::nstcl::database::nsdb-main-1 {select acs_object_id_seq.nextval from du...} 0or1row
+ 7:              ::nstcl::database::exec ::nstcl::database::nsdb-main-1 {select acs_object_id_seq.nextval from du...}
+ 9:                  ::nstcl::ns_set get t11 driver
+10:                    ::nstcl::nssets::get t11 driver
+11:                      ::nstcl::nssets::find t11 driver
+ 8:                ::nstcl::database::oracle::exec ::nstcl::database::nsdb-main-1 {select acs_object_id_seq.nextval from du...}
+10:                    ::nstcl::ns_set get t11 cursor
+11:                      ::nstcl::nssets::get t11 cursor
+12:                        ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set get t11 conn
+11:                      ::nstcl::nssets::get t11 conn
+12:                        ::nstcl::nssets::find t11 conn
+10:                    ::nstcl::ns_set update t11 orafetched {}
+11:                      ::nstcl::nssets::update t11 orafetched {}
+12:                        ::nstcl::nssets::find t11 orafetched
+10:                    ::nstcl::ns_set update t11 columns {}
+11:                      ::nstcl::nssets::update t11 columns {}
+12:                        ::nstcl::nssets::find t11 columns
+10:                    ::nstcl::ns_set update t11 curr_row 0
+11:                      ::nstcl::nssets::update t11 curr_row 0
+12:                        ::nstcl::nssets::find t11 curr_row
+10:                    ::nstcl::ns_set update t11 orafetched 2519
+11:                      ::nstcl::nssets::update t11 orafetched 2519
+12:                        ::nstcl::nssets::find t11 orafetched
+10:                    ::nstcl::ns_set update t11 columns nextval
+11:                      ::nstcl::nssets::update t11 columns nextval
+12:                        ::nstcl::nssets::find t11 columns
+10:                    ::nstcl::ns_set update t11 num_rows 1
+11:                      ::nstcl::nssets::update t11 num_rows 1
+12:                        ::nstcl::nssets::find t11 num_rows
+10:                    ::nstcl::ns_set update t11 mode NS_ROWS
+11:                      ::nstcl::nssets::update t11 mode NS_ROWS
+12:                        ::nstcl::nssets::find t11 mode
+10:                    ::nstcl::ns_set update t11 cursor oratcl0.12018
+11:                      ::nstcl::nssets::update t11 cursor oratcl0.12018
+12:                        ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set get t11 mode
+11:                      ::nstcl::nssets::get t11 mode
+12:                        ::nstcl::nssets::find t11 mode
+ 8:                ::nstcl::ns_set get t11 mode
+ 9:                  ::nstcl::nssets::get t11 mode
+10:                    ::nstcl::nssets::find t11 mode
+ 7:              ::nstcl::database::bindrow ::nstcl::database::nsdb-main-1
+ 9:                  ::nstcl::ns_set get t11 mode
+10:                    ::nstcl::nssets::get t11 mode
+11:                      ::nstcl::nssets::find t11 mode
+ 9:                  ::nstcl::ns_set get t11 driver
+10:                    ::nstcl::nssets::get t11 driver
+11:                      ::nstcl::nssets::find t11 driver
+ 8:                ::nstcl::database::oracle::bindrow ::nstcl::database::nsdb-main-1
+10:                    ::nstcl::ns_set get t11 cursor
+11:                      ::nstcl::nssets::get t11 cursor
+12:                        ::nstcl::nssets::find t11 cursor
+ 9:                  ::nstcl::ns_set create oratcl0.12018
+10:                    ::nstcl::nssets::create oratcl0.12018
+10:                    ::nstcl::ns_set get t11 columns
+11:                      ::nstcl::nssets::get t11 columns
+12:                        ::nstcl::nssets::find t11 columns
+ 9:                  ::nstcl::ns_set put t9252 nextval {}
+10:                    ::nstcl::nssets::put t9252 nextval {}
+ 6:            ::nstcl::ns_db getrow ::nstcl::database::nsdb-main-1 t9252
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 7:              ::nstcl::database::getrow ::nstcl::database::nsdb-main-1 t9252
+ 9:                  ::nstcl::ns_set get t11 driver
+10:                    ::nstcl::nssets::get t11 driver
+11:                      ::nstcl::nssets::find t11 driver
+ 8:                ::nstcl::database::oracle::getrow ::nstcl::database::nsdb-main-1 t9252
+ 9:                  ::nstcl::ns_set size t9252
+10:                    ::nstcl::nssets::size t9252
+10:                    ::nstcl::ns_set get t11 cursor
+11:                      ::nstcl::nssets::get t11 cursor
+12:                        ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set get t11 conn
+11:                      ::nstcl::nssets::get t11 conn
+12:                        ::nstcl::nssets::find t11 conn
+10:                    ::nstcl::ns_set get t11 num_rows
+11:                      ::nstcl::nssets::get t11 num_rows
+12:                        ::nstcl::nssets::find t11 num_rows
+10:                    ::nstcl::ns_set get t11 curr_row
+11:                      ::nstcl::nssets::get t11 curr_row
+12:                        ::nstcl::nssets::find t11 curr_row
+ 9:                  ::nstcl::ns_set truncate t9252 0
+10:                    ::nstcl::nssets::truncate t9252 0
+11:                      assert_valid_ndx t9252 0
+10:                    ::nstcl::ns_set get t11 columns
+11:                      ::nstcl::nssets::get t11 columns
+12:                        ::nstcl::nssets::find t11 columns
+10:                    ::nstcl::ns_set get t11 orafetched
+11:                      ::nstcl::nssets::get t11 orafetched
+12:                        ::nstcl::nssets::find t11 orafetched
+ 9:                  ::nstcl::ns_set put t9252 nextval 2519
+10:                    ::nstcl::nssets::put t9252 nextval 2519
+10:                    ::nstcl::ns_set update t11 orafetched {}
+11:                      ::nstcl::nssets::update t11 orafetched {}
+12:                        ::nstcl::nssets::find t11 orafetched
+10:                    ::nstcl::ns_set update t11 curr_row 1
+11:                      ::nstcl::nssets::update t11 curr_row 1
+12:                        ::nstcl::nssets::find t11 curr_row
+ 6:            ::nstcl::ns_db getrow ::nstcl::database::nsdb-main-1 t9252
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 7:              ::nstcl::database::getrow ::nstcl::database::nsdb-main-1 t9252
+ 9:                  ::nstcl::ns_set get t11 driver
+10:                    ::nstcl::nssets::get t11 driver
+11:                      ::nstcl::nssets::find t11 driver
+ 8:                ::nstcl::database::oracle::getrow ::nstcl::database::nsdb-main-1 t9252
+ 9:                  ::nstcl::ns_set size t9252
+10:                    ::nstcl::nssets::size t9252
+10:                    ::nstcl::ns_set get t11 cursor
+11:                      ::nstcl::nssets::get t11 cursor
+12:                        ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set get t11 conn
+11:                      ::nstcl::nssets::get t11 conn
+12:                        ::nstcl::nssets::find t11 conn
+10:                    ::nstcl::ns_set get t11 num_rows
+11:                      ::nstcl::nssets::get t11 num_rows
+12:                        ::nstcl::nssets::find t11 num_rows
+10:                    ::nstcl::ns_set get t11 curr_row
+11:                      ::nstcl::nssets::get t11 curr_row
+12:                        ::nstcl::nssets::find t11 curr_row
+10:                    ::nstcl::ns_set update t11 curr_row 2
+11:                      ::nstcl::nssets::update t11 curr_row 2
+12:                        ::nstcl::nssets::find t11 curr_row
+ 4:        ::nstcl::database::api_free_dbhandle ::nstcl::database::nsdb-main-1
+ 5:          ::nstcl::ns_db releasehandle ::nstcl::database::nsdb-main-1
+ 7:              ::nstcl::ns_set get t11 allocated_p
+ 8:                ::nstcl::nssets::get t11 allocated_p
+ 9:                  ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::database::releasehandle ::nstcl::database::nsdb-main-1
+ 8:                ::nstcl::ns_set update t11 allocated_p 0
+ 9:                  ::nstcl::nssets::update t11 allocated_p 0
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 8:                ::nstcl::ns_set get t11 bounced_p
+ 9:                  ::nstcl::nssets::get t11 bounced_p
+10:                    ::nstcl::nssets::find t11 bounced_p
+ 4:        ::nstcl::ns_set value t9252 0
+ 5:          ::nstcl::nssets::value t9252 0
+ 6:            assert_valid_ndx t9252 0
+ 4:        ::nstcl::ns_set free t9252
+ 5:          ::nstcl::nssets::free t9252
+ 2:    empty_string_p {Who am I?}
+ 2:    empty_string_p {system manager}
+ 2:    empty_string_p url
+ 2:    ad_conn peeraddr
+ 3:      ns_conn peeraddr
+ 2:    sec_random_token
+ 3:      ad_conn -connected_p
+ 3:      ns_time
+ 3:      ns_rand
+ 4:        ::math::random
+ 3:      ns_sha1 10509903220.133116860936developer.arsdig...
+ 4:        ::sha1::sha1 args
+ 3:      ns_sha1 4bf51419109efb93b6b8aeec9a976
+ 4:        ::sha1::sha1 args
+ 2:    ns_sha1 changeme3030e728f154bf51419109efb93b6b8a...
+ 3:      ::sha1::sha1 args
+ 2:    db_transaction {\n\n        set user_id [db_exec_plsql use...} on_error {\n        # we got an error.  log it and ...}
+ 2:    db_exec_plsql user_insert {\n            begin\n            :1 := acs...}
+ 3:      ns_log debug {db_exec_plsql ... db_exec_plsql user_ins...}
+ 4:        log::log debug {{db_exec_plsql ... db_exec_plsql user_in...}
+ 5:          lvIsSuppressed debug
+ 6:            lv2longform debug
+ 5:          lv2longform debug
+ 5:          ::log::Puts debug {{db_exec_plsql ... db_exec_plsql user_in...}
+ 3:      ad_arg_parser { bind_output bind } {}
+ 3:      db_qd_get_fullname user_insert
+ 4:        db_qd_relative_path_p user_insert
+ 5:          db_qd_root_path
+ 4:        db_qd_log Debug {calling namespace = }
+ 5:          ns_log Debug {QD_LOGGER = calling namespace = }
+ 6:            log::log debug {{QD_LOGGER = calling namespace = }}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = calling namespace = }}
+ 4:        db_qd_log Debug {proc_name is -ad_user_new-}
+ 5:          ns_log Debug {QD_LOGGER = proc_name is -ad_user_new-}
+ 6:            log::log debug {{QD_LOGGER = proc_name is -ad_user_new-}}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = proc_name is -ad_user_new-}}
+ 4:        nsv_exists api_proc_doc ad_user_new
+ 4:        nsv_get api_proc_doc ad_user_new
+ 4:        db_qd_log Debug {tcl file is packages/acs-tcl/tcl/communi...}
+ 5:          ns_log Debug {QD_LOGGER = tcl file is packages/acs-tcl...}
+ 6:            log::log debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+ 4:        db_qd_log Debug {TEMP - QD: proc_name is ad_user_new}
+ 5:          ns_log Debug {QD_LOGGER = TEMP - QD: proc_name is ad_u...}
+ 6:            log::log debug {{QD_LOGGER = TEMP - QD: proc_name is ad_...}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = TEMP - QD: proc_name is ad_...}
+ 4:        db_qd_log Debug {TEMP - QD: local_name is user_insert}
+ 5:          ns_log Debug {QD_LOGGER = TEMP - QD: local_name is use...}
+ 6:            log::log debug {{QD_LOGGER = TEMP - QD: local_name is us...}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = TEMP - QD: local_name is us...}
+ 4:        db_qd_make_absolute_path acs-tcl.tcl.community-core-procs.ad_user... user_insert
+ 5:          db_qd_root_path
+ 4:        db_qd_log Debug {generated fullname of dbqd.acs-tcl.tcl.c...}
+ 5:          ns_log Debug {QD_LOGGER = generated fullname of dbqd.a...}
+ 6:            log::log debug {{QD_LOGGER = generated fullname of dbqd....}
+ 7:              lvIsSuppressed debug
+ 8:                lv2longform debug
+ 7:              lv2longform debug
+ 7:              ::log::Puts debug {{QD_LOGGER = generated fullname of dbqd....}
+ 3:      db_qd_replace_sql dbqd.acs-tcl.tcl.community-core-procs.ad... {\n            begin\n            :1 := acs...}
+ 4:        db_qd_fetch dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 5:          db_qd_internal_get_cache dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 6:            nsv_exists OACS_FULLQUERIES dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 6:            nsv_get OACS_FULLQUERIES dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 6:            db_fullquery_get_load_location dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 6:            db_qd_log Debug {query dbqd.acs-tcl.tcl.community-core-pr...}
+ 7:              ns_log Debug {QD_LOGGER = query dbqd.acs-tcl.tcl.commu...}
+ 8:                log::log debug {{QD_LOGGER = query dbqd.acs-tcl.tcl.comm...}
+ 9:                  lvIsSuppressed debug
+10:                    lv2longform debug
+ 9:                  lv2longform debug
+ 9:                  ::log::Puts debug {{QD_LOGGER = query dbqd.acs-tcl.tcl.comm...}
+ 6:            nsv_get OACS_FULLQUERIES dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 4:        empty_string_p dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 4:        db_fullquery_get_querytext dbqd.acs-tcl.tcl.community-core-procs.ad...
+ 3:      ::nstcl::database::api_get_dbhandle user_insert
+ 4:        ::nstcl::database::pools
+ 4:        ::nstcl::ns_db gethandle main
+ 5:          ::nstcl::database::gethandle main
+ 6:            ::nstcl::_ad_proc_parser ::nstcl::database::gethandle main
+ 7:              ::nstcl::ns_set get t11 allocated_p
+ 8:                ::nstcl::nssets::get t11 allocated_p
+ 9:                  ::nstcl::nssets::find t11 allocated_p
+ 7:              ::nstcl::ns_set get t12 allocated_p
+ 8:                ::nstcl::nssets::get t12 allocated_p
+ 9:                  ::nstcl::nssets::find t12 allocated_p
+ 7:              ::nstcl::ns_set get t13 allocated_p
+ 8:                ::nstcl::nssets::get t13 allocated_p
+ 9:                  ::nstcl::nssets::find t13 allocated_p
+ 7:              ::nstcl::ns_set get t14 allocated_p
+ 8:                ::nstcl::nssets::get t14 allocated_p
+ 9:                  ::nstcl::nssets::find t14 allocated_p
+ 7:              ::nstcl::ns_set get t15 allocated_p
+ 8:                ::nstcl::nssets::get t15 allocated_p
+ 9:                  ::nstcl::nssets::find t15 allocated_p
+ 7:              ::nstcl::ns_set get t16 allocated_p
+ 8:                ::nstcl::nssets::get t16 allocated_p
+ 9:                  ::nstcl::nssets::find t16 allocated_p
+ 7:              ::nstcl::ns_set get t17 allocated_p
+ 8:                ::nstcl::nssets::get t17 allocated_p
+ 9:                  ::nstcl::nssets::find t17 allocated_p
+ 7:              ::nstcl::ns_set get t18 allocated_p
+ 8:                ::nstcl::nssets::get t18 allocated_p
+ 9:                  ::nstcl::nssets::find t18 allocated_p
+ 7:              ::nstcl::ns_set get t19 allocated_p
+ 8:                ::nstcl::nssets::get t19 allocated_p
+ 9:                  ::nstcl::nssets::find t19 allocated_p
+ 7:              ::nstcl::ns_set get t20 allocated_p
+ 8:                ::nstcl::nssets::get t20 allocated_p
+ 9:                  ::nstcl::nssets::find t20 allocated_p
+ 7:              ::nstcl::ns_set get t21 allocated_p
+ 8:                ::nstcl::nssets::get t21 allocated_p
+ 9:                  ::nstcl::nssets::find t21 allocated_p
+ 7:              ::nstcl::ns_set get t22 allocated_p
+ 8:                ::nstcl::nssets::get t22 allocated_p
+ 9:                  ::nstcl::nssets::find t22 allocated_p
+ 7:              ::nstcl::ns_set get t23 allocated_p
+ 8:                ::nstcl::nssets::get t23 allocated_p
+ 9:                  ::nstcl::nssets::find t23 allocated_p
+ 7:              ::nstcl::ns_set get t24 allocated_p
+ 8:                ::nstcl::nssets::get t24 allocated_p
+ 9:                  ::nstcl::nssets::find t24 allocated_p
+ 7:              ::nstcl::ns_set get t25 allocated_p
+ 8:                ::nstcl::nssets::get t25 allocated_p
+ 9:                  ::nstcl::nssets::find t25 allocated_p
+ 7:              ::nstcl::ns_set update t11 allocated_p 1
+ 8:                ::nstcl::nssets::update t11 allocated_p 1
+ 9:                  ::nstcl::nssets::find t11 allocated_p
+ 7:              ::nstcl::ns_set get t11 conn
+ 8:                ::nstcl::nssets::get t11 conn
+ 9:                  ::nstcl::nssets::find t11 conn
+ 4:        ::nstcl::ns_db dml ::nstcl::database::nsdb-main-1 {begin transaction}
+ 6:            ::nstcl::ns_set get t11 allocated_p
+ 7:              ::nstcl::nssets::get t11 allocated_p
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set update t11 sql {begin transaction}
+ 7:              ::nstcl::nssets::update t11 sql {begin transaction}
+ 8:                ::nstcl::nssets::find t11 sql
+ 5:          ::nstcl::database::dml ::nstcl::database::nsdb-main-1 {begin transaction}
+ 7:              ::nstcl::ns_set get t11 driver
+ 8:                ::nstcl::nssets::get t11 driver
+ 9:                  ::nstcl::nssets::find t11 driver
+ 6:            ::nstcl::database::oracle::exec ::nstcl::database::nsdb-main-1 {begin transaction}
+ 8:                ::nstcl::ns_set get t11 cursor
+ 9:                  ::nstcl::nssets::get t11 cursor
+10:                    ::nstcl::nssets::find t11 cursor
+ 8:                ::nstcl::ns_set get t11 conn
+ 9:                  ::nstcl::nssets::get t11 conn
+10:                    ::nstcl::nssets::find t11 conn
+ 8:                ::nstcl::ns_set update t11 orafetched {}
+ 9:                  ::nstcl::nssets::update t11 orafetched {}
+10:                    ::nstcl::nssets::find t11 orafetched
+ 8:                ::nstcl::ns_set update t11 columns {}
+ 9:                  ::nstcl::nssets::update t11 columns {}
+10:                    ::nstcl::nssets::find t11 columns
+ 8:                ::nstcl::ns_set update t11 curr_row 0
+ 9:                  ::nstcl::nssets::update t11 curr_row 0
+10:                    ::nstcl::nssets::find t11 curr_row
+ 8:                ::nstcl::ns_set update t11 num_rows 0
+ 9:                  ::nstcl::nssets::update t11 num_rows 0
+10:                    ::nstcl::nssets::find t11 num_rows
+ 8:                ::nstcl::ns_set update t11 mode NS_DML
+ 9:                  ::nstcl::nssets::update t11 mode NS_DML
+10:                    ::nstcl::nssets::find t11 mode
+ 8:                ::nstcl::ns_set update t11 cursor {}
+ 9:                  ::nstcl::nssets::update t11 cursor {}
+10:                    ::nstcl::nssets::find t11 cursor
+ 8:                ::nstcl::ns_set get t11 mode
+ 9:                  ::nstcl::nssets::get t11 mode
+10:                    ::nstcl::nssets::find t11 mode
+ 7:              ::nstcl::ns_set get t11 mode
+ 8:                ::nstcl::nssets::get t11 mode
+ 9:                  ::nstcl::nssets::find t11 mode
+ 4:        ::nstcl::ns_set get t11 conn
+ 5:          ::nstcl::nssets::get t11 conn
+ 6:            ::nstcl::nssets::find t11 conn
+ 3:      ::nstcl::database::pseudo_bind_variables {	begin\n	    __pnsd_retval__ := acs.add_u...}
+ 3:      ns_log debug {	begin\n	    :1 := acs.add_user(user_id =...}
+ 4:        log::log debug {{	begin\n	    :1 := acs.add_user(user_id ...}
+ 5:          lvIsSuppressed debug
+ 6:            lv2longform debug
+ 5:          lv2longform debug
+ 5:          ::log::Puts debug {{	begin\n	    :1 := acs.add_user(user_id ...}
+ 3:      ::nstcl::database::api_free_dbhandle ::nstcl::database::nsdb-main-1
+ 5:          ::nstcl::ns_set get t11 allocated_p
+ 6:            ::nstcl::nssets::get t11 allocated_p
+ 7:              ::nstcl::nssets::find t11 allocated_p
+ 5:          ::nstcl::ns_set get t11 pool
+ 6:            ::nstcl::nssets::get t11 pool
+ 7:              ::nstcl::nssets::find t11 pool
+ 3:      ns_log debug {returning 2519 }
+ 4:        log::log debug {{returning 2519 }}
+ 5:          lvIsSuppressed debug
+ 6:            lv2longform debug
+ 5:          lv2longform debug
+ 5:          ::log::Puts debug {{returning 2519 }}
+ 2:    acs_user_extension::user_new -user_id 2519
+ 3:      user_new__arg_parser
+ 4:        ad_proc_valid_switch_p -user_id
+ 5:          number_p -user_id
+ 3:      dispatch -op UserNew -list_of_args 2519
+ 4:        dispatch__arg_parser
+ 5:          ad_proc_valid_switch_p -op
+ 6:            number_p -op
+ 5:          ad_proc_valid_switch_p -list_of_args
+ 6:            number_p -list_of_args
+ 4:        empty_string_p {}
+ 4:        list_extensions
+ 5:          db_list select_extensions {}
+ 6:            db_qd_get_fullname select_extensions
+ 7:              db_qd_relative_path_p select_extensions
+ 8:                db_qd_root_path
+ 7:              db_qd_log Debug {calling namespace = acs_user_extension}
+ 8:                ns_log Debug {QD_LOGGER = calling namespace = acs_user...}
+ 9:                  log::log debug {{QD_LOGGER = calling namespace = acs_use...}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = calling namespace = acs_use...}
+ 7:              db_qd_log Debug {proc_name is -acs_user_extension::list_e...}
+ 8:                ns_log Debug {QD_LOGGER = proc_name is -acs_user_exten...}
+ 9:                  log::log debug {{QD_LOGGER = proc_name is -acs_user_exte...}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = proc_name is -acs_user_exte...}
+ 7:              nsv_exists api_proc_doc acs_user_extension::list_extensions
+ 7:              nsv_get api_proc_doc acs_user_extension::list_extensions
+ 7:              db_qd_log Debug {tcl file is packages/acs-tcl/tcl/user-ex...}
+ 8:                ns_log Debug {QD_LOGGER = tcl file is packages/acs-tcl...}
+ 9:                  log::log debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = tcl file is packages/acs-tc...}
+ 7:              db_qd_log Debug {TEMP - QD: proc_name is acs_user_extensi...}
+ 8:                ns_log Debug {QD_LOGGER = TEMP - QD: proc_name is acs_...}
+ 9:                  log::log debug {{QD_LOGGER = TEMP - QD: proc_name is acs...}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = TEMP - QD: proc_name is acs...}
+ 7:              db_qd_log Debug {TEMP - QD: local_name is select_extensio...}
+ 8:                ns_log Debug {QD_LOGGER = TEMP - QD: local_name is sel...}
+ 9:                  log::log debug {{QD_LOGGER = TEMP - QD: local_name is se...}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = TEMP - QD: local_name is se...}
+ 7:              db_qd_make_absolute_path acs-tcl.tcl.user-extensions-procs.acs_us... select_extensions
+ 8:                db_qd_root_path
+ 7:              db_qd_log Debug {generated fullname of dbqd.acs-tcl.tcl.u...}
+ 8:                ns_log Debug {QD_LOGGER = generated fullname of dbqd.a...}
+ 9:                  log::log debug {{QD_LOGGER = generated fullname of dbqd....}
+10:                    lvIsSuppressed debug
+11:                      lv2longform debug
+10:                    lv2longform debug
+10:                    ::log::Puts debug {{QD_LOGGER = generated fullname of dbqd....}
+ 6:            db_qd_replace_sql dbqd.acs-tcl.tcl.user-extensions-procs.a... {}
+ 7:              db_qd_fetch dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 8:                db_qd_internal_get_cache dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 9:                  nsv_exists OACS_FULLQUERIES dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 9:                  nsv_get OACS_FULLQUERIES dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 9:                  db_fullquery_get_load_location dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 9:                  db_qd_log Debug {query dbqd.acs-tcl.tcl.user-extensions-p...}
+10:                    ns_log Debug {QD_LOGGER = query dbqd.acs-tcl.tcl.user-...}
+11:                      log::log debug {{QD_LOGGER = query dbqd.acs-tcl.tcl.user...}
+12:                        lvIsSuppressed debug
+13:                          lv2longform debug
+12:                        lv2longform debug
+12:                        ::log::Puts debug {{QD_LOGGER = query dbqd.acs-tcl.tcl.user...}
+ 9:                  nsv_get OACS_FULLQUERIES dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 7:              empty_string_p dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 7:              db_fullquery_get_querytext dbqd.acs-tcl.tcl.user-extensions-procs.a...
+ 5:          ::nstcl::db_list select_extensions {select impl_name from acs_sc_impls, acs_...}
+ 6:            ::nstcl::database::api_get_dbhandle select_extensions
+ 7:              ::nstcl::database::pools
+ 7:              ::nstcl::ns_set get t11 bind_vars
+ 8:                ::nstcl::nssets::get t11 bind_vars
+ 9:                  ::nstcl::nssets::find t11 bind_vars
+ 6:            ::nstcl::database::pseudo_bind_variables {select impl_name from acs_sc_impls, acs_...}
+ 6:            ::nstcl::ns_db select ::nstcl::database::nsdb-main-1 {select impl_name from acs_sc_impls, acs_...}
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 8:                ::nstcl::ns_set update t11 sql {select impl_name from acs_sc_impls, acs_...}
+ 9:                  ::nstcl::nssets::update t11 sql {select impl_name from acs_sc_impls, acs_...}
+10:                    ::nstcl::nssets::find t11 sql
+ 7:              ::nstcl::database::select ::nstcl::database::nsdb-main-1 {select impl_name from acs_sc_impls, acs_...}
+ 8:                ::nstcl::database::exec ::nstcl::database::nsdb-main-1 {select impl_name from acs_sc_impls, acs_...}
+10:                    ::nstcl::ns_set get t11 driver
+11:                      ::nstcl::nssets::get t11 driver
+12:                        ::nstcl::nssets::find t11 driver
+ 9:                  ::nstcl::database::oracle::exec ::nstcl::database::nsdb-main-1 {select impl_name from acs_sc_impls, acs_...}
+11:                      ::nstcl::ns_set get t11 cursor
+12:                        ::nstcl::nssets::get t11 cursor
+13:                          ::nstcl::nssets::find t11 cursor
+11:                      ::nstcl::ns_set get t11 conn
+12:                        ::nstcl::nssets::get t11 conn
+13:                          ::nstcl::nssets::find t11 conn
+11:                      ::nstcl::ns_set update t11 curr_row 0
+12:                        ::nstcl::nssets::update t11 curr_row 0
+13:                          ::nstcl::nssets::find t11 curr_row
+11:                      ::nstcl::ns_set update t11 orafetched {}
+12:                        ::nstcl::nssets::update t11 orafetched {}
+13:                          ::nstcl::nssets::find t11 orafetched
+11:                      ::nstcl::ns_set update t11 columns impl_name
+12:                        ::nstcl::nssets::update t11 columns impl_name
+13:                          ::nstcl::nssets::find t11 columns
+11:                      ::nstcl::ns_set update t11 num_rows 0
+12:                        ::nstcl::nssets::update t11 num_rows 0
+13:                          ::nstcl::nssets::find t11 num_rows
+11:                      ::nstcl::ns_set update t11 mode NS_ROWS
+12:                        ::nstcl::nssets::update t11 mode NS_ROWS
+13:                          ::nstcl::nssets::find t11 mode
+11:                      ::nstcl::ns_set update t11 cursor oratcl0.12020
+12:                        ::nstcl::nssets::update t11 cursor oratcl0.12020
+13:                          ::nstcl::nssets::find t11 cursor
+11:                      ::nstcl::ns_set get t11 mode
+12:                        ::nstcl::nssets::get t11 mode
+13:                          ::nstcl::nssets::find t11 mode
+ 9:                  ::nstcl::ns_set get t11 mode
+10:                    ::nstcl::nssets::get t11 mode
+11:                      ::nstcl::nssets::find t11 mode
+ 8:                ::nstcl::database::bindrow ::nstcl::database::nsdb-main-1
+10:                    ::nstcl::ns_set get t11 mode
+11:                      ::nstcl::nssets::get t11 mode
+12:                        ::nstcl::nssets::find t11 mode
+10:                    ::nstcl::ns_set get t11 driver
+11:                      ::nstcl::nssets::get t11 driver
+12:                        ::nstcl::nssets::find t11 driver
+ 9:                  ::nstcl::database::oracle::bindrow ::nstcl::database::nsdb-main-1
+11:                      ::nstcl::ns_set get t11 cursor
+12:                        ::nstcl::nssets::get t11 cursor
+13:                          ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set create oratcl0.12020
+11:                      ::nstcl::nssets::create oratcl0.12020
+11:                      ::nstcl::ns_set get t11 columns
+12:                        ::nstcl::nssets::get t11 columns
+13:                          ::nstcl::nssets::find t11 columns
+10:                    ::nstcl::ns_set put t9253 impl_name {}
+11:                      ::nstcl::nssets::put t9253 impl_name {}
+ 6:            ::nstcl::ns_db getrow ::nstcl::database::nsdb-main-1 t9253
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 7:              ::nstcl::database::getrow ::nstcl::database::nsdb-main-1 t9253
+ 9:                  ::nstcl::ns_set get t11 driver
+10:                    ::nstcl::nssets::get t11 driver
+11:                      ::nstcl::nssets::find t11 driver
+ 8:                ::nstcl::database::oracle::getrow ::nstcl::database::nsdb-main-1 t9253
+ 9:                  ::nstcl::ns_set size t9253
+10:                    ::nstcl::nssets::size t9253
+10:                    ::nstcl::ns_set get t11 cursor
+11:                      ::nstcl::nssets::get t11 cursor
+12:                        ::nstcl::nssets::find t11 cursor
+10:                    ::nstcl::ns_set get t11 conn
+11:                      ::nstcl::nssets::get t11 conn
+12:                        ::nstcl::nssets::find t11 conn
+10:                    ::nstcl::ns_set get t11 num_rows
+11:                      ::nstcl::nssets::get t11 num_rows
+12:                        ::nstcl::nssets::find t11 num_rows
+10:                    ::nstcl::ns_set get t11 curr_row
+11:                      ::nstcl::nssets::get t11 curr_row
+12:                        ::nstcl::nssets::find t11 curr_row
+ 6:            ::nstcl::database::api_free_dbhandle ::nstcl::database::nsdb-main-1
+ 8:                ::nstcl::ns_set get t11 allocated_p
+ 9:                  ::nstcl::nssets::get t11 allocated_p
+10:                    ::nstcl::nssets::find t11 allocated_p
+ 8:                ::nstcl::ns_set get t11 pool
+ 9:                  ::nstcl::nssets::get t11 pool
+10:                    ::nstcl::nssets::find t11 pool
+ 3:      ::nstcl::db_abort_transaction_p
+ 3:      ::nstcl::db_abort_transaction_p
+ 3:      ::nstcl::ns_db flush ::nstcl::database::nsdb-main-1
+ 5:          ::nstcl::ns_set get t11 allocated_p
+ 6:            ::nstcl::nssets::get t11 allocated_p
+ 7:              ::nstcl::nssets::find t11 allocated_p
+ 4:        ::nstcl::database::flush ::nstcl::database::nsdb-main-1
+ 6:            ::nstcl::ns_set get t11 driver
+ 7:              ::nstcl::nssets::get t11 driver
+ 8:                ::nstcl::nssets::find t11 driver
+ 5:          ::nstcl::database::oracle::flush ::nstcl::database::nsdb-main-1
+ 7:              ::nstcl::ns_set get t11 cursor
+ 8:                ::nstcl::nssets::get t11 cursor
+ 9:                  ::nstcl::nssets::find t11 cursor
+ 7:              ::nstcl::ns_set update t11 cursor {}
+ 8:                ::nstcl::nssets::update t11 cursor {}
+ 9:                  ::nstcl::nssets::find t11 cursor
+ 7:              ::nstcl::ns_set update t11 exception_code {}
+ 8:                ::nstcl::nssets::update t11 exception_code {}
+ 9:                  ::nstcl::nssets::find t11 exception_code
+ 7:              ::nstcl::ns_set update t11 exception_text {}
+ 8:                ::nstcl::nssets::update t11 exception_text {}
+ 9:                  ::nstcl::nssets::find t11 exception_text
+ 7:              ::nstcl::ns_set update t11 num_rows {}
+ 8:                ::nstcl::nssets::update t11 num_rows {}
+ 9:                  ::nstcl::nssets::find t11 num_rows
+ 7:              ::nstcl::ns_set update t11 curr_row {}
+ 8:                ::nstcl::nssets::update t11 curr_row {}
+ 9:                  ::nstcl::nssets::find t11 curr_row
+ 7:              ::nstcl::ns_set update t11 mode {}
+ 8:                ::nstcl::nssets::update t11 mode {}
+ 9:                  ::nstcl::nssets::find t11 mode
+ 3:      ::nstcl::ns_db dml ::nstcl::database::nsdb-main-1 {end transaction}
+ 5:          ::nstcl::ns_set get t11 allocated_p
+ 6:            ::nstcl::nssets::get t11 allocated_p
+ 7:              ::nstcl::nssets::find t11 allocated_p
+ 5:          ::nstcl::ns_set update t11 sql {end transaction}
+ 6:            ::nstcl::nssets::update t11 sql {end transaction}
+ 7:              ::nstcl::nssets::find t11 sql
+ 4:        ::nstcl::database::dml ::nstcl::database::nsdb-main-1 {end transaction}
+ 6:            ::nstcl::ns_set get t11 driver
+ 7:              ::nstcl::nssets::get t11 driver
+ 8:                ::nstcl::nssets::find t11 driver
+ 5:          ::nstcl::database::oracle::exec ::nstcl::database::nsdb-main-1 {end transaction}
+ 7:              ::nstcl::ns_set get t11 cursor
+ 8:                ::nstcl::nssets::get t11 cursor
+ 9:                  ::nstcl::nssets::find t11 cursor
+ 7:              ::nstcl::ns_set get t11 conn
+ 8:                ::nstcl::nssets::get t11 conn
+ 9:                  ::nstcl::nssets::find t11 conn
+ 7:              ::nstcl::ns_set update t11 curr_row 0
+ 8:                ::nstcl::nssets::update t11 curr_row 0
+ 9:                  ::nstcl::nssets::find t11 curr_row
+ 7:              ::nstcl::ns_set update t11 num_rows 0
+ 8:                ::nstcl::nssets::update t11 num_rows 0
+ 9:                  ::nstcl::nssets::find t11 num_rows
+ 7:              ::nstcl::ns_set update t11 mode NS_DML
+ 8:                ::nstcl::nssets::update t11 mode NS_DML
+ 9:                  ::nstcl::nssets::find t11 mode
+ 7:              ::nstcl::ns_set update t11 cursor {}
+ 8:                ::nstcl::nssets::update t11 cursor {}
+ 9:                  ::nstcl::nssets::find t11 cursor
+ 7:              ::nstcl::ns_set get t11 mode
+ 8:                ::nstcl::nssets::get t11 mode
+ 9:                  ::nstcl::nssets::find t11 mode
+ 6:            ::nstcl::ns_set get t11 mode
+ 7:              ::nstcl::nssets::get t11 mode
+ 8:                ::nstcl::nssets::find t11 mode
+ 3:      ::nstcl::ns_db releasehandle ::nstcl::database::nsdb-main-1
+ 5:          ::nstcl::ns_set get t11 allocated_p
+ 6:            ::nstcl::nssets::get t11 allocated_p
+ 7:              ::nstcl::nssets::find t11 allocated_p
+ 4:        ::nstcl::database::releasehandle ::nstcl::database::nsdb-main-1
+ 6:            ::nstcl::ns_set update t11 allocated_p 0
+ 7:              ::nstcl::nssets::update t11 allocated_p 0
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set get t11 bounced_p
+ 7:              ::nstcl::nssets::get t11 bounced_p
+ 8:                ::nstcl::nssets::find t11 bounced_p
+ 3:      ::nstcl::db_abort_transaction_p
+ 1:  db_exec_plsql grant_admin {\n	    begin\n		acs_permission.grant_permi...}
+ 2:    ns_log debug {db_exec_plsql ... db_exec_plsql grant_ad...}
+ 3:      log::log debug {{db_exec_plsql ... db_exec_plsql grant_a...}
+ 4:        lvIsSuppressed debug
+ 5:          lv2longform debug
+ 4:        lv2longform debug
+ 4:        ::log::Puts debug {{db_exec_plsql ... db_exec_plsql grant_a...}
+ 2:    ad_arg_parser { bind_output bind } {}
+ 2:    db_qd_get_fullname grant_admin
+ 3:      db_qd_relative_path_p grant_admin
+ 4:        db_qd_root_path
+ 3:      db_qd_log Debug {LEVEL=0= db_exec_plsql grant_admin {\n	  ...}
+ 4:        ns_log Debug {QD_LOGGER = LEVEL=0= db_exec_plsql grant...}
+ 5:          log::log debug {{QD_LOGGER = LEVEL=0= db_exec_plsql gran...}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = LEVEL=0= db_exec_plsql gran...}
+ 3:      db_qd_log Debug {LEVEL=1= apm_source F:/temp/openacs-4/pa...}
+ 4:        ns_log Debug {QD_LOGGER = LEVEL=1= apm_source F:/temp/...}
+ 5:          log::log debug {{QD_LOGGER = LEVEL=1= apm_source F:/temp...}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = LEVEL=1= apm_source F:/temp...}
+ 3:      ns_conn isconnected
+ 3:      ad_conn file
+ 4:        ns_conn file
+ 3:      db_qd_log Debug {the ad_conn file is }
+ 4:        ns_log Debug {QD_LOGGER = the ad_conn file is }
+ 5:          log::log debug {{QD_LOGGER = the ad_conn file is }}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = the ad_conn file is }}
+ 3:      db_qd_log Debug {We are in a WWW page sourced by apm_sour...}
+ 4:        ns_log Debug {QD_LOGGER = We are in a WWW page sourced...}
+ 5:          log::log debug {{QD_LOGGER = We are in a WWW page source...}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = We are in a WWW page source...}
+ 3:      ad_make_relative_path F:/temp/openacs-4/packages/acs-bootstrap...
+ 4:        acs_root_dir
+ 5:          nsv_get acs_properties root_directory
+ 4:        acs_root_dir
+ 5:          nsv_get acs_properties root_directory
+ 3:      db_qd_log Debug {package key is acs-bootstrap-installer a...}
+ 4:        ns_log Debug {QD_LOGGER = package key is acs-bootstrap...}
+ 5:          log::log debug {{QD_LOGGER = package key is acs-bootstra...}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = package key is acs-bootstra...}
+ 3:      db_qd_make_absolute_path acs-bootstrap-installer.installer.auto-i... grant_admin
+ 4:        db_qd_root_path
+ 3:      db_qd_log Debug {generated fullname of dbqd.acs-bootstrap...}
+ 4:        ns_log Debug {QD_LOGGER = generated fullname of dbqd.a...}
+ 5:          log::log debug {{QD_LOGGER = generated fullname of dbqd....}
+ 6:            lvIsSuppressed debug
+ 7:              lv2longform debug
+ 6:            lv2longform debug
+ 6:            ::log::Puts debug {{QD_LOGGER = generated fullname of dbqd....}
+ 2:    db_qd_replace_sql dbqd.acs-bootstrap-installer.installer.a... {\n	    begin\n		acs_permission.grant_permi...}
+ 3:      db_qd_fetch dbqd.acs-bootstrap-installer.installer.a...
+ 4:        db_qd_internal_get_cache dbqd.acs-bootstrap-installer.installer.a...
+ 5:          nsv_exists OACS_FULLQUERIES dbqd.acs-bootstrap-installer.installer.a...
+ 5:          nsv_get OACS_FULLQUERIES dbqd.acs-bootstrap-installer.installer.a...
+ 5:          db_fullquery_get_load_location dbqd.acs-bootstrap-installer.installer.a...
+ 5:          db_qd_log Debug {query dbqd.acs-bootstrap-installer.insta...}
+ 6:            ns_log Debug {QD_LOGGER = query dbqd.acs-bootstrap-ins...}
+ 7:              log::log debug {{QD_LOGGER = query dbqd.acs-bootstrap-in...}
+ 8:                lvIsSuppressed debug
+ 9:                  lv2longform debug
+ 8:                lv2longform debug
+ 8:                ::log::Puts debug {{QD_LOGGER = query dbqd.acs-bootstrap-in...}
+ 5:          nsv_get OACS_FULLQUERIES dbqd.acs-bootstrap-installer.installer.a...
+ 3:      empty_string_p dbqd.acs-bootstrap-installer.installer.a...
+ 3:      db_fullquery_get_querytext dbqd.acs-bootstrap-installer.installer.a...
+ 2:    ::nstcl::database::pseudo_bind_variables {acs_permission.grant_permission (object_...}
+ 1:  ::nstcl::db_dml dbqd.acs-bootstrap-installer.installer.a... {acs_permission.grant_permission (object_...}
+ 2:    ::nstcl::database::api_get_dbhandle dbqd.acs-bootstrap-installer.installer.a...
+ 3:      ::nstcl::database::pools
+ 3:      ::nstcl::ns_db gethandle main
+ 4:        ::nstcl::database::gethandle main
+ 5:          ::nstcl::_ad_proc_parser ::nstcl::database::gethandle main
+ 6:            ::nstcl::ns_set get t11 allocated_p
+ 7:              ::nstcl::nssets::get t11 allocated_p
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set get t12 allocated_p
+ 7:              ::nstcl::nssets::get t12 allocated_p
+ 8:                ::nstcl::nssets::find t12 allocated_p
+ 6:            ::nstcl::ns_set get t13 allocated_p
+ 7:              ::nstcl::nssets::get t13 allocated_p
+ 8:                ::nstcl::nssets::find t13 allocated_p
+ 6:            ::nstcl::ns_set get t14 allocated_p
+ 7:              ::nstcl::nssets::get t14 allocated_p
+ 8:                ::nstcl::nssets::find t14 allocated_p
+ 6:            ::nstcl::ns_set get t15 allocated_p
+ 7:              ::nstcl::nssets::get t15 allocated_p
+ 8:                ::nstcl::nssets::find t15 allocated_p
+ 6:            ::nstcl::ns_set get t16 allocated_p
+ 7:              ::nstcl::nssets::get t16 allocated_p
+ 8:                ::nstcl::nssets::find t16 allocated_p
+ 6:            ::nstcl::ns_set get t17 allocated_p
+ 7:              ::nstcl::nssets::get t17 allocated_p
+ 8:                ::nstcl::nssets::find t17 allocated_p
+ 6:            ::nstcl::ns_set get t18 allocated_p
+ 7:              ::nstcl::nssets::get t18 allocated_p
+ 8:                ::nstcl::nssets::find t18 allocated_p
+ 6:            ::nstcl::ns_set get t19 allocated_p
+ 7:              ::nstcl::nssets::get t19 allocated_p
+ 8:                ::nstcl::nssets::find t19 allocated_p
+ 6:            ::nstcl::ns_set get t20 allocated_p
+ 7:              ::nstcl::nssets::get t20 allocated_p
+ 8:                ::nstcl::nssets::find t20 allocated_p
+ 6:            ::nstcl::ns_set get t21 allocated_p
+ 7:              ::nstcl::nssets::get t21 allocated_p
+ 8:                ::nstcl::nssets::find t21 allocated_p
+ 6:            ::nstcl::ns_set get t22 allocated_p
+ 7:              ::nstcl::nssets::get t22 allocated_p
+ 8:                ::nstcl::nssets::find t22 allocated_p
+ 6:            ::nstcl::ns_set get t23 allocated_p
+ 7:              ::nstcl::nssets::get t23 allocated_p
+ 8:                ::nstcl::nssets::find t23 allocated_p
+ 6:            ::nstcl::ns_set get t24 allocated_p
+ 7:              ::nstcl::nssets::get t24 allocated_p
+ 8:                ::nstcl::nssets::find t24 allocated_p
+ 6:            ::nstcl::ns_set get t25 allocated_p
+ 7:              ::nstcl::nssets::get t25 allocated_p
+ 8:                ::nstcl::nssets::find t25 allocated_p
+ 6:            ::nstcl::ns_set update t11 allocated_p 1
+ 7:              ::nstcl::nssets::update t11 allocated_p 1
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set get t11 conn
+ 7:              ::nstcl::nssets::get t11 conn
+ 8:                ::nstcl::nssets::find t11 conn
+ 3:      ::nstcl::ns_set get t11 bind_vars
+ 4:        ::nstcl::nssets::get t11 bind_vars
+ 5:          ::nstcl::nssets::find t11 bind_vars
+ 2:    ::nstcl::database::pseudo_bind_variables {acs_permission.grant_permission (object_...}
+ 2:    ::nstcl::ns_db dml ::nstcl::database::nsdb-main-1 {acs_permission.grant_permission (object_...}
+ 4:        ::nstcl::ns_set get t11 allocated_p
+ 5:          ::nstcl::nssets::get t11 allocated_p
+ 6:            ::nstcl::nssets::find t11 allocated_p
+ 4:        ::nstcl::ns_set update t11 sql {acs_permission.grant_permission (object_...}
+ 5:          ::nstcl::nssets::update t11 sql {acs_permission.grant_permission (object_...}
+ 6:            ::nstcl::nssets::find t11 sql
+ 3:      ::nstcl::database::dml ::nstcl::database::nsdb-main-1 {acs_permission.grant_permission (object_...}
+ 5:          ::nstcl::ns_set get t11 driver
+ 6:            ::nstcl::nssets::get t11 driver
+ 7:              ::nstcl::nssets::find t11 driver
+ 4:        ::nstcl::database::oracle::exec ::nstcl::database::nsdb-main-1 {acs_permission.grant_permission (object_...}
+ 6:            ::nstcl::ns_set get t11 cursor
+ 7:              ::nstcl::nssets::get t11 cursor
+ 8:                ::nstcl::nssets::find t11 cursor
+ 6:            ::nstcl::ns_set get t11 conn
+ 7:              ::nstcl::nssets::get t11 conn
+ 8:                ::nstcl::nssets::find t11 conn
+ 2:    ::nstcl::database::api_free_dbhandle ::nstcl::database::nsdb-main-1
+ 3:      ::nstcl::ns_db releasehandle ::nstcl::database::nsdb-main-1
+ 5:          ::nstcl::ns_set get t11 allocated_p
+ 6:            ::nstcl::nssets::get t11 allocated_p
+ 7:              ::nstcl::nssets::find t11 allocated_p
+ 4:        ::nstcl::database::releasehandle ::nstcl::database::nsdb-main-1
+ 6:            ::nstcl::ns_set update t11 allocated_p 0
+ 7:              ::nstcl::nssets::update t11 allocated_p 0
+ 8:                ::nstcl::nssets::find t11 allocated_p
+ 6:            ::nstcl::ns_set get t11 bounced_p
+ 7:              ::nstcl::nssets::get t11 bounced_p
+ 8:                ::nstcl::nssets::find t11 bounced_p
+ 1:  ns_log Error {Error sourcing F:/temp/openacs-4/package...}
+ 2:    log::log error {Error\ sourcing\ F:/temp/openacs-4/packa...}
+ 3:      lvIsSuppressed error
+ 4:        lv2longform error
+ 3:      lv2longform error
+ 3:      ::log::Puts error {Error\ sourcing\ F:/temp/openacs-4/packa...}

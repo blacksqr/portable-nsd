@@ -1,0 +1,16 @@
+* portable.nsd TODO
+
+HIGH
+ -c/lob support
+ -
+	
+MEDIUM 
+ -make ad_table nstcl compatible
+ -write tests for broken functionality
+ 
+LOW
+ -better solution for ns_schedule
+ -revisit thread safety ... or simply recycling interpreter with fastcgi
+
+
+

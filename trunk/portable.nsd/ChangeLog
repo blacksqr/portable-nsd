@@ -1,0 +1,23 @@
+2003-12-06  John Sequeira  <johnseq@pobox.com>
+
+	* log.txt: added ns_encodingforcharset
+
+2002-10-16    <john@FPV0B01>
+
+	* openacs-4/packages/acs-templating/tcl/parse-procs.tcl (::template::mtimes::$): commented out template::adp_compile
+
+2002-10-03    <Administrator@CBR900RR>
+
+	* NsTcl (D): ns_cache writing to db successfully
+
+2002-09-17    <john@FPV0B01>
+
+	* ns_xml.tcl (ns_xml): added text content handler for TEXT_NODE type.  this allowed apm files to be processed
+
+	* 30-xml-utils-procs.tcl (xml_node_get_children_by_name_): added my own version which calls directly into tDom
+
+2002-09-07    <john@FPV0B01>
+
+	* go.tcl (nsv_exists): not looking at keys
+	
+

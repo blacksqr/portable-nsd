@@ -1,0 +1,27 @@
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest
+    namespace import ::tcltest::*
+}
+
+
+source [file join [file dirname [info script]] .. pnsd-init.tcl ]
+
+
+proc dummy {} { return "1" }
+
+db_exec_plsql anonymousquery "select sysdate from dual where 1 = [dummy] " 
+
+test db_exec_plsql-1.0 {  } {} {
+    set user_id [db_string get_user_id "select min(user_id) from users"]
+    catch {
+	db_exec_plsql grant_admin {
+	    begin
+	    acs_permission.grant_permission (
+					     object_id => acs.magic_object_id('security_context_root'),
+					     grantee_id => :user_id,
+					     privilege => 'admin'
+					 );
+	    end;
+	}
+    }
+} {0}

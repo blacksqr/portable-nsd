@@ -1,0 +1,16 @@
+*.flc
+_*.*
+go.kpf
+foo.tcl
+renew.bat
+mysavedprocs.tcl
+log.txt.worked
+testing.tpj
+tmpl-procs.tcl
+ns_redefine.tcl
+pnsd-templating.tcl_
+ns_cache-postgresql.xql
+ns_cache-oracle.xql
+foo.tpj
+db_exec_plsql.test
+cmd2.log
