@@ -17,20 +17,20 @@ namespace import ::nstcl::*
 
 #the beginnings of namespace definition
 namespace eval ::pnsd { 
-    variable root "/var/lib/aolserver/portable.nsd/openacs-4.6.3"   ; # root folder of openacs installation
+#    variable root "/var/www/portable-nsd/portable.nsd/openacs-4.6.3"   ; # root folder of openacs installation
     variable querystring ""    ; # querystring of incoming request
     variable url ""            ; # url of incoming request
     variable __http_stream ""   ; # will contain html of page as it's being built
     variable redirect_p "f"
     variable http_done_p "f"
-    variable home "/var/lib/aolserver/portable.nsd/"    ; # pnsd root folder
+#    variable home "/var/lib/aolserver/portable.nsd/"    ; # pnsd root folder
     variable invariants ; # array of procs we don't want to have redefined
     variable error 
-    variable log_stream ""
+    variable log_stream ""; # TEste
     
-#    set home [file dirname [info script]]; 
+    variable home [file dirname [info script]]; 
 
-#    set ::pnsd::root [file join $home openacs-4.6.3]
+    variable root [file join $home openacs-4.6.3]
 
 #######################################################################
 # BEGIN CONFIGURATION 
@@ -412,6 +412,10 @@ proc load_xql { {filename ""} } {
 
 }
 #namespace
+
+puts "Variável root $::pnsd::root \n"
+puts "Variável home $::pnsd::home \n"
+
 
 # Make nstcl's db routines aware of Query Dispatcher
 source db.tcl
