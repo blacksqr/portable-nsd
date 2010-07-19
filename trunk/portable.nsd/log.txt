@@ -1,9 +1,107 @@
-error     {Server startup failed: Error during bootstrapping
-error     invalid command name "ad_verify_install"
-error         while executing
-error     "ad_verify_install"}
-error     {Server startup failed: Error during bootstrapping
-error     invalid command name "ad_verify_install"
-error         while executing
-error     "ad_verify_install"}
-error     Error\ sourcing\ bin/../openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl:\ninvalid\ command\ name\ \"ad_page_contract\"\n\ \ \ \ while\ executing\n\"ad_page_contract\ \{\n\n\ \ \ \ This\ page\ can\ be\ used\ to\ perform\ a\ complete\ non-interactive\ installation.\n\ \ \ \ All\ packages\ are\ installed.\n\ \ \ \ @author\ Bryan\ Qu...\"\n\ \ \ \ (file\ \"bin/../openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl\"\ line\ 1)\n\ \ \ \ invoked\ from\ within\n\"source\ \$__file\ \"
+error     {db_source_sql_file: acs-kernel-create.sql:
+error     psql:postgresql.sql:44: WARNING:  nonstandard use of escape in a string literal
+error     LINE 1: ...ion instr(varchar,char,integer,integer) returns integer as '
+error                                                                           ^
+error     HINT:  Use the escape string syntax for escapes, e.g., E'\r\n'.
+error     psql:postgresql.sql:142: WARNING:  nonstandard use of escape in a string literal
+error     LINE 1: ...unction get_func_drop_command (varchar) returns varchar as '
+error                                                                           ^
+error     HINT:  Use the escape string syntax for escapes, e.g., E'\r\n'.
+error     psql:postgresql.sql:172: WARNING:  nonstandard use of \\ in a string literal
+error     LINE 1: create function drop_package (varchar) returns varchar as '
+error                                                                       ^
+error     HINT:  Use the escape string syntax for backslashes, e.g., E'\\'.
+error     psql:postgresql.sql:172: WARNING:  nonstandard use of \\ in a string literal
+error     LINE 1: SELECT   $1  || '\\_\\_' || '%'
+error                             ^
+error     HINT:  Use the escape string syntax for backslashes, e.g., E'\\'.
+error     QUERY:  SELECT   $1  || '\\_\\_' || '%'
+error     CONTEXT:  SQL statement in PL/PgSQL function "drop_package" near line 8
+error     psql:postgresql.sql:197: WARNING:  nonstandard use of escape in a string literal
+error     LINE 1: create function number_src(text) returns text as '
+error                                                              ^
+error     HINT:  Use the escape string syntax for escapes, e.g., E'\r\n'.
+error     psql:postgresql.sql:247: WARNING:  nonstandard use of escape in a string literal
+error     LINE 1: ...on get_func_definition (varchar,oidvector) returns text as '
+error                                                                           ^
+error     HINT:  Use the escape string syntax for escapes, e.g., E'\r\n'.
+error     psql:postgresql.sql:247: WARNING:  nonstandard use of \' in a string literal
+error     LINE 1: SELECT   $1  || ') returns ' ||  $2  || ' as \'\n' ||  $3  |...
+error                                                     ^
+error     HINT:  Use '' to write quotes in strings, or use the escape string syntax (E'...').
+error     QUERY:  SELECT   $1  || ') returns ' ||  $2  || ' as \'\n' ||  $3  || '\' language \'plpgsql\';'
+error     CONTEXT:  SQL statement in PL/PgSQL function "get_func_definition" near line 44
+error     psql:postgresql.sql:247: WARNING:  nonstandard use of \' in a string literal
+error     LINE 1: ... || ') returns ' ||  $2  || ' as \'\n' ||  $3  || '\' langua...
+error                                                                  ^
+error     HINT:  Use '' to write quotes in strings, or use the escape string syntax (E'...').
+error     QUERY:  SELECT   $1  || ') returns ' ||  $2  || ' as \'\n' ||  $3  || '\' language \'plpgsql\';'
+error     CONTEXT:  SQL statement in PL/PgSQL function "get_func_definition" near line 44
+error     psql:postgresql.sql:266: ERROR:  function get_func_definition(name, oidvector) does not exist
+error     LINE 2: select get_func_definition(proname,proargtypes) as definitio...
+error                    ^
+error     HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+error     psql:postgresql.sql:271: ERROR:  function get_func_header(name, oidvector) does not exist
+error     LINE 2: select get_func_header(proname,proargtypes) as definition, 
+error                    ^
+error     HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+error     psql:lob.sql:33: WARNING:  changing return type of function on_lobs_delete from "opaque" to "trigger"
+error     psql:lob.sql:96: ERROR:  missing "LOOP" at end of SQL expression
+error     CONTEXT:  compile of PL/pgSQL function "lob_get_data" near line 6
+error     psql:acs-metadata-create.sql:88: WARNING:  changing return type of function acs_object_type_insert_tr from "opaque" to "trigger"
+error     psql:acs-metadata-create.sql:137: WARNING:  changing return type of function acs_object_type_update_tr from "opaque" to "trigger"
+error     LINE 1: select acs_attribute_id_seq.nextval
+error                    ^
+error     QUERY:  select acs_attribute_id_seq.nextval
+error     CONTEXT:  PL/pgSQL function "acs_attribute__create_attribute" line 28 at SQL statement
+error     PL/pgSQL function "inline_0" line 20 at assignment
+error     psql:acs-objects-create.sql:216: WARNING:  changing return type of function acs_objects_mod_ip_insert_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:229: WARNING:  changing return type of function acs_objects_last_mod_update_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:268: WARNING:  changing return type of function acs_objects_insert_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:328: WARNING:  changing return type of function acs_objects_update_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:416: WARNING:  changing return type of function acs_objects_context_id_in_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:483: WARNING:  changing return type of function acs_objects_context_id_up_tr from "opaque" to "trigger"
+error     psql:acs-objects-create.sql:497: WARNING:  changing return type of function acs_objects_context_id_del_tr from "opaque" to "trigger"
+error     psql:acs-relationships-create.sql:408: WARNING:  changing return type of function acs_rels_in_tr from "opaque" to "trigger"
+error     psql:groups-create.sql:411: WARNING:  changing return type of function membership_rels_in_tr from "opaque" to "trigger"
+error     psql:groups-create.sql:426: WARNING:  changing return type of function composition_rels_in_tr from "opaque" to "trigger"
+error     LINE 4: (acs_object_id_seq.nextval, 'membership_rel', 'group');
+error              ^
+error     LINE 4: (acs_object_id_seq.nextval, 'composition_rel', 'group');
+error              ^
+error     psql:rel-segments-create.sql:288: WARNING:  changing return type of function parties_in_tr from "opaque" to "trigger"
+error     psql:rel-segments-create.sql:302: WARNING:  changing return type of function parties_del_tr from "opaque" to "trigger"
+error     psql:rel-segments-create.sql:325: WARNING:  changing return type of function rel_segments_in_tr from "opaque" to "trigger"
+error     psql:rel-segments-create.sql:342: WARNING:  changing return type of function rel_segments_del_tr from "opaque" to "trigger"
+error     psql:rel-constraints-create.sql:540: WARNING:  changing return type of function rel_constraints_ins_tr from "opaque" to "trigger"
+error     psql:rel-constraints-create.sql:590: WARNING:  changing return type of function rel_constraints_del_tr from "opaque" to "trigger"
+error     psql:acs-permissions-create.sql:184: WARNING:  changing return type of function acs_priv_hier_ins_del_tr from "opaque" to "trigger"
+error     psql:acs-permissions-create.sql:198: WARNING:  changing return type of function acs_priv_del_tr from "opaque" to "trigger"
+error     psql:acs-permissions-create.sql:418: WARNING:  changing return type of function acs_permissions_lock_tr from "opaque" to "trigger"
+error     psql:groups-body-create.sql:86: WARNING:  changing return type of function membership_rels_in_tr from "opaque" to "trigger"
+error     psql:groups-body-create.sql:113: WARNING:  changing return type of function membership_rels_up_tr from "opaque" to "trigger"
+error     psql:groups-body-create.sql:141: WARNING:  changing return type of function membership_rels_del_tr from "opaque" to "trigger"
+error     psql:groups-body-create.sql:250: WARNING:  changing return type of function composition_rels_in_tr from "opaque" to "trigger"
+error     psql:groups-body-create.sql:351: WARNING:  changing return type of function composition_rels_del_tr from "opaque" to "trigger"
+error     psql:site-nodes-create.sql:99: WARNING:  changing return type of function site_node_insert_tr from "opaque" to "trigger"
+error     psql:site-nodes-create.sql:159: WARNING:  changing return type of function site_node_update_tr from "opaque" to "trigger"
+error     psql:apm-create.sql:1859: ERROR:  syntax error at or near "returns"
+error     LINE 1: returns 0
+error             ^
+error     QUERY:  returns 0
+error     CONTEXT:  SQL statement in PL/PgSQL function "apm_package__disable" near line 8
+error     psql:apm-create.sql:2496: ERROR:  syntax error at or near "initial_install_p"
+error     LINE 1: ...mtime), singleton_p = coalesce( $7 , singleton_p) initial_in...
+error                                                                  ^
+error     QUERY:  UPDATE apm_package_types SET pretty_name = coalesce( $1 , pretty_name), pretty_plural = coalesce( $2 , pretty_plural), package_uri = coalesce( $3 , package_uri), package_type = coalesce( $4 , package_type), spec_file_path = coalesce( $5 , spec_file_path), spec_file_mtime = coalesce( $6 , spec_file_mtime), singleton_p = coalesce( $7 , singleton_p) initial_install_p = coalesce( $8 , initial_install_p) where package_key =  $9 
+error     CONTEXT:  SQL statement in PL/PgSQL function "apm_package_type__update_type" near line 21
+error     LINE 1: select acs_object_id_seq.nextval from dual
+error                    ^
+error     QUERY:  select acs_object_id_seq.nextval from dual
+error     CONTEXT:  PL/pgSQL function "acs_object__new" line 12 at SQL statement
+error     PL/pgSQL function "acs_rel__new" line 13 at assignment
+error     PL/pgSQL function "membership_rel__new" line 11 at assignment
+error     SQL statement "SELECT  membership_rel__new ( null, 'membership_rel', acs__magic_object_id('the_public'), acs__magic_object_id('unregistered_visitor'), 'approved', null, null)"
+error     PL/pgSQL function "inline_2" line 54 at PERFORM
+error     }
+error     Error\ sourcing\ ./openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl:\npsql:postgresql.sql:44:\ WARNING:\ \ nonstandard\ use\ of\ escape\ in\ a\ string\ literal\nLINE\ 1:\ ...ion\ instr(varchar,char,integer,integer)\ returns\ integer\ as\ '\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ escapes,\ e.g.,\ E'\\r\\n'.\npsql:postgresql.sql:142:\ WARNING:\ \ nonstandard\ use\ of\ escape\ in\ a\ string\ literal\nLINE\ 1:\ ...unction\ get_func_drop_command\ (varchar)\ returns\ varchar\ as\ '\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ escapes,\ e.g.,\ E'\\r\\n'.\npsql:postgresql.sql:172:\ WARNING:\ \ nonstandard\ use\ of\ \\\\\ in\ a\ string\ literal\nLINE\ 1:\ create\ function\ drop_package\ (varchar)\ returns\ varchar\ as\ '\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ backslashes,\ e.g.,\ E'\\\\'.\npsql:postgresql.sql:172:\ WARNING:\ \ nonstandard\ use\ of\ \\\\\ in\ a\ string\ literal\nLINE\ 1:\ SELECT\ \ \ \$1\ \ ||\ '\\\\_\\\\_'\ ||\ '%'\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ backslashes,\ e.g.,\ E'\\\\'.\nQUERY:\ \ SELECT\ \ \ \$1\ \ ||\ '\\\\_\\\\_'\ ||\ '%'\nCONTEXT:\ \ SQL\ statement\ in\ PL/PgSQL\ function\ \"drop_package\"\ near\ line\ 8\npsql:postgresql.sql:197:\ WARNING:\ \ nonstandard\ use\ of\ escape\ in\ a\ string\ literal\nLINE\ 1:\ create\ function\ number_src(text)\ returns\ text\ as\ '\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ escapes,\ e.g.,\ E'\\r\\n'.\npsql:postgresql.sql:247:\ WARNING:\ \ nonstandard\ use\ of\ escape\ in\ a\ string\ literal\nLINE\ 1:\ ...on\ get_func_definition\ (varchar,oidvector)\ returns\ text\ as\ '\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ the\ escape\ string\ syntax\ for\ escapes,\ e.g.,\ E'\\r\\n'.\npsql:postgresql.sql:247:\ WARNING:\ \ nonstandard\ use\ of\ \\'\ in\ a\ string\ literal\nLINE\ 1:\ SELECT\ \ \ \$1\ \ ||\ ')\ returns\ '\ ||\ \ \$2\ \ ||\ '\ as\ \\'\\n'\ ||\ \ \$3\ \ |...\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ ''\ to\ write\ quotes\ in\ strings,\ or\ use\ the\ escape\ string\ syntax\ (E'...').\nQUERY:\ \ SELECT\ \ \ \$1\ \ ||\ ')\ returns\ '\ ||\ \ \$2\ \ ||\ '\ as\ \\'\\n'\ ||\ \ \$3\ \ ||\ '\\'\ language\ \\'plpgsql\\'\;'\nCONTEXT:\ \ SQL\ statement\ in\ PL/PgSQL\ function\ \"get_func_definition\"\ near\ line\ 44\npsql:postgresql.sql:247:\ WARNING:\ \ nonstandard\ use\ of\ \\'\ in\ a\ string\ literal\nLINE\ 1:\ ...\ ||\ ')\ returns\ '\ ||\ \ \$2\ \ ||\ '\ as\ \\'\\n'\ ||\ \ \$3\ \ ||\ '\\'\ langua...\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ Use\ ''\ to\ write\ quotes\ in\ strings,\ or\ use\ the\ escape\ string\ syntax\ (E'...').\nQUERY:\ \ SELECT\ \ \ \$1\ \ ||\ ')\ returns\ '\ ||\ \ \$2\ \ ||\ '\ as\ \\'\\n'\ ||\ \ \$3\ \ ||\ '\\'\ language\ \\'plpgsql\\'\;'\nCONTEXT:\ \ SQL\ statement\ in\ PL/PgSQL\ function\ \"get_func_definition\"\ near\ line\ 44\npsql:postgresql.sql:266:\ ERROR:\ \ function\ get_func_definition(name,\ oidvector)\ does\ not\ exist\nLINE\ 2:\ select\ get_func_definition(proname,proargtypes)\ as\ definitio...\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ No\ function\ matches\ the\ given\ name\ and\ argument\ types.\ You\ might\ need\ to\ add\ explicit\ type\ casts.\npsql:postgresql.sql:271:\ ERROR:\ \ function\ get_func_header(name,\ oidvector)\ does\ not\ exist\nLINE\ 2:\ select\ get_func_header(proname,proargtypes)\ as\ definition,\ \n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nHINT:\ \ No\ function\ matches\ the\ given\ name\ and\ argument\ types.\ You\ might\ need\ to\ add\ explicit\ type\ casts.\npsql:lob.sql:33:\ WARNING:\ \ changing\ return\ type\ of\ function\ on_lobs_delete\ from\ \"opaque\"\ to\ \"trigger\"\npsql:lob.sql:96:\ ERROR:\ \ missing\ \"LOOP\"\ at\ end\ of\ SQL\ expression\nCONTEXT:\ \ compile\ of\ PL/pgSQL\ function\ \"lob_get_data\"\ near\ line\ 6\npsql:acs-metadata-create.sql:88:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_object_type_insert_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-metadata-create.sql:137:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_object_type_update_tr\ from\ \"opaque\"\ to\ \"trigger\"\nLINE\ 1:\ select\ acs_attribute_id_seq.nextval\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nQUERY:\ \ select\ acs_attribute_id_seq.nextval\nCONTEXT:\ \ PL/pgSQL\ function\ \"acs_attribute__create_attribute\"\ line\ 28\ at\ SQL\ statement\nPL/pgSQL\ function\ \"inline_0\"\ line\ 20\ at\ assignment\npsql:acs-objects-create.sql:216:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_mod_ip_insert_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:229:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_last_mod_update_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:268:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_insert_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:328:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_update_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:416:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_context_id_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:483:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_context_id_up_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-objects-create.sql:497:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_objects_context_id_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-relationships-create.sql:408:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_rels_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-create.sql:411:\ WARNING:\ \ changing\ return\ type\ of\ function\ membership_rels_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-create.sql:426:\ WARNING:\ \ changing\ return\ type\ of\ function\ composition_rels_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\nLINE\ 4:\ (acs_object_id_seq.nextval,\ 'membership_rel',\ 'group')\;\n\ \ \ \ \ \ \ \ \ ^\nLINE\ 4:\ (acs_object_id_seq.nextval,\ 'composition_rel',\ 'group')\;\n\ \ \ \ \ \ \ \ \ ^\npsql:rel-segments-create.sql:288:\ WARNING:\ \ changing\ return\ type\ of\ function\ parties_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:rel-segments-create.sql:302:\ WARNING:\ \ changing\ return\ type\ of\ function\ parties_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:rel-segments-create.sql:325:\ WARNING:\ \ changing\ return\ type\ of\ function\ rel_segments_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:rel-segments-create.sql:342:\ WARNING:\ \ changing\ return\ type\ of\ function\ rel_segments_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:rel-constraints-create.sql:540:\ WARNING:\ \ changing\ return\ type\ of\ function\ rel_constraints_ins_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:rel-constraints-create.sql:590:\ WARNING:\ \ changing\ return\ type\ of\ function\ rel_constraints_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-permissions-create.sql:184:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_priv_hier_ins_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-permissions-create.sql:198:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_priv_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:acs-permissions-create.sql:418:\ WARNING:\ \ changing\ return\ type\ of\ function\ acs_permissions_lock_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-body-create.sql:86:\ WARNING:\ \ changing\ return\ type\ of\ function\ membership_rels_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-body-create.sql:113:\ WARNING:\ \ changing\ return\ type\ of\ function\ membership_rels_up_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-body-create.sql:141:\ WARNING:\ \ changing\ return\ type\ of\ function\ membership_rels_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-body-create.sql:250:\ WARNING:\ \ changing\ return\ type\ of\ function\ composition_rels_in_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:groups-body-create.sql:351:\ WARNING:\ \ changing\ return\ type\ of\ function\ composition_rels_del_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:site-nodes-create.sql:99:\ WARNING:\ \ changing\ return\ type\ of\ function\ site_node_insert_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:site-nodes-create.sql:159:\ WARNING:\ \ changing\ return\ type\ of\ function\ site_node_update_tr\ from\ \"opaque\"\ to\ \"trigger\"\npsql:apm-create.sql:1859:\ ERROR:\ \ syntax\ error\ at\ or\ near\ \"returns\"\nLINE\ 1:\ returns\ 0\n\ \ \ \ \ \ \ \ ^\nQUERY:\ \ returns\ 0\nCONTEXT:\ \ SQL\ statement\ in\ PL/PgSQL\ function\ \"apm_package__disable\"\ near\ line\ 8\npsql:apm-create.sql:2496:\ ERROR:\ \ syntax\ error\ at\ or\ near\ \"initial_install_p\"\nLINE\ 1:\ ...mtime),\ singleton_p\ =\ coalesce(\ \$7\ ,\ singleton_p)\ initial_in...\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nQUERY:\ \ UPDATE\ apm_package_types\ SET\ pretty_name\ =\ coalesce(\ \$1\ ,\ pretty_name),\ pretty_plural\ =\ coalesce(\ \$2\ ,\ pretty_plural),\ package_uri\ =\ coalesce(\ \$3\ ,\ package_uri),\ package_type\ =\ coalesce(\ \$4\ ,\ package_type),\ spec_file_path\ =\ coalesce(\ \$5\ ,\ spec_file_path),\ spec_file_mtime\ =\ coalesce(\ \$6\ ,\ spec_file_mtime),\ singleton_p\ =\ coalesce(\ \$7\ ,\ singleton_p)\ initial_install_p\ =\ coalesce(\ \$8\ ,\ initial_install_p)\ where\ package_key\ =\ \ \$9\ \nCONTEXT:\ \ SQL\ statement\ in\ PL/PgSQL\ function\ \"apm_package_type__update_type\"\ near\ line\ 21\nLINE\ 1:\ select\ acs_object_id_seq.nextval\ from\ dual\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ^\nQUERY:\ \ select\ acs_object_id_seq.nextval\ from\ dual\nCONTEXT:\ \ PL/pgSQL\ function\ \"acs_object__new\"\ line\ 12\ at\ SQL\ statement\nPL/pgSQL\ function\ \"acs_rel__new\"\ line\ 13\ at\ assignment\nPL/pgSQL\ function\ \"membership_rel__new\"\ line\ 11\ at\ assignment\nSQL\ statement\ \"SELECT\ \ membership_rel__new\ (\ null,\ 'membership_rel',\ acs__magic_object_id('the_public'),\ acs__magic_object_id('unregistered_visitor'),\ 'approved',\ null,\ null)\"\nPL/pgSQL\ function\ \"inline_2\"\ line\ 54\ at\ PERFORM\n\n\ \ \ \ invoked\ from\ within\n\"db_source_sql_file\ -callback\ apm_ns_write_callback\ acs-kernel-create.sql\"\n\ \ \ \ invoked\ from\ within\n\"if\ \{\ !\[install_good_data_model_p\]\ \}\ \{\n\ \ \ \ ns_write\ \"<ul>\n\ \ <li>Installing\ Core\ Data\ Model.<p><pre><blockquote>\n\"\n\ \ \ \ db_source_sql_file\ -callback\ apm_...\"\n\ \ \ \ (file\ \"./openacs-4.6.3/packages/acs-bootstrap-installer/installer/auto-install.tcl\"\ line\ 44)\n\ \ \ \ invoked\ from\ within\n\"source\ \$__file\ \"

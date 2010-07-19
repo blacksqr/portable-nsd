@@ -33,7 +33,7 @@ proc ns_config { args } {
 #	"DataSource" { return "localhost:5432:openacs2" }
 #	"Driver"   { return "" }
 	"Verbose"  { ns_log warn "default ns_config returning..."; return "On" }
-	"pgbin"    { ns_log warn "default ns_config returning..."; return [file join [lindex [file split [pwd]] 0 ] "/cygwin/bin"] } 
+	"pgbin"    { ns_log warn "default ns_config returning..."; return [file join [lindex [file split [pwd]] 0 ] "/usr/local/pgsql/bin"] } 
 	"DebugP"   { ns_log warn "default ns_config returning..."; return "1" }
 	"LogDebugP" { ns_log warn "default ns_config returning..."; return "1" }
 	"Hostname" { ns_log warn "default ns_config returning..."; return "localhost" }
