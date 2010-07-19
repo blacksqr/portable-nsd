@@ -413,10 +413,6 @@ proc load_xql { {filename ""} } {
 }
 #namespace
 
-puts "Variável root $::pnsd::root \n"
-puts "Variável home $::pnsd::home \n"
-
-
 # Make nstcl's db routines aware of Query Dispatcher
 source db.tcl
 
