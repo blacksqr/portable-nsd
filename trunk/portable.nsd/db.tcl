@@ -13,7 +13,7 @@ foreach proc {
 } {
     
    ad_proc $proc { {-dbn "" } statement_name  pre_sql args } "
-\#        ns_log info \"$proc called with \[info level 0]\"
+\#        ns_log notice \"$proc called with \[info level 0]\"
         set full_statement_name statement_name 
 	if \[catch {
             set full_statement_name \[db_qd_get_fullname \$statement_name]

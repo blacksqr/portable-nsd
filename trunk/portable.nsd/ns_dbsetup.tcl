@@ -19,16 +19,16 @@ if {[lsearch [namespace children] ::nstcl] == -1} {
 
 
 proc setup_pool { pool } {
-    nstcl::configure_pool [ns_config ns/db/pool/$pool Driver] $pool \
-	[ns_config ns/db/pool/$pool Connections]  \
-	[ns_config ns/db/pool/$pool DataSource]   \
-	[ns_config ns/db/pool/$pool User]   \
-	[ns_config ns/db/pool/$pool Password]   	
+    nstcl::configure_pool [nstcl::ns_config ns/db/pool/$pool Driver] $pool \
+	[nstcl::ns_config ns/db/pool/$pool Connections]  \
+	[nstcl::ns_config ns/db/pool/$pool DataSource]   \
+	[nstcl::ns_config ns/db/pool/$pool User]   \
+	[nstcl::ns_config ns/db/pool/$pool Password]   	
 }
 
 
 #define three pools 
-nstcl::load_driver [ns_config ns/db/pool/main Driver]
+nstcl::load_driver [nstcl::ns_config ns/db/pool/main Driver]
 
 
 setup_pool main 
@@ -42,9 +42,9 @@ nstcl::set_default_pool main
 proc db_name {} {  
 #    Returns the name of the database as reported by the driver. 
 
-    set dbh [ns_db gethandle main]
-    set dbtype [ns_db dbtype $dbh]
-    ns_db releasehandle $dbh
+    set dbh [nstcl::ns_db gethandle main]
+    set dbtype [nstcl::ns_db dbtype $dbh]
+    nstcl::ns_db releasehandle $dbh
     return $dbtype
 
 

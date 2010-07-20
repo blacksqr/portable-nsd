@@ -1,7 +1,5 @@
-#!D:/Tcl/bin/tclsh 
+#!/usr/local/bin/tclsh
 # Try to run page code after quick bootstrap.
-
-package require Tclx
 
 puts [time { 
     source [file join [file dirname [info script]] pnsd-bootstrap.tcl ] } ]
@@ -30,5 +28,3 @@ pnsd::write_html
 #puts [info body template::adp_prepare]
 #puts [info body ad_page_contract]
 puts [info body util_memoize]
-
-

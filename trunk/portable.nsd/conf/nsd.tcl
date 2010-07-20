@@ -13,6 +13,8 @@
 #
 # Set some Tcl variables that are commonly used throughout this file.
 #
+package require nstcl 
+namespace import ::nstcl::*    
 
 set httpport               80
 set httpsport              8443
