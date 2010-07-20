@@ -139,7 +139,7 @@ proc nsv_unset { id key } {
 
 
 
-ad_proc ns_share { {-init ""} name } {
+nstcl::ad_proc ns_share { {-init ""} name } {
     # don't really do anything for now    
 } {
 

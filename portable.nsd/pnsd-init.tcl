@@ -26,7 +26,7 @@ namespace eval ::pnsd {
 #    variable home "/var/lib/aolserver/portable.nsd/"    ; # pnsd root folder
     variable invariants ; # array of procs we don't want to have redefined
     variable error 
-    variable log_stream ""; # TEste
+    variable log_stream ""; # Teste
     
     variable home [file dirname [info script]]; 
 
@@ -414,8 +414,7 @@ proc load_xql { {filename ""} } {
 #namespace
 
 # Make nstcl's db routines aware of Query Dispatcher
-source db.tcl
-
+source [file join [file dirname [info script]] db.tcl]
 
 #puts [info body db_dml]
 #exit
@@ -427,7 +426,7 @@ source db.tcl
 # TOGGLE LOADING OF XQL FILE FROM CACHE
 # only do this if a script has not set it already
 if [ns_config -bool pnsd/parameters LoadXqlFromCache] {
-    ns_log info "Not loading xql files.. relying on cache"
+    #ns_log notice "Not loading xql files.. relying on cache"
     proc db_qd_load_query_file { args } {
 	# no-op
 	ns_log debug "Skipping db_qg_load_query_file"
@@ -451,7 +450,7 @@ pnsd::persistentArray OACS_PROCS [file join $::pnsd::home procs.dat]
 
 #TURN OFF VERBOSE QD LOGGING
 if [ns_config -bool pnsd/parameters QuietQueryDispatcherLogging] {
-    ns_log Notice "Disabling verbose query dispatcher logging"
+    #ns_log notice "Disabling verbose query dispatcher logging"
     proc db_qd_log { args } {}
     set ::pnsd::invariants(db_qd_log) 1
 }

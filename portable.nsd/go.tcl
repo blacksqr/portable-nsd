@@ -1,5 +1,4 @@
-#!c:/Tcl/bin/tclsh.exe
-#!/usr/bin/tclsh
+#!/usr/local/bin/tclsh
 #
 # go.tcl
 #
@@ -19,7 +18,7 @@
 #namespace import ::nstcl::
 
 # This loads tclsh-specific aolserver functionality
-package require Tclx
+#package require Tclx
 #cmdtrace  3; #notruncate
 
 source [file join [file dirname [info script]] pnsd-init.tcl ]

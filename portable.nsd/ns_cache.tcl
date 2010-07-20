@@ -55,8 +55,8 @@ proc ns_cache { cmd args  }  {
 	    set key [lindex $args 1]
 	    set value [lindex $args 2]
 #	    ns_log Debug "ns_cache set called w/ $args "
-	    db_dml ns_cache_remove "delete from ns_cache where cacheid=:cachename and cache_key=:key"
-	    db_dml ns_cache_set "insert into ns_cache(cacheid, cache_key, cache_value) values (:cachename, :key, :value)"
+	    nstcl::db_dml ns_cache_remove "delete from ns_cache where cacheid=:cachename and cache_key=:key"
+	    nstcl::db_dml ns_cache_set "insert into ns_cache(cacheid, cache_key, cache_value) values (:cachename, :key, :value)"
 	    return 1
 	}
 	
@@ -81,7 +81,7 @@ proc ns_cache { cmd args  }  {
 	    set cachename [lindex $args 0]
 	    if {[llength $args] == 1} { error "No key passed to flush" } 
 	    set key [lindex $args 1]
-	    db_dml ns_cache_flush "delete from ns_cache where cacheid=:cachename and cache_key = :key"
+	    nstcl::db_dml ns_cache_flush "delete from ns_cache where cacheid=:cachename and cache_key = :key"
 	    return 1
 	}
 	"init" {
@@ -89,18 +89,18 @@ proc ns_cache { cmd args  }  {
 
 	    #(very)poor man's query dispatcher: qd won't work on files outside openacs source code tree...
 	    if { [ns_config ns/db/pool/main Driver]=="oracle" }  {
-		return [expr ![catch { db_dml ns_cache_initialize "create table ns_cache ( cacheid varchar(3000), cache_key varchar(1000), cache_value long)"} ]]
+		return [expr ![catch { nstcl::db_dml ns_cache_initialize "create table ns_cache ( cacheid varchar(3000), cache_key varchar(1000), cache_value long)"} ]]
 #TODO create indexes on the cache.
 	    } else {
 		#postgresql version
-		return [expr ![catch { db_dml ns_cache_initialize "create table ns_cache ( cacheid text, cache_key varchar(1000), cache_value text)"} ]]
+		return [expr ![catch { nstcl::db_dml ns_cache_initialize "create table ns_cache ( cacheid text, cache_key varchar(1000), cache_value text)"} ]]
 	    }
 	    
 	    
 	}
 	"reinit" {
 	    ns_log info "ns_cache re-initializing"
-	    db_dml ns_cache_reinit "delete from ns_cache"
+	    nstcl::db_dml ns_cache_reinit "delete from ns_cache"
 	    return 1
 	}
 	

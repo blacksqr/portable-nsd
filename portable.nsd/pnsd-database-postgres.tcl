@@ -143,7 +143,7 @@ proc db_exec_plpgsql { db statement_name pre_sql fname } {
 
 
 #JS: BROKEN... does not handle bind vars.
-ad_proc db_exec { type db statement_name pre_sql {ulevel 2} } {
+::nstcl::ad_proc db_exec { type db statement_name pre_sql {ulevel 2} } {
 
     A helper procedure to execute a SQL statement, potentially binding
     depending on the value of the $bind variable in the calling environment
