@@ -1,23 +1,14 @@
-<!--@+leo-->
-<!--@+node:0::@file pnsd-bootstrap.tcl-->
-<!--@+body-->
-<!--@+doc-->
-<!--
+#! /usr/bin/env tclsh
+# Experimental: These routines will minimally load enough of OpenACS so that the remainder can be auto-loaded
 
-
-Experimental: These routines will minimally load enough of OpenACS so that the remainder can be auto-loaded
-
-
--->
-
-<!--@-doc-->
-<!--@@code-->
 
 package require profiler
 #::profiler::init 
 source [file join [file dirname [info script]] pnsd-init.tcl ]
 
 source [file join $::pnsd::home pnsd-templating.tcl ]
+
+pnsd::source_openacs
 
 pnsd::_lock_procs
 
@@ -124,9 +115,3 @@ apm_source [file join $root_directory packages acs-tcl tcl tcl-documentation-pro
 
 #apm_source [file join $root_directory packages/acs-tcl/tcl/site-nodes-init.tcl]
 
-
-
-
-<!--@-body-->
-<!--@-node:0::@file pnsd-bootstrap.tcl-->
-<!--@-leo-->

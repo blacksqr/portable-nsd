@@ -1,0 +1,7 @@
+error     {Server startup failed: Error during bootstrapping
+error     invalid command name "db_qd_load_query_file"
+error         while executing
+error     "db_qd_load_query_file $file"
+error         (procedure "apm_bootstrap_load_queries" line 26)
+error         invoked from within
+error     "apm_bootstrap_load_queries acs-tcl"}

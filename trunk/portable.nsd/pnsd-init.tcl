@@ -13,10 +13,11 @@ package require nstcl
 package require fileutil 
 #package require Tclx   ; #used occasionally for debugging
 
-namespace import ::nstcl::*    
-
 #the beginnings of namespace definition
 namespace eval ::pnsd { 
+	# Tcl best practices say to put it here
+	uplevel #0 [list namespace import ::nstcl::*]
+
 #    variable root "/var/www/portable-nsd/portable.nsd/openacs-4.6.3"   ; # root folder of openacs installation
     variable querystring ""    ; # querystring of incoming request
     variable url ""            ; # url of incoming request
@@ -52,7 +53,7 @@ namespace eval ::pnsd {
 
     #Files I need to parse config file
     foreach f { ns_info  } {
-	uplevel \#0 [list source [file join [file dirname [info script]] $f.tcl ] ]
+		uplevel \#0 [list source [file join [file dirname [info script]] $f.tcl ] ]
     }
 
     #INITIALIZE LOG
@@ -68,7 +69,7 @@ namespace eval ::pnsd {
 
 #makes emacs happy,  but comment it out if you read logs in notepad. 
 #Also,  probably want to have buffering when running in production
-    fconfigure $::pnsd::log_stream -buffering none -translation lf 
+    #fconfigure $::pnsd::log_stream -buffering none -translation lf 
 
     #Files that should follow config file parse
 
@@ -84,7 +85,7 @@ namespace eval ::pnsd {
     }
 
     foreach f [list $dbfile nsv ns_misc ns_xml ns_conn ns_cache] {
-	uplevel \#0 [list source [file join [file dirname [info script]] $f.tcl ] ]
+		uplevel \#0 [list source [file join [file dirname [info script]] $f.tcl ] ]
     }
 
 
@@ -99,101 +100,96 @@ namespace eval ::pnsd {
     ns_set update $headers_id Host [info host]
     ns_set update $headers_id Referer ""
 
+	array set ::pnsd::invariants {}
+
+	proc lock_proc { name } {
+	    set ::pnsd::invariants($name) 1 
+	}
+
+	# NSTCL PROCS THAT CAN NOT BE REDEFINED
+	foreach name  {
+	    db_string 
+   		db_list
+	    db_list_of_lists
+	    db_list_of_ns_sets
+	    db_multirow
+	    db_0or1row
+	    db_1row
+	    db_quote
+	    db_transaction
+	    db_abort_transaction
+	    db_continue_transaction
+	    db_name
+	    db_dml
+	    db_exec
+	    db_exec_plpgsql
+	    db_exec_plsql
+	    db_foreach
+	    ns_pg_bind_0or1row
+	    ns_pg_bind
+
+	    db_abort_transaction_p
+	    multirow
+	    template::multirow
+	    template::adp_eval
+	    template::adp_compile
+	    template::adp_puts
+	    template::adp_abort
+	    template::adp_init
+	    template::adp_prepare
+	    template::adp_parse
+	    adp_parse_ad_conn_file
+	    ns_adp_parse
+
+	    template::form::template
+	    template::form::generate
+	    template::adp_compile_chunk
+	    template::form::get_reference
+
+	} { 
+	    lock_proc $name
+	}
+	# remove db_source_sql_file for postgres.
 
 
+	# NOTE: These will be overloaded in pnsd-templating.tcl
+	#    template::adp_abort
+	#    template::adp_parse
+	#    template::adp_prepare
+	#    template::adp_init
+	#    ad_ns_set_to_tcl_vars
+	#    set_variables_after_query
 
-array set ::pnsd::invariants {}
+	#lock pnsd/nstcl defined commmands
+	proc _lock_procs {} {
 
-proc lock_proc { name } {
-    set ::pnsd::invariants($name) 1 
-}
+	    uplevel \#0 {
 
-# NSTCL PROCS THAT CAN NOT BE REDEFINED
-foreach name  {
-    db_string 
-    db_list
-    db_list_of_lists
-    db_list_of_ns_sets
-    db_multirow
-    db_0or1row
-    db_1row
-    db_quote
-    db_transaction
-    db_abort_transaction
-    db_continue_transaction
-    db_name
-    db_dml
-    db_exec
-    db_exec_plpgsql
-    db_exec_plsql
-    db_foreach
-    ns_pg_bind_0or1row
-    ns_pg_bind
-
-
-    db_abort_transaction_p
-    multirow
-    template::multirow
-    template::adp_eval
-    template::adp_compile
-    template::adp_puts
-    template::adp_abort
-    template::adp_init
-    template::adp_prepare
-    template::adp_parse
-    adp_parse_ad_conn_file
-    ns_adp_parse
-
-    template::form::template
-    template::form::generate
-    template::adp_compile_chunk
-    template::form::get_reference
-
-} { 
-    lock_proc $name
-}
-# remove db_source_sql_file for postgres.
-
-
-# NOTE: These will be overloaded in pnsd-templating.tcl
-#    template::adp_abort
-#    template::adp_parse
-#    template::adp_prepare
-#    template::adp_init
-#    ad_ns_set_to_tcl_vars
-#    set_variables_after_query
-
-#lock pnsd/nstcl defined commmands
-proc _lock_procs {} {
-
-    uplevel \#0 {
-
-	rename proc _proc
-	_proc ::proc {
-	    name 
-	    arglist 
-	    body
-	} {
-	    #array set mutable_procs { ::ad_arg_parser }
-	    if {[info exists ::pnsd::invariants($name)]} { 
-		ns_log info "NOT defining $name ... it's locked"
-		
-		return
-	    }
+			rename proc __proc
+			__proc ::proc {
+			    name 
+			    arglist 
+			    body
+			} {
+			    #array set mutable_procs { ::ad_arg_parser }
+			    if {[info exists ::pnsd::invariants($name)]} { 
+					ns_log info "NOT defining $name ... it's locked"
+			
+					return
+			    }
 	    
-	    if [llength [info commands ::nstcl::$name]] {  
+			    if [llength [info commands ::nstcl::$name]] {  
 		
-		if {![string match $name "::ad_arg_parser"] 
-		    && ![string match $name "ad_proc"]} { 
-		    ns_log info "NOT redefining $name"; 
-		    return 
-		} 
+					if {![string match $name "::ad_arg_parser"] && ![string match $name "ad_proc"]} { 
+					    ns_log info "NOT redefining $name"; 
+					    return 
+					} 
 		
-		#ns_log debug "redefining $name"
+					#ns_log debug "redefining $name"
 		
-	    } 
+			    } 
 
-#	    if  [info proc $name] {  	    		
+	#	    if  [info proc $name] {  	    		
 		#		ns_log "Redefining existing command $name"
 #	    }
 
@@ -202,213 +198,208 @@ proc _lock_procs {} {
 	    #set OACS_PROCS($name) [info script]; #Use this to store proc->file lookups
 	    
 	    #ns_log info "defining $name"
-	    uplevel 1 [list _proc $name $arglist $body]
+			    uplevel 1 [list __proc $name $arglist $body]
 	    #     uplevel 1 [list trace add execution $name enterstep [list ::proc_start $name]]
 	    
-	}
-    }
-
-}
-
-proc _unlock_procs {} { 
-
-    uplevel \#0 {
-	rename proc ""
-	rename _proc proc
-    }
-
-}
-
-proc source_openacs {} {
-
-    #need to make sure openacs doesn't redefine nstcl database and templating commands
-    # I'll overload proc temporarily,  and check my own do-not-redefine list to see if
-    # proc defininition should proceed.
-
-    _lock_procs
-    
-    set initial_files [lsort [::fileutil::find [file join $::pnsd::root tcl] ]]
-
-    foreach file $initial_files {
-		# Change it to use regexp
-		# TODO: move CVS filter into initial_files defn
-		if {[regexp {^.*\.tcl$} $file]} {
-			# Load only Tcl files
-			uplevel #0 [ list source $file]
-		}
-		#if { [string match *CVS* $file ] == 0 } {
-	    #	uplevel #0 [list source $file]
-		#}
-    }
-    
-    #Since templating commands are almost all overloads,  and is not called during load,  
-    #I'll just source it after openacs
-
-    _unlock_procs
-
-    uplevel \#0 source [file join $::pnsd::home pnsd-templating.tcl ]
-
-    # One frequent problem with loading is having a bad cache (when moving files between filesystems, or pointing to a new openacs root)
-    # check to see if the XQL file has loaded successfully.
-
-    if ![ns_config -bool pnsd/parameters XqlOff]      {
-	if [ns_config -bool pnsd/parameters LoadXqlFromCache  ] {
-	    global OACS_FULLQUERIES
-	    if { [array size OACS_FULLQUERIES] < 1000 } {
-		error "OACS_FULLQUERIES doesn't look like it loaded correctly"
-	    }
-	    #check a random kernel query to make sure it exists and the file path works
-	    set fullquery "dbqd.acs-tcl.tcl.acs-kernel-procs.ad_acs_administrator_exists_p.admin_exists_p"
-	    if {![file exists [db_fullquery_get_load_location [db_qd_fetch $fullquery] ] ]} {
-		error "OACS_FULLQUERIES has invalid path for file $fullquery \.  Is the cache valid?"
+			}
 	    }
 	}
-    }
-}
-#source_openacs
 
-proc reset_connection {} {
-    flush $::pnsd::log_stream
+	proc _unlock_procs {} { 
 
-    global request_aborted
-    if [info exists request_aborted] {
-	unset request_aborted
-    }
+	    uplevel \#0 {
+			rename proc ""
+			rename __proc proc
+	    }
+	}
 
-    #Legacy stuff
-    global doc_properties
-    if [ array exists doc_properties ] {
-	array unset doc_properties 
-    }
+	proc source_openacs {} {
 
-    #pnsd reset
-    set ::pnsd::__http_stream ""
-    set ::pnsd::redirect_p "f"
-    set ::pnsd::http_done_p "f"
+	    #need to make sure openacs doesn't redefine nstcl database and templating commands
+	    # I'll overload proc temporarily,  and check my own do-not-redefine list to see if
+	    # proc defininition should proceed.
 
-    set ::pnsd::error "" 
-
-    if [ns_set size $::pnsd::output_headers_id] { 
-	ns_set truncate $::pnsd::output_headers_id 0
-    }
-
-    if [ns_set size $::pnsd::headers_id ] { 
-	ns_set truncate $::pnsd::headers_id 0 
-    }
-
-
-#page_contract globals from tcl-documentation-procs.tcl
+	    _lock_procs
     
-    global ad_page_contract_errorkeys ad_page_contract_complaints 
-    if {[info exists ad_page_contract_complaints]} {
-	unset ad_page_contract_complaints
-    }
-    if {[info exists ad_page_contract_errorkeys]} {
-	unset ad_page_contract_errorkeys 
-    }
+	    set initial_files [lsort [::fileutil::find [file join $::pnsd::root tcl] ]]
 
-    global ad_page_contract_error_string ad_page_contract_validations_passed 
-    if {[array exists ad_page_contract_validations_passed]} {
-	array unset ad_page_contract_validations_passed
-    }
-    if {[array exists ad_page_contract_error_string] } { 
-	array unset ad_page_contract_error_string
-    }
+	    foreach file $initial_files {
+			# Change it to use regexp
+			# TODO: move CVS filter into initial_files defn
+			if {[regexp {^.*\.tcl$} $file]} {
+				# Load only Tcl files
+				uplevel #0 [ list source $file]
+			}
+			#if { [string match *CVS* $file ] == 0 } {
+		    #	uplevel #0 [list source $file]
+			#}
+    	}
+    
+	    #Since templating commands are almost all overloads,  and is not called during load,  
+	    #I'll just source it after openacs
 
-#templating
-#    set ::template::parse_level ""
-#    namespace eval template variable parse_level "" ;
+	    _unlock_procs
 
-#nsdb
+	    uplevel \#0 source [file join $::pnsd::home pnsd-templating.tcl ]
+
+	    # One frequent problem with loading is having a bad cache (when moving files between filesystems, or pointing to a new openacs root)
+	    # check to see if the XQL file has loaded successfully.
+
+	    if ![ns_config -bool pnsd/parameters XqlOff]      {
+			if [ns_config -bool pnsd/parameters LoadXqlFromCache  ] {
+			    global OACS_FULLQUERIES
+			    if { [array size OACS_FULLQUERIES] < 1000 } {
+					error "OACS_FULLQUERIES doesn't look like it loaded correctly"
+			    }
+	    		#check a random kernel query to make sure it exists and the file path works
+			    set fullquery "dbqd.acs-tcl.tcl.acs-kernel-procs.ad_acs_administrator_exists_p.admin_exists_p"
+			    if {![file exists [db_fullquery_get_load_location [db_qd_fetch $fullquery] ] ]} {
+					error "OACS_FULLQUERIES has invalid path for file $fullquery \.  Is the cache valid?"
+			    }
+			}
+	    }
+	}
+	#source_openacs
+
+	proc reset_connection {} {
+	    flush $::pnsd::log_stream
+
+	    global request_aborted
+	    if [info exists request_aborted] {
+			unset request_aborted
+	    }
+
+	    #Legacy stuff
+	    global doc_properties
+	    if [ array exists doc_properties ] {
+			array unset doc_properties 
+	    }
+
+	    #pnsd reset
+	    set ::pnsd::__http_stream ""
+	    set ::pnsd::redirect_p "f"
+	    set ::pnsd::http_done_p "f"
+
+	    set ::pnsd::error "" 
+
+	    if [ns_set size $::pnsd::output_headers_id] { 
+			ns_set truncate $::pnsd::output_headers_id 0
+	    }
+
+	    if [ns_set size $::pnsd::headers_id ] { 
+			ns_set truncate $::pnsd::headers_id 0 
+	    }
+
+
+		#page_contract globals from tcl-documentation-procs.tcl
+    
+	    global ad_page_contract_errorkeys ad_page_contract_complaints 
+	    if {[info exists ad_page_contract_complaints]} {
+			unset ad_page_contract_complaints
+	    }
+	    if {[info exists ad_page_contract_errorkeys]} {
+			unset ad_page_contract_errorkeys 
+	    }
+
+	    global ad_page_contract_error_string ad_page_contract_validations_passed 
+	    if {[array exists ad_page_contract_validations_passed]} {
+			array unset ad_page_contract_validations_passed
+	    }
+	    if {[array exists ad_page_contract_error_string] } { 
+			array unset ad_page_contract_error_string
+	    }
+
+		#templating
+		#    set ::template::parse_level ""
+		#    namespace eval template variable parse_level "" ;
+
+		#nsdb
     
 
-    #openacs?
-    ad_conn -reset
+	    #openacs?
+	    ad_conn -reset
 
-}
+	}
 
 
 
-proc write_html {} {
-
-    puts $::pnsd::__http_stream 
-
-}
+	proc write_html {} {
+	    puts $::pnsd::__http_stream 
+	}
 
 
 
 
 #Use this to quickly load xql files ... see  http://mini.net/tcl/3469 for info
-proc persistentArray {arrName {filename {}}} {
-    upvar 1 $arrName arr
-    array set arr {} ;# to make sure it exists, and is an array
+	proc persistentArray {arrName {filename {}}} {
+	    upvar 1 $arrName arr
+	    array set arr {} ;# to make sure it exists, and is an array
     
-    if {$filename==""} {set filename $arrName.txt}
-    ns_log debug "persisting $arrName to $filename"
+	    if {$filename==""} {set filename $arrName.txt}
+	    ns_log debug "persisting $arrName to $filename"
 
-    set filename [file join [pwd] $filename]
-    if [file exists $filename] {
-        set fp [open $filename]
-        array set arr [read $fp]
-        close $fp
-    }
+	    set filename [file join [pwd] $filename]
+	    if [file exists $filename] {
+	        set fp [open $filename]
+	        array set arr [read $fp]
+	        close $fp
+	    }
 
-#skip this... use pnsd::load_xql to make sure you have all files
-#    uplevel 1 [list trace var $arrName wu [list ::pnsd::persist'save $filename]]
-}
+		#skip this... use pnsd::load_xql to make sure you have all files
+		#    uplevel 1 [list trace var $arrName wu [list ::pnsd::persist'save $filename]]
+	}
 
 #this could be improved so many ways... but it's okay for now
-proc persist'save {filename arrName el op} {
+	proc persist'save {filename arrName el op} {
 
-    upvar 1 $arrName arr
+	    upvar 1 $arrName arr
 
     
-    switch -- $op {
-        w {set value $arr($el)}
-        u {set value {}}
-    }
+	    switch -- $op {
+	        w {set value $arr($el)}
+	        u {set value {}}
+	    }
 
-    set    fp [open $filename a]
-    puts  $fp [list $el $value]
-    close $fp
-}
+	    set    fp [open $filename a]
+	    puts  $fp [list $el $value]
+	    close $fp
+	}
 
 
-#Use this command to cache the xql into a .dat file for quick loading.
-#This will indescriminantly load each and every query for all supported databases - it can be made more efficient e.g. by only doing pg or oracle queries... but it's fast enough
-proc load_xql { {filename ""} } {
+	#Use this command to cache the xql into a .dat file for quick loading.
+	#This will indescriminantly load each and every query for all supported databases - it can be made more efficient e.g. by only doing pg or oracle queries... but it's fast enough
+	proc load_xql { {filename ""} } {
 
-    #These files contain dependency functions.
-#    source [file join $::pnsd::root packages/acs-bootstrap-installer/tcl/40-db-query-dispatcher-procs.tcl ]
-#    source [file join $::pnsd::root packages/acs-tcl/tcl/30-xml-utils-procs.tcl ]
+	    #These files contain dependency functions.
+	#    source [file join $::pnsd::root packages/acs-bootstrap-installer/tcl/40-db-query-dispatcher-procs.tcl ]
+	#    source [file join $::pnsd::root packages/acs-tcl/tcl/30-xml-utils-procs.tcl ]
 
-    if [ ns_config -bool pnsd/parameters LoadXqlFromCache ] {
-	ns_log error "Your config file has disabled xql-file parsing.  Please change option pnsd/parametere LoadXqlFromCache"
-	exit
-    }
+	    if [ ns_config -bool pnsd/parameters LoadXqlFromCache ] {
+			ns_log error "Your config file has disabled xql-file parsing.  Please change option pnsd/parametere LoadXqlFromCache"
+			exit
+	    }
 
-    if [ string equal {} "[info proc db_qd_load_query_file][info proc ::db_qd_load_query_file]" ] {
-	ns_log error "db_qd_load_query_file is not defined.  Did you forget to pnsd::source_openacs?"
-	exit
-    }
+	    if [ string equal {} "[info proc db_qd_load_query_file][info proc ::db_qd_load_query_file]" ] {
+			ns_log error "db_qd_load_query_file is not defined.  Did you forget to pnsd::source_openacs?"
+			exit
+	    }
 
-    set arrName OACS_FULLQUERIES
-    if [ string equal {} $filename ] {
-	set filename [file join $::pnsd::home xql.dat]
-    }
+	    set arrName OACS_FULLQUERIES
+	    if [ string equal {} $filename ] {
+			set filename [file join $::pnsd::home xql.dat]
+	    }
 
-    uplevel 1 [list trace var $arrName wu [list ::pnsd::persist'save $filename]]
+	    uplevel 1 [list trace var $arrName wu [list ::pnsd::persist'save $filename]]
     
-    set xqlfiles  [ ::fileutil::findByPattern $::pnsd::root -glob  *.xql    ] 
+	    set xqlfiles  [ ::fileutil::findByPattern $::pnsd::root -glob  *.xql    ] 
 
-    foreach  file  $xqlfiles {
-	    db_qd_load_query_file $file
-    }
+	    foreach  file  $xqlfiles {
+		    db_qd_load_query_file $file
+	    }
     
-    return [llength xqlfiles]
+	    return [llength xqlfiles]
 
-}
-
+	}
 
 }
 #namespace

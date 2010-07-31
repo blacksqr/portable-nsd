@@ -2,6 +2,8 @@
 # John Sequeira
 # johnseq@pobox.com
 
+namespace eval template:: {}
+
 
 proc template::adp_init { type file_stub } {
  

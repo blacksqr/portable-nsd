@@ -65,10 +65,10 @@ proc ns_config { args } {
 
 }
 
-# proc ns_configsection { path }  { 
-#     ns_log warning "no-op: ns_configsection called with arg $path "
-#     return 
-# }
+ proc ns_configsection { path }  { 
+     ns_log warning "no-op: ns_configsection called with arg $path "
+     return 
+ }
 
 proc ns_mutex { cmd args } { 
     return $cmd

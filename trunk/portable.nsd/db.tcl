@@ -35,7 +35,7 @@ foreach proc {
 }
 
 
-::nstcl::ad_proc db_multirow {-local:boolean 
+ad_proc db_multirow {-local:boolean 
     -append:boolean 
     -extend:optional 
     var_name statement_name pre_sql args } { 
