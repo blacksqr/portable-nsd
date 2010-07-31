@@ -10,13 +10,13 @@
 
 
 #set home [string trimright [file dirname [info script]] ./]
-#set home [file join [pwd] $home]
 set home /var/www/portable-nsd/portable.nsd/
+set home [file join [pwd] $home]
 
-source [file join $home pnsd-init.tcl]
+source [file join $home pnsd-bootstrap.tcl]
 set ::nstcl::debug_p 1
 
-pnsd::source_openacs
+#pnsd::source_openacs
 
 #source "$pnsd::root/tcl/0-acs-init.tcl"
 

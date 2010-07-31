@@ -37,8 +37,6 @@ setup_pool subquery
 
 nstcl::set_default_pool main
 
-
-
 proc db_name {} {  
 #    Returns the name of the database as reported by the driver. 
 
