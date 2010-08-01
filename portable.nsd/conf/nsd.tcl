@@ -46,11 +46,11 @@ set pgbin "/bin/pgsql"
 ns_section "pnsd/parameters"
 ns_param XqlOff "true"  ;  #Set this to true if you've run xql-replace.pl on the source tree
 
-#    ns_param  LoadXqlFromCache  false
-    ns_param  LoadXqlFromCache  "true"
+    ns_param  LoadXqlFromCache  "false"
+#    ns_param  LoadXqlFromCache  "true"
 
-    ns_param  QuietQueryDispatcherLogging "true"
-#    ns_param  QuietQueryDispatcherLogging "false"
+#    ns_param  QuietQueryDispatcherLogging "true"
+    ns_param  QuietQueryDispatcherLogging "false"
 #
 # Global server parameters
 #
