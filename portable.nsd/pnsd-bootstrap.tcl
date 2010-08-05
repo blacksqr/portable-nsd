@@ -68,9 +68,9 @@ proc populate_secret_tokens_cache {} {}
 set pnsd::invariants(populate_secret_tokens_cache) 1
 
 #Move this into a watched variable?
-db_1row get_one_token " select t.token_id, t.token from (select token_id, token,  random()
-   from secret_tokens order by 3) t  limit 1"
-ns_cache set secret_tokens $token_id $token 
+#db_1row get_one_token " select t.token_id, t.token from (select token_id, token,  random()
+#   from secret_tokens order by 3) t  limit 1"
+#ns_cache set secret_tokens $token_id $token 
 
 
 
