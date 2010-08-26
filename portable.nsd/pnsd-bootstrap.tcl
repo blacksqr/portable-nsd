@@ -74,7 +74,7 @@ set pnsd::invariants(populate_secret_tokens_cache) 1
 
 
 
-apm_bootstrap_load_libraries -init acs-tcl
+#apm_bootstrap_load_libraries -init acs-tcl
 #apm_bootstrap_load_libraries -init -procs acs-subsite
 #apm_bootstrap_load_libraries -init acs-subsite
 #apm_bootstrap_load_libraries -init acs-templating
@@ -84,7 +84,8 @@ apm_bootstrap_load_libraries -init acs-tcl
 # from acs-integration-init ...
 rp_register_extension_handler adp adp_parse_ad_conn_file
 rp_register_extension_handler tcl adp_parse_ad_conn_file
-apm_source $root_directory/packages/acs-templating/tcl/0-procs.tcl
+#apm_source $root_directory/packages/acs-templating/tcl/0-procs.tcl
+apm_source $root_directory/packages/acs-templating/tcl/0-acs-templating-procs.tcl
 
 
 #apm_source [file join $root_directory packages/acs-tcl/tcl/00-database-procs-postgresql.tcl]

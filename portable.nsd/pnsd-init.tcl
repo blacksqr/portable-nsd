@@ -31,7 +31,7 @@ namespace eval ::pnsd {
     
     variable home [file dirname [info script]]; 
 
-    variable root [file join $home openacs-4.6.3]
+    variable root [file join $home openacs-5.5.1]
 
 #######################################################################
 # BEGIN CONFIGURATION 
@@ -405,7 +405,8 @@ namespace eval ::pnsd {
 #namespace
 
 # Make nstcl's db routines aware of Query Dispatcher
-source [file join [file dirname [info script]] db.tcl]
+uplevel #0 [list source [file join [file dirname [info script]] db.tcl]]
+#source [file join [file dirname [info script]] db.tcl]
 
 #puts [info body db_dml]
 #exit
